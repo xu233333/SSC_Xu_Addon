@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "ssc_xu_addon",
+	"version": "${version}",
+	"name": "SSC_Xu_Addon",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		{
+			"name": "XuHaoNan",
+			"contact": {
+				"github": "https://github.com/xu233333",
+				"email": "18510478058@163.com"
+			}
+		}
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/ssc_xu_addon/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"xu_mod.SSCXuAddon"
+		],
+		"client": [
+			"xu_mod.client.SSCXuAddonClient"
+		]
+	},
+	"mixins": [
+		"ssc_xu_addon.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
