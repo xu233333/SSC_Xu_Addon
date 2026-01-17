@@ -11,5 +11,6 @@ public class SSCXuAddon implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
 	}
 }
