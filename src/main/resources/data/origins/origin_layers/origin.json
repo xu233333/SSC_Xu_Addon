@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "order": 0,
+  "enabled": true,
+  "origins": [
+    "ssc_xu_addon:form_familiar_fox_purify"
+  ],
+  "allow_random": true,
+  "exclude_random": [
+  ],
+  "allow_random_unchoosable": false,
+  "hidden": false
+}
