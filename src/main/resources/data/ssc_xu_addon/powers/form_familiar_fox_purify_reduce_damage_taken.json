@@ -1,0 +1,51 @@
+{
+  "type": "origins:multiple",
+  "level_1": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": -0.30,
+      "operation": "multiply_base"
+    },
+    "self_action": {
+      "type": "ssc_xu_addon:consume_mana_percent",
+      "mana_percent": 0.02
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 1
+    }
+  },
+  "level_2": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": -0.50,
+      "operation": "multiply_base"
+    },
+    "self_action": {
+      "type": "ssc_xu_addon:consume_mana_percent",
+      "mana_percent": 0.05
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 2
+    }
+  },
+  "level_3": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": -1.0,
+      "operation": "multiply_base"
+    },
+    "self_action": {
+      "type": "ssc_xu_addon:consume_mana_percent",
+      "mana_percent": 0.12
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 3
+    }
+  }
+}

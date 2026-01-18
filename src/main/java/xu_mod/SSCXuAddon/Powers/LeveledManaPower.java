@@ -32,6 +32,7 @@ public class LeveledManaPower extends ActiveCooldownPower {
     private final int ToggleManaLevelMin;
     private final int FallBackManaLevel;
     private final HashMap<Integer, Predicate<Entity>> ManaLevelConditions = new HashMap<>();
+    private final HashMap<Integer, Integer> ManaLevelFallBack = new HashMap<>();
 
     public int getManaLevel() {
         return ManaLevel;
@@ -42,8 +43,9 @@ public class LeveledManaPower extends ActiveCooldownPower {
         updateManaLevel(this.entity, this.ManaLevel);
     }
 
-    public void addManaLevelCondition(int ManaLevel, Predicate<Entity> condition) {
+    public void addManaLevelCondition(int ManaLevel, Predicate<Entity> condition, int FallBackLevel) {
         ManaLevelConditions.put(ManaLevel, condition);
+        ManaLevelFallBack.put(ManaLevel, FallBackLevel);
     }
 
     public static void updateManaLevel(LivingEntity entity, int ManaLevel) {
@@ -92,12 +94,20 @@ public class LeveledManaPower extends ActiveCooldownPower {
         return ManaLevelConditions.get(this.ManaLevel) == null || ManaLevelConditions.get(this.ManaLevel).test(this.entity);
     }
 
+    private int getFallBackManaLevel() {
+        int finalManaLevel = this.ManaLevelFallBack.getOrDefault(this.ManaLevel, this.FallBackManaLevel);
+        if (finalManaLevel == -1) {
+            return this.FallBackManaLevel;
+        }
+        return finalManaLevel;
+    }
+
     @Override
     public void tick() {
         // TODO 调整一下下落逻辑
         if (this.entity instanceof PlayerEntity player) {
             if (!this.TestNowManaLevelValid()) {
-                this.SetManaLevel(this.FallBackManaLevel);
+                this.SetManaLevel(this.getFallBackManaLevel());
             }
         }
     }
@@ -127,10 +137,15 @@ public class LeveledManaPower extends ActiveCooldownPower {
                         .add("toggle_mana_level_min", SerializableDataTypes.INT, 1)
                         .add("toggle_mana_level_max", SerializableDataTypes.INT, 3)
                         .add("mana_level_0_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_0_fallback_level", SerializableDataTypes.INT, -1)
                         .add("mana_level_1_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_1_fallback_level", SerializableDataTypes.INT, -1)
                         .add("mana_level_2_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_2_fallback_level", SerializableDataTypes.INT, -1)
                         .add("mana_level_3_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_3_fallback_level", SerializableDataTypes.INT, -1)
                         .add("mana_level_4_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_4_fallback_level", SerializableDataTypes.INT, -1)
                         .add("fallback_mana_level", SerializableDataTypes.INT, 1)
                         .add("key", ApoliDataTypes.BACKWARDS_COMPATIBLE_KEY, new Active.Key()),
                 data -> (type, player) -> {
@@ -139,11 +154,11 @@ public class LeveledManaPower extends ActiveCooldownPower {
                             data.getInt("toggle_mana_level_max"),
                             data.getInt("fallback_mana_level")
                     );
-                    power.addManaLevelCondition(0, data.get("mana_level_0_condition"));
-                    power.addManaLevelCondition(1, data.get("mana_level_1_condition"));
-                    power.addManaLevelCondition(2, data.get("mana_level_2_condition"));
-                    power.addManaLevelCondition(3, data.get("mana_level_3_condition"));
-                    power.addManaLevelCondition(4, data.get("mana_level_4_condition"));
+                    power.addManaLevelCondition(0, data.get("mana_level_0_condition"), data.getInt("mana_level_0_fallback_level"));
+                    power.addManaLevelCondition(1, data.get("mana_level_1_condition"), data.getInt("mana_level_1_fallback_level"));
+                    power.addManaLevelCondition(2, data.get("mana_level_2_condition"), data.getInt("mana_level_2_fallback_level"));
+                    power.addManaLevelCondition(3, data.get("mana_level_3_condition"), data.getInt("mana_level_3_fallback_level"));
+                    power.addManaLevelCondition(4, data.get("mana_level_4_condition"), data.getInt("mana_level_4_fallback_level"));
                     power.setKey((Active.Key)data.get("key"));
                     return power;
                 }
@@ -195,6 +210,17 @@ public class LeveledManaPower extends ActiveCooldownPower {
     }
 
     public static void registerConditions(Consumer<ConditionFactory<Entity>> ConditionRegister) {
+        ConditionRegister.accept(new ConditionFactory<>(
+                SSCXuAddon.identifier("is_mana_level"),
+                new SerializableData()
+                        .add("mana_level", SerializableDataTypes.INT, 1),
+                (data, entity) -> {
+                    if (entity instanceof PlayerEntity player) {
+                        return Init_CCA.AddonData.get(player).getManaLevel() == data.getInt("mana_level");
+                    }
+                    return false;
+                }
+        ));
         ConditionRegister.accept(new ConditionFactory<>(
                 SSCXuAddon.identifier("leveled_mana_condition"),
                 new SerializableData()

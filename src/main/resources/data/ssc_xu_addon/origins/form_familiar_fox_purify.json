@@ -6,7 +6,8 @@
 
         "ssc_xu_addon:form_familiar_fox_purify_mana",
         "ssc_xu_addon:form_familiar_fox_purify_leveled_mana",
-        "ssc_xu_addon:form_familiar_fox_purify_boost_attack"
+        "ssc_xu_addon:form_familiar_fox_purify_boost_attack",
+        "ssc_xu_addon:form_familiar_fox_purify_reduce_damage_taken"
     ],
     "icon": {
         "item": "minecraft:player_head"
