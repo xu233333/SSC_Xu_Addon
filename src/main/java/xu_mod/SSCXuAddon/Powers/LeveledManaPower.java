@@ -56,6 +56,9 @@ public class LeveledManaPower extends ActiveCooldownPower {
     }
 
     public void ToggleManaLevel() {
+        if (this.ManaLevel < this.ToggleManaLevelMin || this.ManaLevel > this.ToggleManaLevelMax) {
+            return;
+        }
         int finalManaLevel = this.FallBackManaLevel;
         for (int i = 0; i <= ToggleManaLevelMax; i++) {
             int newManaLevel = this.ManaLevel + 1;
