@@ -7,15 +7,15 @@
         "type": "ssc_xu_addon:leveled_mana_action",
         "level_1": {
           "type": "ssc_xu_addon:shoot_fireball",
-          "damage": 12.0,
+          "damage": 15.0,
           "speed": 1.2,
           "spread": 0.0,
           "can_explode": true,
-          "explosion_power": 1.0,
+          "explosion_power": 1.8,
           "explosion_create_fire": false,
           "owner_action": {
             "type": "shape-shifter-curse:consume_mana",
-            "mana": 40
+            "mana": 60
           },
           "projectile_action": {
             "type": "origins:spawn_particles",
@@ -32,15 +32,15 @@
         },
         "level_2": {
           "type": "ssc_xu_addon:shoot_fireball",
-          "damage": 18.0,
-          "speed": 1.75,
+          "damage": 24.0,
+          "speed": 1.1,
           "spread": 0.0,
           "can_explode": true,
-          "explosion_power": 1.5,
+          "explosion_power": 3.0,
           "explosion_create_fire": false,
           "owner_action": {
             "type": "shape-shifter-curse:consume_mana",
-            "mana": 70
+            "mana": 90
           },
           "projectile_action": {
             "type": "origins:spawn_particles",
@@ -57,15 +57,15 @@
         },
         "level_3": {
           "type": "ssc_xu_addon:shoot_fireball",
-          "damage": 30.0,
-          "speed": 1.75,
+          "damage": 60.0,
+          "speed": 1.0,
           "spread": 0.0,
           "can_explode": true,
-          "explosion_power": 2.0,
+          "explosion_power": 5.0,
           "explosion_create_fire": false,
           "owner_action": {
             "type": "shape-shifter-curse:consume_mana",
-            "mana": 100
+            "mana": 150
           },
           "projectile_action": {
             "type": "origins:spawn_particles",
@@ -83,7 +83,7 @@
       },
       {
         "type": "ssc_xu_addon:trigger_cooldown",
-        "cooldown_id": "ssc_xu_addon:familiar_fox_purify_stick_fireball_cooldown"
+        "cooldown_id": "ssc_xu_addon:familiar_fox_purify_charm_paper_fireball_cooldown"
       },
       {
         "type": "origins:play_sound",
@@ -101,7 +101,7 @@
       },
       {
         "type": "ssc_xu_addon:is_not_cooldown",
-        "cooldown_id": "ssc_xu_addon:familiar_fox_purify_stick_fireball_cooldown",
+        "cooldown_id": "ssc_xu_addon:familiar_fox_purify_charm_paper_fireball_cooldown",
         "cooldown_time": 10
       }
     ]
