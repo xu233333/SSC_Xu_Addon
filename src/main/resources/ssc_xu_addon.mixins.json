@@ -3,7 +3,8 @@
 	"package": "xu_mod.SSCXuAddon.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"LivingEntityMixin"
+		"LivingEntityMixin",
+		"SmallFireBallEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

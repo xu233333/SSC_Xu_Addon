@@ -7,10 +7,7 @@ import io.github.apace100.apoli.registry.ApoliRegistries;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Pair;
-import xu_mod.SSCXuAddon.Powers.LeveledManaModifyDamageDealtPower;
-import xu_mod.SSCXuAddon.Powers.LeveledManaPower;
-import xu_mod.SSCXuAddon.Powers.ManaToFoodPower;
-import xu_mod.SSCXuAddon.Powers.ManaUtilsApoliEX;
+import xu_mod.SSCXuAddon.Powers.*;
 
 public class Init_Apoli {
 
@@ -21,12 +18,15 @@ public class Init_Apoli {
     }
 
     private static void init_Condition() {
-        LeveledManaPower.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
-        ManaUtilsApoliEX.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        LeveledManaPower.registerConditions(Init_Apoli::registerEntityCondition);
+        SomeRandomConditionAndAction.registerConditions(Init_Apoli::registerEntityCondition);
     }
 
     private static void init_Action() {
-        LeveledManaPower.registerConditions(Init_Apoli::registerEntityCondition);
+        LeveledManaPower.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        ManaUtilsApoliEX.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        ShootFireBallAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        SomeRandomConditionAndAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
     }
 
 

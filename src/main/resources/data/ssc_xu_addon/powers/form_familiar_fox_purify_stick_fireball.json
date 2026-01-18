@@ -1,0 +1,120 @@
+{
+  "type": "origins:action_on_item_use",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "ssc_xu_addon:leveled_mana_action",
+        "level_1": {
+          "type": "ssc_xu_addon:shoot_fireball",
+          "damage": 6.0,
+          "speed": 1.0,
+          "spread": 0.0,
+          "can_explode": false,
+          "explosion_power": 0.0,
+          "explosion_create_fire": false,
+          "owner_action": {
+            "type": "shape-shifter-curse:consume_mana",
+            "mana": 25
+          },
+          "projectile_action": {
+            "type": "origins:spawn_particles",
+            "particle": "minecraft:soul_fire_flame",
+            "count": 8,
+            "speed": 0.0,
+            "force": false,
+            "spread": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        "level_2": {
+          "type": "ssc_xu_addon:shoot_fireball",
+          "damage": 12.0,
+          "speed": 1.5,
+          "spread": 0.0,
+          "can_explode": false,
+          "explosion_power": 0.0,
+          "explosion_create_fire": false,
+          "owner_action": {
+            "type": "shape-shifter-curse:consume_mana",
+            "mana": 40
+          },
+          "projectile_action": {
+            "type": "origins:spawn_particles",
+            "particle": "minecraft:soul_fire_flame",
+            "count": 8,
+            "speed": 0.0,
+            "force": false,
+            "spread": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        },
+        "level_3": {
+          "type": "ssc_xu_addon:shoot_fireball",
+          "damage": 15.0,
+          "speed": 1.5,
+          "spread": 0.0,
+          "can_explode": true,
+          "explosion_power": 2.0,
+          "explosion_create_fire": true,
+          "owner_action": {
+            "type": "shape-shifter-curse:consume_mana",
+            "mana": 60
+          },
+          "projectile_action": {
+            "type": "origins:spawn_particles",
+            "particle": "minecraft:soul_fire_flame",
+            "count": 8,
+            "speed": 0.0,
+            "force": false,
+            "spread": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            }
+          }
+        }
+      },
+      {
+        "type": "ssc_xu_addon:trigger_cooldown",
+        "cooldown_id": "ssc_xu_addon:familiar_fox_purify_stick_fireball_cooldown"
+      },
+      {
+        "type": "origins:play_sound",
+        "sound": "minecraft:entity.blaze.shoot"
+      }
+    ]
+  },
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "ssc_xu_addon:is_mana_level",
+        "mana_level": 0,
+        "inverted": true
+      },
+      {
+        "type": "ssc_xu_addon:is_not_cooldown",
+        "cooldown_id": "ssc_xu_addon:familiar_fox_purify_stick_fireball_cooldown",
+        "cooldown_time": 10
+      }
+    ]
+  },
+  "item_condition": {
+    "type": "origins:ingredient",
+    "ingredient": {
+      "item": "minecraft:stick"
+    }
+  },
+  "item_action": {
+    "type": "origins:consume",
+    "amount": 1
+  },
+  "trigger": "instant"
+}

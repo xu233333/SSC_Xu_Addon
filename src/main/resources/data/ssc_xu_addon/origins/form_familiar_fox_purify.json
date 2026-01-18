@@ -22,7 +22,8 @@
         "ssc_xu_addon:form_familiar_fox_purify_boost_attack",
         "ssc_xu_addon:form_familiar_fox_purify_reduce_damage_taken",
         "ssc_xu_addon:form_familiar_fox_purify_undying",
-        "ssc_xu_addon:form_familiar_fox_purify_mana_to_food"
+        "ssc_xu_addon:form_familiar_fox_purify_mana_to_food",
+        "ssc_xu_addon:form_familiar_fox_purify_stick_fireball"
     ],
     "icon": {
         "item": "minecraft:player_head"

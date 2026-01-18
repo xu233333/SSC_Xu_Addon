@@ -4,6 +4,7 @@ import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.tag.DamageTypeTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -17,7 +18,7 @@ public class LivingEntityMixin {
         float newValue = originalValue;
         LivingEntity thisAsLiving = (LivingEntity)(Object)this;
         if(source.getAttacker() != null) {
-            if (source.getAttacker() instanceof PlayerEntity) {
+            if (source.getAttacker() instanceof PlayerEntity && !source.isIn(DamageTypeTags.IS_PROJECTILE)) {  // 由于有火球术 所以排除远程伤害
                 for (LeveledManaModifyDamageDealtPower power : PowerHolderComponent.getPowers(source.getAttacker(), LeveledManaModifyDamageDealtPower.class)) {
                     newValue = power.modifyDamageDealt(source, newValue, thisAsLiving);
                 }
