@@ -22,10 +22,18 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"xu_mod.SSCXuAddon"
+			"xu_mod.SSCXuAddon.SSCXuAddon"
 		],
 		"client": [
-			"xu_mod.client.SSCXuAddonClient"
+			"xu_mod.SSCXuAddon.client.SSCXuAddonClient"
+		],
+		"cardinal-components-entity": [
+			"xu_mod.SSCXuAddon.init.Init_CCA"
+		]
+	},
+	"custom": {
+		"cardinal-components": [
+			"ssc_xu_addon:addon_data"
 		]
 	},
 	"mixins": [

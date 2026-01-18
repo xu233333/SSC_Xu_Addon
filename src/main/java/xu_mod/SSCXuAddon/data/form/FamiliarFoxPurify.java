@@ -1,4 +1,4 @@
-package xu_mod.data.form;
+package xu_mod.SSCXuAddon.data.form;
 
 import net.minecraft.util.Identifier;
 import net.onixary.shapeShifterCurseFabric.player_form.forms.Form_FamiliarFox3;

@@ -10,6 +10,22 @@ base {
 	archivesName = project.archives_base_name
 }
 
+loom {
+	runs {
+		client {
+			programArgs([
+					"--username", "Dev",
+					"--uuid", "12345678-1234-1234-1234-123456789012"
+			])
+			runDir "run/client"
+		}
+		server {
+			runDir "run/server"
+		}
+	}
+	// accessWidenerPath = file("src/main/resources/ssc_xu_addon.accesswidener")
+}
+
 repositories {
 	exclusiveContent {
 		forRepository {

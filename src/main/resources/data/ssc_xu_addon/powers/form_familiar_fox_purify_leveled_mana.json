@@ -1,0 +1,6 @@
+{
+  "type": "ssc_xu_addon:leveled_mana",
+  "toggle_mana_level_min": 1,
+  "toggle_mana_level_max": 3,
+  "key": "key.origins.secondary_active"
+}
