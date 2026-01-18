@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Pair;
 import xu_mod.SSCXuAddon.Powers.LeveledManaModifyDamageDealtPower;
 import xu_mod.SSCXuAddon.Powers.LeveledManaPower;
+import xu_mod.SSCXuAddon.Powers.ManaToFoodPower;
 import xu_mod.SSCXuAddon.Powers.ManaUtilsApoliEX;
 
 public class Init_Apoli {
@@ -16,6 +17,7 @@ public class Init_Apoli {
     private static void init_Power() {
         Init_Apoli.registerPower(LeveledManaPower.createFactory());
         Init_Apoli.registerPower(LeveledManaModifyDamageDealtPower.createFactory());
+        Init_Apoli.registerPower(ManaToFoodPower.createFactory());
     }
 
     private static void init_Condition() {

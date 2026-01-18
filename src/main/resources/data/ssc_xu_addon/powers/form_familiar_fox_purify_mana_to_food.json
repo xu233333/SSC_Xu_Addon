@@ -1,0 +1,36 @@
+{
+  "type": "origins:multiple",
+  "level_1": {
+    "type": "ssc_xu_addon:mana_to_food",
+    "min_food_value": 18,
+    "min_saturation_value": 0,
+    "mana_to_food_ratio": 20.0,
+    "mana_to_saturation_ratio": 10.0,
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 1
+    }
+  },
+  "level_2": {
+    "type": "ssc_xu_addon:mana_to_food",
+    "min_food_value": 20,
+    "min_saturation_value": 0,
+    "mana_to_food_ratio": 20.0,
+    "mana_to_saturation_ratio": 10.0,
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 2
+    }
+  },
+  "level_3": {
+    "type": "ssc_xu_addon:mana_to_food",
+    "min_food_value": 20,
+    "min_saturation_value": 20,
+    "mana_to_food_ratio": 20.0,
+    "mana_to_saturation_ratio": 10.0,
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 3
+    }
+  }
+}

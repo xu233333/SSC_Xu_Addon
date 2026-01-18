@@ -107,7 +107,6 @@ public class LeveledManaPower extends ActiveCooldownPower {
 
     @Override
     public void tick() {
-        // TODO 调整一下下落逻辑
         if (this.entity instanceof PlayerEntity player) {
             if (!this.TestNowManaLevelValid()) {
                 this.SetManaLevel(this.getFallBackManaLevel());
