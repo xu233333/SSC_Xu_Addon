@@ -15,19 +15,23 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Pair;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.init.Init_CCA;
 
-import java.util.concurrent.locks.Condition;
+import java.util.HashMap;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 
 public class LeveledManaPower extends ActiveCooldownPower {
     private int ManaLevel = 0;
     private final int ToggleManaLevelMax;
     private final int ToggleManaLevelMin;
+    private final int FallBackManaLevel;
+    private final HashMap<Integer, Predicate<Entity>> ManaLevelConditions = new HashMap<>();
 
     public int getManaLevel() {
         return ManaLevel;
@@ -38,6 +42,10 @@ public class LeveledManaPower extends ActiveCooldownPower {
         updateManaLevel(this.entity, this.ManaLevel);
     }
 
+    public void addManaLevelCondition(int ManaLevel, Predicate<Entity> condition) {
+        ManaLevelConditions.put(ManaLevel, condition);
+    }
+
     public static void updateManaLevel(LivingEntity entity, int ManaLevel) {
         if (entity instanceof PlayerEntity player) {
             Init_CCA.AddonData.get(player).setManaLevel(ManaLevel);
@@ -46,12 +54,21 @@ public class LeveledManaPower extends ActiveCooldownPower {
     }
 
     public void ToggleManaLevel() {
-        int newManaLevel = this.ManaLevel + 1;
-        if (newManaLevel > ToggleManaLevelMax) {
-            newManaLevel = ToggleManaLevelMin;
+        int finalManaLevel = this.FallBackManaLevel;
+        for (int i = 0; i <= ToggleManaLevelMax; i++) {
+            int newManaLevel = this.ManaLevel + 1;
+            if (newManaLevel > ToggleManaLevelMax) {
+                newManaLevel = ToggleManaLevelMin;
+            }
+            if (ManaLevelConditions.get(newManaLevel) == null || ManaLevelConditions.get(newManaLevel).test(this.entity)) {
+                finalManaLevel = newManaLevel;
+                break;
+            }
         }
-        this.ManaLevel = newManaLevel;
-        this.entity.sendMessage(Text.translatable("message.ssc_xu_addon.power.toggle_mana_level", this.ManaLevel));
+        this.ManaLevel = finalManaLevel;
+        if (this.entity instanceof ServerPlayerEntity player) {
+            player.sendMessage(Text.translatable("message.ssc_xu_addon.power.toggle_mana_level", this.ManaLevel), true);
+        }
         updateManaLevel(this.entity, this.ManaLevel);
     }
 
@@ -62,11 +79,27 @@ public class LeveledManaPower extends ActiveCooldownPower {
         }
     }
 
-    public LeveledManaPower(PowerType<?> type, LivingEntity entity, int ToggleManaLevelMin, int ToggleManaLevelMax) {
+    public LeveledManaPower(PowerType<?> type, LivingEntity entity, int ToggleManaLevelMin, int ToggleManaLevelMax, int FallBackManaLevel) {
         super(type, entity, 1, HudRender.DONT_RENDER, null);
         this.ToggleManaLevelMax = ToggleManaLevelMax;
         this.ToggleManaLevelMin = ToggleManaLevelMin;
-        this.ManaLevel = ToggleManaLevelMin;
+        this.ManaLevel = FallBackManaLevel;
+        this.FallBackManaLevel = FallBackManaLevel;
+        this.setTicking();
+    }
+
+    private boolean TestNowManaLevelValid() {
+        return ManaLevelConditions.get(this.ManaLevel) == null || ManaLevelConditions.get(this.ManaLevel).test(this.entity);
+    }
+
+    @Override
+    public void tick() {
+        // TODO 调整一下下落逻辑
+        if (this.entity instanceof PlayerEntity player) {
+            if (!this.TestNowManaLevelValid()) {
+                this.SetManaLevel(this.FallBackManaLevel);
+            }
+        }
     }
 
 
@@ -93,9 +126,24 @@ public class LeveledManaPower extends ActiveCooldownPower {
                 new SerializableData()
                         .add("toggle_mana_level_min", SerializableDataTypes.INT, 1)
                         .add("toggle_mana_level_max", SerializableDataTypes.INT, 3)
+                        .add("mana_level_0_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_1_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_2_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_3_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("mana_level_4_condition", ApoliDataTypes.ENTITY_CONDITION, null)
+                        .add("fallback_mana_level", SerializableDataTypes.INT, 1)
                         .add("key", ApoliDataTypes.BACKWARDS_COMPATIBLE_KEY, new Active.Key()),
                 data -> (type, player) -> {
-                    LeveledManaPower power = new LeveledManaPower(type, player, data.getInt("toggle_mana_level_min"), data.getInt("toggle_mana_level_max"));
+                    LeveledManaPower power = new LeveledManaPower(type, player,
+                            data.getInt("toggle_mana_level_min"),
+                            data.getInt("toggle_mana_level_max"),
+                            data.getInt("fallback_mana_level")
+                    );
+                    power.addManaLevelCondition(0, data.get("mana_level_0_condition"));
+                    power.addManaLevelCondition(1, data.get("mana_level_1_condition"));
+                    power.addManaLevelCondition(2, data.get("mana_level_2_condition"));
+                    power.addManaLevelCondition(3, data.get("mana_level_3_condition"));
+                    power.addManaLevelCondition(4, data.get("mana_level_4_condition"));
                     power.setKey((Active.Key)data.get("key"));
                     return power;
                 }
@@ -110,18 +158,7 @@ public class LeveledManaPower extends ActiveCooldownPower {
                         .add("level_1", ApoliDataTypes.ENTITY_ACTION, null)
                         .add("level_2", ApoliDataTypes.ENTITY_ACTION, null)
                         .add("level_3", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_4", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_5", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_6", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_7", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_8", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_9", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_10", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_11", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_12", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_13", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_14", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("level_15", ApoliDataTypes.ENTITY_ACTION, null),
+                        .add("level_4", ApoliDataTypes.ENTITY_ACTION, null),
                 (data, entity) -> {
                     if (entity instanceof PlayerEntity player) {
                         int nowManaLevel = Init_CCA.AddonData.get(player).getManaLevel();
@@ -141,18 +178,7 @@ public class LeveledManaPower extends ActiveCooldownPower {
                         .add("level_1", ApoliDataTypes.BIENTITY_ACTION, null)
                         .add("level_2", ApoliDataTypes.BIENTITY_ACTION, null)
                         .add("level_3", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_4", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_5", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_6", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_7", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_8", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_9", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_10", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_11", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_12", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_13", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_14", ApoliDataTypes.BIENTITY_ACTION, null)
-                        .add("level_15", ApoliDataTypes.BIENTITY_ACTION, null),
+                        .add("level_4", ApoliDataTypes.BIENTITY_ACTION, null),
                 (data, entityPair) -> {
                     if (entityPair.getRight() instanceof PlayerEntity player) {
                         int nowManaLevel = Init_CCA.AddonData.get(player).getManaLevel();
@@ -176,18 +202,7 @@ public class LeveledManaPower extends ActiveCooldownPower {
                         .add("level_1", ApoliDataTypes.ENTITY_CONDITION, null)
                         .add("level_2", ApoliDataTypes.ENTITY_CONDITION, null)
                         .add("level_3", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_4", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_5", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_6", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_7", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_8", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_9", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_10", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_11", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_12", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_13", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_14", ApoliDataTypes.ENTITY_CONDITION, null)
-                        .add("level_15", ApoliDataTypes.ENTITY_CONDITION, null),
+                        .add("level_4", ApoliDataTypes.ENTITY_CONDITION, null),
                 (data, entity) -> {
                     if (entity instanceof PlayerEntity player) {
                         int nowManaLevel = Init_CCA.AddonData.get(player).getManaLevel();

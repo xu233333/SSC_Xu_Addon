@@ -5,7 +5,8 @@
         "shape-shifter-curse:form_familiar_fox_3_particle",
 
         "ssc_xu_addon:form_familiar_fox_purify_mana",
-        "ssc_xu_addon:form_familiar_fox_purify_leveled_mana"
+        "ssc_xu_addon:form_familiar_fox_purify_leveled_mana",
+        "ssc_xu_addon:form_familiar_fox_purify_boost_attack"
     ],
     "icon": {
         "item": "minecraft:player_head"

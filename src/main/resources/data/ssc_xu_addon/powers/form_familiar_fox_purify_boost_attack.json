@@ -1,0 +1,11 @@
+{
+  "type": "ssc_xu_addon:leveled_mana_modify_damage_dealt",
+  "level_0_extra_damage_mana_percent": 0.0000,
+  "level_0_mana_cost_percent": 0.000,
+  "level_1_extra_damage_mana_percent": 0.0050,
+  "level_1_mana_cost_percent": 0.020,
+  "level_2_extra_damage_mana_percent": 0.0125,
+  "level_2_mana_cost_percent": 0.040,
+  "level_3_extra_damage_mana_percent": 0.0250,
+  "level_3_mana_cost_percent": 0.080
+}
