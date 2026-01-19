@@ -26,8 +26,6 @@ public class SmallFireBallEntityMixin implements IFireBallDamage {
     private float explosionPower = 0;
     @Unique
     private boolean createFire = false;
-    @Unique
-    private boolean noOwnerAttack = false;
 
     @Unique
     private void createExplosion() {

@@ -1,0 +1,11 @@
+{
+  "type": "origins:multiple",
+  "instant_health": {
+    "type": "shape-shifter-curse:modify_instant_health_scale",
+    "scale": 0.25
+  },
+  "instant_damage": {
+    "type": "shape-shifter-curse:modify_instant_damage_scale",
+    "scale": 0.25
+  }
+}

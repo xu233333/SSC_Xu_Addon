@@ -1,0 +1,59 @@
+{
+  "type": "origins:multiple",
+  "level_0": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "Reduced defence",
+      "attribute": "minecraft:generic.armor",
+      "value": -2.0,
+      "operation": "addition"
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 0
+    },
+    "tick_rate": 20
+  },
+  "level_1": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "Reduced defence",
+      "attribute": "minecraft:generic.armor",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 1
+    },
+    "tick_rate": 20
+  },
+  "level_2": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "Boost defence",
+      "attribute": "minecraft:generic.armor",
+      "value": 4.0,
+      "operation": "addition"
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 2
+    },
+    "tick_rate": 20
+  },
+  "level_3": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "Boost defence",
+      "attribute": "minecraft:generic.armor",
+      "value": 6.0,
+      "operation": "addition"
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 3
+    },
+    "tick_rate": 20
+  }
+}

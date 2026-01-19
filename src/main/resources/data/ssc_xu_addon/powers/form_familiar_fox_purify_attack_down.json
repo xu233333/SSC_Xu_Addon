@@ -1,8 +1,23 @@
 {
-  "type": "origins:modify_damage_dealt",
-  "modifier": {
-    "name": "reduce damage dealt",
-    "value": -1.0,
-    "operation": "addition"
+  "type": "origins:multiple",
+  "normal": {
+    "type": "origins:modify_damage_dealt",
+    "modifier": {
+      "name": "reduce damage dealt",
+      "value": -1.0,
+      "operation": "addition"
+    }
+  },
+  "level_0_extra": {
+    "type": "origins:modify_damage_dealt",
+    "modifier": {
+      "name": "reduce damage dealt",
+      "value": -1.0,
+      "operation": "addition"
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_mana_level",
+      "mana_level": 0
+    }
   }
 }

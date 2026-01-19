@@ -11,6 +11,7 @@ import net.minecraft.util.Pair;
 import net.minecraft.util.math.Vec3d;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.utils.Interface.IFireBallDamage;
+import xu_mod.SSCXuAddon.utils.Interface.IKeepSpeedProjectile;
 
 import java.util.function.Consumer;
 
@@ -44,6 +45,9 @@ public class ShootFireBallAction {
                                 if (fireball instanceof IFireBallDamage iFireBallDamage) {
                                     iFireBallDamage.SSC_Xu_Addon$setDamage((float) damage);
                                     iFireBallDamage.SSC_Xu_Addon$setExplosion(can_explode, (float) explosion_power, explosion_create_fire);
+                                }
+                                if (fireball instanceof IKeepSpeedProjectile iKeepSpeedProjectile) {
+                                    iKeepSpeedProjectile.SSC_Xu_Addon$keep_speed();
                                 }
                                 if (player.getWorld().spawnEntity(fireball)) {
                                     if (owner_action != null) {

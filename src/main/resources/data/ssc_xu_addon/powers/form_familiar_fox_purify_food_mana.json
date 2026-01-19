@@ -1,0 +1,48 @@
+{
+  "type": "origins:multiple",
+  "level_1_food": {
+    "type": "origins:modify_food",
+    "entity_action": {
+      "type": "shape-shifter-curse:gain_mana_with_time",
+      "mana": 2,
+      "time": 25
+    },
+    "always_edible": true,
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "ssc_xu_addon:ffp_food_1"
+      }
+    }
+  },
+  "level_2_food": {
+    "type": "origins:modify_food",
+    "entity_action": {
+      "type": "shape-shifter-curse:gain_mana_with_time",
+      "mana": 5,
+      "time": 30
+    },
+    "always_edible": true,
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "ssc_xu_addon:ffp_food_2"
+      }
+    }
+  },
+  "level_3_food": {
+    "type": "origins:modify_food",
+    "entity_action": {
+      "type": "shape-shifter-curse:gain_mana_with_time",
+      "mana": 100,
+      "time": 100
+    },
+    "always_edible": true,
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "ssc_xu_addon:ffp_food_3"
+      }
+    }
+  }
+}

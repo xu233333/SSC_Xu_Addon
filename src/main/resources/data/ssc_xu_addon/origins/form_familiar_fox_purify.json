@@ -21,11 +21,14 @@
         "ssc_xu_addon:form_familiar_fox_purify_attack_down",
         "ssc_xu_addon:form_familiar_fox_purify_boost_attack",
         "ssc_xu_addon:form_familiar_fox_purify_reduce_damage_taken",
+        "ssc_xu_addon:form_familiar_fox_purify_modify_defence",
         "ssc_xu_addon:form_familiar_fox_purify_undying",
         "ssc_xu_addon:form_familiar_fox_purify_mana_to_food",
         "ssc_xu_addon:form_familiar_fox_purify_stick_fireball",
         "ssc_xu_addon:form_familiar_fox_purify_charm_paper_fireball",
-        "ssc_xu_addon:form_familiar_fox_purify_fire_arrow"
+        "ssc_xu_addon:form_familiar_fox_purify_fire_arrow",
+        "ssc_xu_addon:form_familiar_fox_purify_kill_recovery_mana",
+        "ssc_xu_addon:form_familiar_fox_purify_food_mana"
     ],
     "icon": {
         "item": "minecraft:player_head"

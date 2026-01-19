@@ -1,0 +1,7 @@
+{
+  "type": "ssc_xu_addon:recovery_on_kill_power",
+  "level_0_recovery_radio": 5.0,
+  "level_1_recovery_radio": 2.0,
+  "level_2_recovery_radio": 2.0,
+  "level_3_recovery_radio": 2.0
+}
