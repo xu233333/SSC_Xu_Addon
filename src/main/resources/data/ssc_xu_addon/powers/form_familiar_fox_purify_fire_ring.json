@@ -1,0 +1,97 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:play_sound",
+        "sound": "minecraft:item.firecharge.use",
+        "volume": 0.5
+      },
+      {
+        "type": "origins:play_sound",
+        "sound": "minecraft:block.fire.ambient",
+        "volume": 0.5
+      },
+      {
+        "type": "origins:play_sound",
+        "sound": "entity.evoker.prepare_summon",
+        "volume": 0.5
+      },
+      {
+        "type": "ssc_xu_addon:leveled_mana_action",
+        "level_1": {
+          "type": "ssc_xu_addon:fire_ring",
+          "ring_damage": 6.0,
+          "ring_radius": 9.0,
+          "ring_speed": 0.3,
+          "ring_start_radius": 1.0,
+          "ring_height": 3,
+          "ring_damage_size": 1.0,
+          "ring_tick_rate": 5,
+          "owner_action": {
+            "type": "shape-shifter-curse:consume_mana",
+            "mana": 100
+          }
+        },
+        "level_2": {
+          "type": "ssc_xu_addon:fire_ring",
+          "ring_damage": 12.0,
+          "ring_radius": 12.0,
+          "ring_speed": 0.6,
+          "ring_start_radius": 1.0,
+          "ring_height": 3,
+          "ring_damage_size": 2.0,
+          "ring_tick_rate": 4,
+          "owner_action": {
+            "type": "shape-shifter-curse:consume_mana",
+            "mana": 200
+          }
+        },
+        "level_3": {
+          "type": "ssc_xu_addon:fire_ring",
+          "ring_damage": 18.0,
+          "ring_radius": 15.0,
+          "ring_speed": 0.9,
+          "ring_start_radius": 1.0,
+          "ring_height": 4,
+          "ring_damage_size": 3.0,
+          "ring_tick_rate": 4,
+          "owner_action": {
+            "type": "shape-shifter-curse:consume_mana",
+            "mana": 300
+          }
+        }
+      },
+      {
+        "type": "origins:spawn_particles",
+        "particle": "minecraft:soul_fire_flame",
+        "count": 8,
+        "speed": 0.0,
+        "force": true,
+        "spread": {
+          "x": 2.0,
+          "y": 1.0,
+          "z": 2.0
+        }
+      }
+    ]
+  },
+  "entity_condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "ssc_xu_addon:is_mana_level",
+        "mana_level": 0,
+        "inverted": true
+      }
+    ]
+  },
+  "cooldown": 100,
+  "hud_render": {
+    "should_render": false
+  },
+  "key": {
+    "key": "key.origins.primary_active"
+  }
+}

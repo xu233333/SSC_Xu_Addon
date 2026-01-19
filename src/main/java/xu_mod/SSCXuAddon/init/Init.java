@@ -6,5 +6,6 @@ public class Init {
         Init_Item.init();
         Init_ManaType.init();
         Init_Apoli.init();
+        Init_Event.init();
     }
 }

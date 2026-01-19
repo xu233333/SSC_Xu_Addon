@@ -28,7 +28,8 @@
         "ssc_xu_addon:form_familiar_fox_purify_charm_paper_fireball",
         "ssc_xu_addon:form_familiar_fox_purify_fire_arrow",
         "ssc_xu_addon:form_familiar_fox_purify_kill_recovery_mana",
-        "ssc_xu_addon:form_familiar_fox_purify_food_mana"
+        "ssc_xu_addon:form_familiar_fox_purify_food_mana",
+        "ssc_xu_addon:form_familiar_fox_purify_fire_ring"
     ],
     "icon": {
         "item": "minecraft:player_head"
