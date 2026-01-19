@@ -2,6 +2,7 @@ package xu_mod.SSCXuAddon.mixin;
 
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -26,6 +27,34 @@ public class ProjectileEntityMixin implements IKeepSpeedProjectile {
                 realThis.velocityDirty = true;
             }
         }
+    }
+
+    @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
+    private void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+        nbt.putBoolean("keep_speed", this.keepSpeed);
+        if (this.speed != null) {
+            nbt.putDouble("speed_x", this.speed.x);
+            nbt.putDouble("speed_y", this.speed.y);
+            nbt.putDouble("speed_z", this.speed.z);
+        }
+    }
+
+    @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
+    private void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
+        this.keepSpeed = nbt.getBoolean("keep_speed");
+        double x = 0;
+        double y = 0;
+        double z = 0;
+        if (nbt.contains("speed_x")) {
+            x = nbt.getDouble("speed_x");
+        }
+        if (nbt.contains("speed_y")) {
+            y = nbt.getDouble("speed_y");
+        }
+        if (nbt.contains("speed_z")) {
+            z = nbt.getDouble("speed_z");
+        }
+        this.speed = new Vec3d(x, y, z);
     }
 
     @Override
