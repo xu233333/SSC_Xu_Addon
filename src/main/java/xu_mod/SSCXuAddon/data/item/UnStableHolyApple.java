@@ -8,6 +8,7 @@ import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import net.onixary.shapeShifterCurseFabric.cursed_moon.CursedMoon;
@@ -38,19 +39,26 @@ public class UnStableHolyApple extends Item {
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         ItemStack FinalStack = super.finishUsing(stack, world, user);
+        if (world.isClient) {
+            return FinalStack;
+        }
         if (user instanceof PlayerEntity player) {
+            if (RegPlayerForms.ORIGINAL_BEFORE_ENABLE.equals(RegPlayerFormComponent.PLAYER_FORM.get(player).getCurrentForm())) {
+                return FinalStack;
+            }
             @Nullable PlayerFormBase form = SpecialFormCovCheck(stack, world, player);
             if (form != null) {
+                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.unstable_holy_apple.special_form").formatted(Formatting.YELLOW), false);
                 TransformManager.handleDirectTransform(player, form, false);
-                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.unstable_holy_apple.special_form"), false);
                 return FinalStack;
             }
             // 95%爆炸 5%还原
             if (world.random.nextInt(100) < 5) {
+                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.unstable_holy_apple.luck").formatted(Formatting.YELLOW), false);
                 TransformManager.handleDirectTransform(player, RegPlayerForms.ORIGINAL_SHIFTER, false);
-                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.unstable_holy_apple.luck"), false);
             }
             else {
+                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.unstable_holy_apple.bad_luck").formatted(Formatting.YELLOW), false);
                 float explosionPower = 3.0f;
                 if (CursedMoon.isNight(world)) {
                     explosionPower += 1.0f;
@@ -83,13 +91,12 @@ public class UnStableHolyApple extends Item {
                     }
                 }
                 user.damage(world.getDamageSources().explosion(null, null), explosionPower * 25f);  // 75~150 + 爆炸伤害
-                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.unstable_holy_apple.bad_luck"), false);
             }
         }
         return FinalStack;
     }
 
     public boolean hasGlint(ItemStack stack) {
-        return true;
+        return false;
     }
 }

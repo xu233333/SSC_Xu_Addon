@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BAB",
+    "BCB",
+    "BBB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:nether_star"
+    },
+    "B": {
+      "item": "minecraft:gold_block"
+    },
+    "C": {
+      "item": "ssc_xu_addon:unstable_holy_apple"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:stable_holy_apple",
+    "count": 1
+  }
+}

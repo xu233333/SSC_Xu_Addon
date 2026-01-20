@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "shape-shifter-curse:moondust_crystal_shard"
+    },
+    "B": {
+      "item": "minecraft:gold_block"
+    },
+    "C": {
+      "item": "minecraft:golden_apple"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:unstable_holy_apple",
+    "count": 1
+  }
+}
