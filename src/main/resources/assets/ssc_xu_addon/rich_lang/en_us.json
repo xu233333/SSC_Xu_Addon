@@ -37,5 +37,8 @@
     "由于你已经驱离了女巫的魔力，灾厄村民现在会与你为敌\n\n",
     "你的生命值更少。由于不再有能够自如使用工具的双手，你挖掘方块的速度也变得更慢\n",
     "腿甲与鞋不再适合你的四足身体结构，你在水中的移动速度也变得更慢"],
-  "codex.form.shape-shifter-curse.familiar_fox_purify.instincts": [""]
+  "codex.form.shape-shifter-curse.familiar_fox_purify.instincts": [""],
+  "message.ssc_xu_addon.item.unstable_holy_apple.special_form": ["不稳定的神圣金苹果与你的形态似乎产生了特殊反应，你变化成了新的形态。"],
+  "message.ssc_xu_addon.item.unstable_holy_apple.luck": ["你的运气不错，在你的诅咒在影响神圣金苹果之前，神圣金苹果的魔力就已经将你的形态还原了，但是诅咒仍未被破除，它仍然影响着你。"],
+  "message.ssc_xu_addon.item.unstable_holy_apple.bad_luck": ["你的诅咒导致不稳定的神圣金苹果的魔力变的更不稳定，它在你手上产生了强烈的爆炸，也许稳定的神圣苹果可以将你的形态还原回去？"]
 }
