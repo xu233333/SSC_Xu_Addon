@@ -43,6 +43,7 @@
 		"fabricloader": ">=0.18.4",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"shape-shifter-curse": ">=1.8.2"
 	}
 }

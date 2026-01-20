@@ -4,7 +4,8 @@
     "\n‘The unstable holy golden apple seems unable to dispel the curse from your body,\n",
     "The curse afflicting you is far more stubborn than imagined.\n",
     "However, fortunately, it has purged the witch’s magic from you.’\n",
-    "Yet, the physical alterations made by the witch’s magic cannot be reverted."
+    "Yet, the physical alterations made by the witch’s magic cannot be reverted.\n",
+    "\nExclusive trinkets/tools：[Mana Boost Bracelet]"
   ],
   "codex.form.ssc_xu_addon.familiar_fox_purify.appearance": [
     "You appear largely identical to an ordinary wild red fox—except for the two large tails swaying unusually behind you.\n",
@@ -50,5 +51,7 @@
   "message.ssc_xu_addon.item.unstable_holy_apple.luck": "You are fortunate. Before your curse could affect the Holy Golden Apple, its magic restored your original form. However, the curse remains unbroken and continues to affect you.",
   "message.ssc_xu_addon.item.unstable_holy_apple.bad_luck": "Your curse caused the Unstable Holy Golden Apple's magic to become even more volatile. It exploded violently in your hands. Perhaps a stable Holy Apple could restore your form?",
   "item.ssc_xu_addon.stable_holy_apple": "Stable Holy Golden Apple",
-  "message.ssc_xu_addon.item.stable_holy_apple.effect": "The Holy Golden Apple's magic has restored your form, but the curse remains unbroken and continues to affect you."
+  "message.ssc_xu_addon.item.stable_holy_apple.effect": "The Holy Golden Apple's magic has restored your form, but the curse remains unbroken and continues to affect you.",
+  "item.ssc_xu_addon.mana_boost_bracelet": ["Mana Boost Bracelet"],
+  "item.ssc_xu_addon.mana_boost_bracelet.tooltip": ["[Familiar Fox Purify Form] Increases your mana capacity and mana regeneration."]
 }

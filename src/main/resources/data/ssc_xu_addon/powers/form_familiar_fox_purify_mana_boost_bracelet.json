@@ -1,0 +1,12 @@
+{
+  "type": "shape-shifter-curse:mana_attribute",
+  "modifierID": "ssc_xu_addon:mana_boost_bracelet",
+  "max_mana_modifier": {
+    "multiply": 1.25
+  },
+  "regen_mana_modifier": {
+    "add": 1.0,
+    "multiply": 1.5
+  },
+  "player_side": true
+}

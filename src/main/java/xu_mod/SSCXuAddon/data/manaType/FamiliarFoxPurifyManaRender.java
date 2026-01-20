@@ -3,7 +3,6 @@ package xu_mod.SSCXuAddon.data.manaType;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
-import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import net.onixary.shapeShifterCurseFabric.ShapeShifterCurseFabric;
@@ -73,6 +72,6 @@ public class FamiliarFoxPurifyManaRender implements IManaRender {
 
         Text manaText = Text.literal(manaString.toString());
         int manaTextWidth = mc.textRenderer.getWidth(manaText);
-        context.drawText(mc.textRenderer, manaText, x + 80 + 5, y - 2, manaColor, false);
+        context.drawText(mc.textRenderer, manaText, x, y - 8, manaColor, false);
     }
 }

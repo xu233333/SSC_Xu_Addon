@@ -6,8 +6,9 @@ plugins {
 version = project.mod_version
 group = project.maven_group
 
+// 写一下SSC版本 我负责的程序部分我清楚 天天重构 小版本更新也有可能炸拓展
 base {
-	archivesName = project.archives_base_name
+	archivesName = project.archives_base_name + "-SSC-" + project.ssc_version_readable
 }
 
 loom {
