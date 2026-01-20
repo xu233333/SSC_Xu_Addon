@@ -16,11 +16,6 @@
   ],
   "codex.form.ssc_xu_addon.familiar_fox_purify.pros": [
     "New mana surges within you. You have fully mastered how to utilize your mana reserves...\n",
-    "Press the Active Ability (2) key to toggle mana intensity. Higher intensity increases your power but also raises consumption.\n",
-    "Fox Fireball: While holding a stick, consume a small amount of mana. Press the right-click button to fire a straight-traveling fireball, dealing damage and igniting the target.\n",
-    "Fox Fireball EX: While holding a talisman, consume a large amount of mana. Press the right-click button to fire a straight-traveling fireball, dealing heavy damage and causing a large explosion (does not destroy blocks).\n",
-    "Fox Fire Arrow: While holding an arrow, consume a moderate amount of mana. Press the right-click button to fire a straight-traveling fire arrow, dealing heavy damage and igniting the target.\n",
-    "Fox Fire Ring: Press the Active Ability (1) key, consume a large amount of mana to release a ring of fire that slowly expands from your center, dealing damage, knocking back, and igniting targets within range.\n\n",
     "Your mana attaches to your weapon when attacking, consuming mana proportionally to deal additional damage.\n",
     "Your mana forms a protective shield around you, granting extra armor and consuming mana when injured to mitigate part of the damage.\n",
     "Your mana protects you from fire damage. While in fire or lava, your mana will be continuously consumed to maintain this effect.\n",
