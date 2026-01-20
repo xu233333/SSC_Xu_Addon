@@ -5,7 +5,7 @@
     "multiply": 1.25
   },
   "regen_mana_modifier": {
-    "add": 1.0,
+    "add": 0.10,
     "multiply": 1.5
   },
   "player_side": true
