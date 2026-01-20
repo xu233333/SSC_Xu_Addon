@@ -15,7 +15,6 @@
     "It appears this will be your new life from now on."
   ],
   "codex.form.ssc_xu_addon.familiar_fox_purify.pros": [
-    "Purified Mana\n",
     "New mana surges within you. You have fully mastered how to utilize your mana reserves...\n",
     "Press the Active Ability (2) key to toggle mana intensity. Higher intensity increases your power but also raises consumption.\n",
     "Fox Fireball: While holding a stick, consume a small amount of mana. Press the right-click button to fire a straight-traveling fireball, dealing damage and igniting the target.\n",
@@ -44,7 +43,13 @@
     "You have less health. Without hands capable of freely using tools, your block-breaking speed is also slower.\n",
     "Leggings and boots no longer suit your quadrupedal body structure, and your movement speed in water is reduced."
   ],
-  "codex.form.ssc_xu_addon.familiar_fox_purify.instincts": [""],
+  "codex.form.ssc_xu_addon.familiar_fox_purify.instincts": [
+    "\nPress the Active Ability (2) key to toggle mana intensity. Higher intensity increases your power but also raises consumption.\n",
+    "Fox Fireball: While holding a stick, consume a small amount of mana. Press the right-click button to fire a straight-traveling fireball, dealing damage and igniting the target.\n",
+    "Fox Fireball EX: While holding a talisman, consume a large amount of mana. Press the right-click button to fire a straight-traveling fireball, dealing heavy damage and causing a large explosion (does not destroy blocks).\n",
+    "Fox Fire Arrow: While holding an arrow, consume a moderate amount of mana. Press the right-click button to fire a straight-traveling fire arrow, dealing heavy damage and igniting the target.\n",
+    "Fox Fire Ring: Press the Active Ability (1) key, consume a large amount of mana to release a ring of fire that slowly expands from your center, dealing damage, knocking back, and igniting targets within range.\n"
+  ],
   "item.ssc_xu_addon.unstable_holy_apple": "Unstable Holy Golden Apple",
   "message.ssc_xu_addon.item.unstable_holy_apple.special_form": "The Unstable Holy Golden Apple has produced a special reaction with your form; you have transformed into a new form.",
   "message.ssc_xu_addon.item.unstable_holy_apple.luck": "You are fortunate. Before your curse could affect the Holy Golden Apple, its magic restored your original form. However, the curse remains unbroken and continues to affect you.",
