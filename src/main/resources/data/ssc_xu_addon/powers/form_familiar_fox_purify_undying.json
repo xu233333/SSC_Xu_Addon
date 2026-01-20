@@ -9,6 +9,10 @@
     {
       "type": "ssc_xu_addon:consume_mana_percent",
       "mana_percent": 1.0
+    },
+    {
+      "type": "ssc_xu_addon:set_mana_level",
+      "mana_level": 0
     }
   ],
   "totem_health": 8,
@@ -16,7 +20,7 @@
     {
       "effect": "minecraft:absorption",
       "duration": 1200,
-      "amplifier": 4,
+      "amplifier": 2,
       "show_particles": false,
       "show_icon": true
     },

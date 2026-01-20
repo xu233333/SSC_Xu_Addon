@@ -1,5 +1,6 @@
 package xu_mod.SSCXuAddon.Powers;
 
+import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.Active;
 import io.github.apace100.apoli.power.ActiveCooldownPower;
@@ -168,6 +169,16 @@ public class LeveledManaPower extends ActiveCooldownPower {
     }
 
     public static void registerActions(Consumer<ActionFactory<Entity>> ActionRegister, Consumer<ActionFactory<Pair<Entity, Entity>>> BIActionRegister) {
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("set_mana_level"),
+                new SerializableData()
+                        .add("mana_level", SerializableDataTypes.INT, 1),
+                (data, entity) -> {
+                    if (entity instanceof PlayerEntity player) {
+                        PowerHolderComponent.getPowers(player, LeveledManaPower.class).forEach(power -> power.SetManaLevel(data.getInt("mana_level")));
+                    }
+                }
+        ));
         ActionRegister.accept(new ActionFactory<>(
                 SSCXuAddon.identifier("leveled_mana_action"),
                 new SerializableData()

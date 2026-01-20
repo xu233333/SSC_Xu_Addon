@@ -1,0 +1,13 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:damage",
+    "amount": 1,
+    "damage_type": "minecraft:starve"
+  },
+  "interval": 40,
+  "condition": {
+    "type": "ssc_xu_addon:is_mana_level",
+    "mana_level": 0
+  }
+}

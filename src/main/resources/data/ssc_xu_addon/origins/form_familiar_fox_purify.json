@@ -29,7 +29,11 @@
         "ssc_xu_addon:form_familiar_fox_purify_fire_arrow",
         "ssc_xu_addon:form_familiar_fox_purify_kill_recovery_mana",
         "ssc_xu_addon:form_familiar_fox_purify_food_mana",
-        "ssc_xu_addon:form_familiar_fox_purify_fire_ring"
+        "ssc_xu_addon:form_familiar_fox_purify_fire_ring",
+
+        "ssc_xu_addon:form_familiar_fox_purify_low_health_rec",
+        "ssc_xu_addon:form_familiar_fox_purify_low_mana_hurt",
+        "ssc_xu_addon:form_familiar_fox_purify_low_mana_debuff"
     ],
     "icon": {
         "item": "minecraft:player_head"
