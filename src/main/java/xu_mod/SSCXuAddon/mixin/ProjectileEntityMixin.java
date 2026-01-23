@@ -17,7 +17,7 @@ public class ProjectileEntityMixin implements IProjectileEX {
     @Unique
     private Vec3d speed = null;
     @Unique
-    private long maxAge = -1;
+    private long SSC_Xu_Addon$maxAge = -1;
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void tick(CallbackInfo ci) {
@@ -28,8 +28,8 @@ public class ProjectileEntityMixin implements IProjectileEX {
                 realThis.velocityDirty = true;
             }
         }
-        if (this.maxAge >= 0) {
-            if (realThis.age >= this.maxAge) {
+        if (this.SSC_Xu_Addon$maxAge > 0) {
+            if (realThis.age >= this.SSC_Xu_Addon$maxAge) {
                 realThis.discard();
             }
         }
@@ -37,13 +37,13 @@ public class ProjectileEntityMixin implements IProjectileEX {
 
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
     private void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
-        nbt.putBoolean("keep_speed", this.keepSpeed);
+        nbt.putBoolean("ssc_xu_addon_keep_speed", this.keepSpeed);
         if (this.speed != null) {
-            nbt.putDouble("speed_x", this.speed.x);
-            nbt.putDouble("speed_y", this.speed.y);
-            nbt.putDouble("speed_z", this.speed.z);
+            nbt.putDouble("ssc_xu_addon_speed_x", this.speed.x);
+            nbt.putDouble("ssc_xu_addon_speed_y", this.speed.y);
+            nbt.putDouble("ssc_xu_addon_speed_z", this.speed.z);
         }
-        nbt.putLong("max_age", this.maxAge);
+        nbt.putLong("ssc_xu_addon_max_age", this.SSC_Xu_Addon$maxAge);
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
@@ -52,17 +52,17 @@ public class ProjectileEntityMixin implements IProjectileEX {
         double x = 0;
         double y = 0;
         double z = 0;
-        if (nbt.contains("speed_x")) {
-            x = nbt.getDouble("speed_x");
+        if (nbt.contains("ssc_xu_addon_speed_x")) {
+            x = nbt.getDouble("ssc_xu_addon_speed_x");
         }
-        if (nbt.contains("speed_y")) {
-            y = nbt.getDouble("speed_y");
+        if (nbt.contains("ssc_xu_addon_speed_y")) {
+            y = nbt.getDouble("ssc_xu_addon_speed_y");
         }
-        if (nbt.contains("speed_z")) {
-            z = nbt.getDouble("speed_z");
+        if (nbt.contains("ssc_xu_addon_speed_z")) {
+            z = nbt.getDouble("ssc_xu_addon_speed_z");
         }
         this.speed = new Vec3d(x, y, z);
-        this.maxAge = nbt.getLong("max_age");
+        this.SSC_Xu_Addon$maxAge = nbt.getLong("ssc_xu_addon_max_age");
     }
 
     @Override
@@ -74,6 +74,6 @@ public class ProjectileEntityMixin implements IProjectileEX {
 
     @Override
     public void SSC_Xu_Addon$setMaxAge(long maxAge) {
-        this.maxAge = maxAge;
+        this.SSC_Xu_Addon$maxAge = maxAge;
     }
 }
