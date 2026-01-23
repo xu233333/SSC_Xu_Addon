@@ -1,0 +1,28 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "ssc_xu_addon:shoot_blood_thorn",
+        "damage": 4.0,
+        "speed": 2.5,
+        "extra_thorn_count": 4,
+        "extra_thorn_circle_range": 1.0,
+        "recoveryOwnerHPPercent": 0.1,
+        "recoveryOwnerManaPercent": 4,
+        "owner_action": {
+          "type": "shape-shifter-curse:consume_mana",
+          "mana": 30
+        }
+      }
+    ]
+  },
+  "cooldown": 60,
+  "hud_render": {
+    "should_render": false
+  },
+  "key": {
+    "key": "key.origins.primary_active"
+  }
+}

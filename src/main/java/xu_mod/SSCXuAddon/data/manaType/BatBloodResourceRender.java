@@ -35,8 +35,11 @@ public class BatBloodResourceRender implements IManaRender {
         double maxMana = ManaUtils.getPlayerMaxMana(mc.player);
         double manaRegen = ManaUtils.getPlayerManaRegen(mc.player);
         int remainTicks = -1;
+
         if (manaRegen > (double)0.0F) {
             remainTicks = (int)Math.ceil((maxMana - mana) / manaRegen);
+        } else if (manaRegen < (double)0.0F) {
+            remainTicks = (int)Math.ceil((mana) / (-manaRegen));
         }
 
         int manaWidth = (int)Math.ceil((double)80.0F * ManaUtils.getManaPercent(mana, maxMana, (double)0.0F));

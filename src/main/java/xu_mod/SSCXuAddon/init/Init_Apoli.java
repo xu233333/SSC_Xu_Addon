@@ -29,6 +29,7 @@ public class Init_Apoli {
         ShootFireBallAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
         SomeRandomConditionAndAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
         FireRingAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
+        ShootBloodThornAction.registerActions(Init_Apoli::registerEntityAction, Init_Apoli::registerBIEntityAction);
     }
 
 
