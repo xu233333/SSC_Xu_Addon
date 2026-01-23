@@ -1,7 +1,7 @@
 package xu_mod.SSCXuAddon.init;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import xu_mod.SSCXuAddon.Powers.FireRingAction;
+import xu_mod.SSCXuAddon.powers.FireRingAction;
 
 public class Init_Event {
     public static void init() {

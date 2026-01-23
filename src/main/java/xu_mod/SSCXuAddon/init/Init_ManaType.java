@@ -8,7 +8,7 @@ import net.onixary.shapeShifterCurseFabric.cursed_moon.CursedMoon;
 import net.onixary.shapeShifterCurseFabric.mana.ManaHandler;
 import net.onixary.shapeShifterCurseFabric.mana.ManaRegistries;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
-import xu_mod.SSCXuAddon.Powers.LeveledManaPower;
+import xu_mod.SSCXuAddon.powers.LeveledManaPower;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 
 public class Init_ManaType {
@@ -17,9 +17,19 @@ public class Init_ManaType {
             (player) -> CursedMoon.isNight(player.getWorld())
     );
 
+    public static Identifier MC_IsDay = ManaRegistries.registerManaConditionType(
+            ShapeShifterCurseFabric.identifier("is_day"),
+            (player) -> !CursedMoon.isNight(player.getWorld())
+    );
+
     public static Identifier MC_IsCursedMoonDay = ManaRegistries.registerManaConditionType(
             ShapeShifterCurseFabric.identifier("is_cursed_moon_day"),
             (player) -> CursedMoon.isCursedMoon(player.getWorld())
+    );
+
+    public static Identifier MC_IsNotCursedMoonDay = ManaRegistries.registerManaConditionType(
+            ShapeShifterCurseFabric.identifier("is_cursed_moon_day"),
+            (player) -> !CursedMoon.isCursedMoon(player.getWorld())
     );
 
     // 正常 500/5
@@ -63,6 +73,51 @@ public class Init_ManaType {
             ),
             new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
                 PowerHolderComponent.getPowers(player, LeveledManaPower.class).forEach(power -> power.SetManaLevel(0));
+            }))
+    );
+
+    // 白天 600/-1
+    // 夜晚 600/-0.5
+    // 诅咒之月白天 600/-0.75
+    // 诅咒之月夜晚 600/-0.25
+    public static Identifier BatBloodResource = ManaRegistries.registerManaType(
+            SSCXuAddon.identifier("bat_blood_resource"),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    ManaRegistries.MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(600d, 1.0d, 0d)
+                            )
+                    )
+            ),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    ManaRegistries.MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(-0.0125d, 1.0d, 0d)  // -0.25 per sec
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("day_up"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsDay,
+                                    new ManaUtils.Modifier(-0.025d, 1.0d, 0d)  // -0.5 per sec
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("not_curse_moon_up"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_IsNotCursedMoonDay,
+                                    new ManaUtils.Modifier(-0.0125d, 1.0d, 0d)  // -0.25 per sec
+                            )
+                    )
+            ),
+            new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
+                // 最差的转换比例 自动转换比率 5% 1 -> 10 (50t) | 2% 2 -> 17.5 (50t) | 0% 10 -> 75 (1t)
+                player.damage(player.getWorld().getDamageSources().starve(), 10);
+                manaComponent.gainMana(75);
             }))
     );
 

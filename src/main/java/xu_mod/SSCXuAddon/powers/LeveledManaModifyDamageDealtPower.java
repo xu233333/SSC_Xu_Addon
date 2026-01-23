@@ -1,4 +1,4 @@
-package xu_mod.SSCXuAddon.Powers;
+package xu_mod.SSCXuAddon.powers;
 
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.Power;
@@ -16,7 +16,6 @@ import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.init.Init_CCA;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 

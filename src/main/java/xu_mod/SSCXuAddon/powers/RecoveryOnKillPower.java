@@ -1,4 +1,4 @@
-package xu_mod.SSCXuAddon.Powers;
+package xu_mod.SSCXuAddon.powers;
 
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.PowerType;

@@ -1,4 +1,4 @@
-package xu_mod.SSCXuAddon.Powers;
+package xu_mod.SSCXuAddon.powers;
 
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.calio.data.SerializableData;

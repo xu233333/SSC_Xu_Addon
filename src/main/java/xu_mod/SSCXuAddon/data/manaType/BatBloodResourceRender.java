@@ -10,11 +10,10 @@ import net.onixary.shapeShifterCurseFabric.mana.IManaRender;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.util.UIPositionUtils;
 import xu_mod.SSCXuAddon.SSCXuAddon;
-import xu_mod.SSCXuAddon.init.Init_CCA;
 
-public class FamiliarFoxPurifyManaRender implements IManaRender {
+public class BatBloodResourceRender implements IManaRender {
     private static final MinecraftClient mc = MinecraftClient.getInstance();
-    private static final Identifier BarTexID = SSCXuAddon.identifier("textures/gui/familiar_fox_purify_mana_bar.png");
+    private static final Identifier BarTexID = SSCXuAddon.identifier("textures/gui/bat_blood_bar.png");
 
     @Override
     public boolean OverrideInstinctBar() {
@@ -32,25 +31,6 @@ public class FamiliarFoxPurifyManaRender implements IManaRender {
         if (mc.player == null) {
             return;
         }
-        int manaLevel = Init_CCA.AddonData.get(mc.player).getManaLevel();
-        int manaColor = 0xFF505050;
-        switch (manaLevel) {
-            case 0 -> {
-                manaColor = 0xFF505050;
-            }
-            case 1 -> {
-                manaColor = 0xFF00FF00;
-            }
-            case 2 -> {
-                manaColor = 0xFF0000FF;
-            }
-            case 3 -> {
-                manaColor = 0xFF6F00FF;
-            }
-            default -> {
-                manaColor = 0xFFFFFFFF;
-            }
-        }
         double mana = ManaUtils.getPlayerMana(mc.player);
         double maxMana = ManaUtils.getPlayerMaxMana(mc.player);
         double manaRegen = ManaUtils.getPlayerManaRegen(mc.player);
@@ -60,8 +40,8 @@ public class FamiliarFoxPurifyManaRender implements IManaRender {
         }
 
         int manaWidth = (int)Math.ceil((double)80.0F * ManaUtils.getManaPercent(mana, maxMana, (double)0.0F));
-        context.drawTexture(BarTexID, x, y, 0.0f, 10 * manaLevel, 80, 5, 80, 40);
-        context.drawTexture(BarTexID, x, y, 0.0f, 10 * manaLevel + 5, manaWidth, 5, 80, 40);
+        context.drawTexture(BarTexID, x, y, 0.0f, 0, 80, 5, 80, 40);
+        context.drawTexture(BarTexID, x, y, 0.0f, 5, manaWidth, 5, 80, 40);
         StringBuilder manaString = new StringBuilder();
         manaString.append((int)mana).append("/").append((int)maxMana);
         if (remainTicks > 0) {
@@ -71,6 +51,6 @@ public class FamiliarFoxPurifyManaRender implements IManaRender {
         }
 
         Text manaText = Text.literal(manaString.toString());
-        context.drawText(mc.textRenderer, manaText, x, y - 8, manaColor, false);
+        context.drawText(mc.textRenderer, manaText, x, y - 8, 0xFFCC0000, false);
     }
 }

@@ -8,7 +8,7 @@ import net.minecraft.registry.tag.DamageTypeTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import xu_mod.SSCXuAddon.Powers.LeveledManaModifyDamageDealtPower;
+import xu_mod.SSCXuAddon.powers.LeveledManaModifyDamageDealtPower;
 
 
 @Mixin(LivingEntity.class)

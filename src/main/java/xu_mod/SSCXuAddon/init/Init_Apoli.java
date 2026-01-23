@@ -7,7 +7,7 @@ import io.github.apace100.apoli.registry.ApoliRegistries;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Pair;
-import xu_mod.SSCXuAddon.Powers.*;
+import xu_mod.SSCXuAddon.powers.*;
 
 public class Init_Apoli {
 
