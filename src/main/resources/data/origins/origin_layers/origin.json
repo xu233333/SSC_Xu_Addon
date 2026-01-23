@@ -3,7 +3,8 @@
   "order": 0,
   "enabled": true,
   "origins": [
-    "ssc_xu_addon:form_familiar_fox_purify"
+    "ssc_xu_addon:form_familiar_fox_purify",
+    "ssc_xu_addon:form_bat_vampire"
   ],
   "allow_random": true,
   "exclude_random": [

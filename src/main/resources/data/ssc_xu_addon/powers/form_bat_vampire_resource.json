@@ -1,0 +1,5 @@
+{
+  "type": "shape-shifter-curse:mana_type_power",
+  "mana_type": "ssc_xu_addon:bat_blood_resource",
+  "mana_source": "ssc_xu_addon:form_bat_vampire"
+}

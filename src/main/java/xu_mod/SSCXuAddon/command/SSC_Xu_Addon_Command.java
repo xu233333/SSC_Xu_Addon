@@ -39,7 +39,8 @@ public class SSC_Xu_Addon_Command {
     private static int test(CommandContext<ServerCommandSource> commandContext) throws CommandSyntaxException {
         PlayerEntity owner = commandContext.getSource().getPlayer();
         if (owner != null) {
-            BloodThornEntity bloodThornEntity = new BloodThornEntity(owner, 1.0f, new Vec3d(0d,0d,0d));
+            BloodThornEntity bloodThornEntity = new BloodThornEntity(owner, 5.0f, new Vec3d(0d,0d,0d));
+            bloodThornEntity.setDamage(10.0f, 0.1f, 8f);
             owner.getWorld().spawnEntity(bloodThornEntity);
         }
         return 0;

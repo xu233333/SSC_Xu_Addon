@@ -10,6 +10,7 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Vec3d;
@@ -112,6 +113,7 @@ public class BloodThornEntity extends PersistentProjectileEntity {
         if (this.getWorld().isClient) {
             spawnParticles(4);
         }
+        this.playSound(SoundEvents.BLOCK_POINTED_DRIPSTONE_LAND, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
         this.discard();
     }
 
@@ -137,6 +139,7 @@ public class BloodThornEntity extends PersistentProjectileEntity {
         if (this.getWorld().isClient) {
             spawnParticles(4);
         }
+        this.playSound(SoundEvents.BLOCK_POINTED_DRIPSTONE_FALL, 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
         this.discard();
     }
 
