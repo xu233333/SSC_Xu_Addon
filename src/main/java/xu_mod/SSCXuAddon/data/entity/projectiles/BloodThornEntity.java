@@ -5,6 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
@@ -61,6 +64,7 @@ public class BloodThornEntity extends PersistentProjectileEntity {
         this.setNoGravity(true);
         this.setPos(owner.getX() + PositionOffset.getX(), owner.getY() + owner.getEyeHeight(owner.getPose()) + PositionOffset.getY(), owner.getZ() + PositionOffset.getZ());
         this.setVelocity(owner, owner.getPitch(), owner.getYaw(), 0.0F, speed, 0.0F);
+        this.velocityModified = true;
         if (this instanceof IProjectileEX iProjectileEX) {
             iProjectileEX.SSC_Xu_Addon$setMaxAge(200);
         }
@@ -85,6 +89,7 @@ public class BloodThornEntity extends PersistentProjectileEntity {
         vy = oy / length;
         vz = oz / length;
         this.setVelocity(vx, vy, vz, speed, 0.0f);
+        this.velocityModified = true;
         if (this instanceof IProjectileEX iProjectileEX) {
             iProjectileEX.SSC_Xu_Addon$setMaxAge(200);
         }
@@ -129,7 +134,16 @@ public class BloodThornEntity extends PersistentProjectileEntity {
         }
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.lastDamageTaken = 0.0f;  // 取消无敌帧
-            if (entity.damage(damageSource, damage)) {
+            if (livingEntity.damage(damageSource, damage)) {
+
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 1));  // Lv2 缓慢
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 200, 2));  // Lv3 虚弱
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 200, 0));  // Lv1 中毒
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 300, 0));  // 发光
+                // 恶心玩家用
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 100, 0));  // 失明
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 200, 0));  // 反胃
+
                 this.onHit(livingEntity);
                 if (owner instanceof PlayerEntity player) {
                     player.heal(damage * recoveryOwnerHPPercent);
