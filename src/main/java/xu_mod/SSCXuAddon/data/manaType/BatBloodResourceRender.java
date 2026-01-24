@@ -43,8 +43,8 @@ public class BatBloodResourceRender implements IManaRender {
         }
 
         int manaWidth = (int)Math.ceil((double)80.0F * ManaUtils.getManaPercent(mana, maxMana, (double)0.0F));
-        context.drawTexture(BarTexID, x, y, 0.0f, 0, 80, 5, 80, 40);
-        context.drawTexture(BarTexID, x, y, 0.0f, 5, manaWidth, 5, 80, 40);
+        context.drawTexture(BarTexID, x, y, 0.0f, 0, 80, 5, 80, 10);
+        context.drawTexture(BarTexID, x, y, 0.0f, 5, manaWidth, 5, 80, 10);
         StringBuilder manaString = new StringBuilder();
         manaString.append((int)mana).append("/").append((int)maxMana);
         if (remainTicks > 0) {

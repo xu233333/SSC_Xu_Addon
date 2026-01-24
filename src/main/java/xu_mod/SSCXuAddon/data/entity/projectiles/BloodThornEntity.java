@@ -127,8 +127,9 @@ public class BloodThornEntity extends PersistentProjectileEntity {
             damageSource = owner.getDamageSources().playerAttack((PlayerEntity) player);
             player.onAttacking(entity);
         }
-        if (entity.damage(damageSource, damage)) {
-            if (entity instanceof LivingEntity livingEntity) {
+        if (entity instanceof LivingEntity livingEntity) {
+            livingEntity.lastDamageTaken = 0.0f;  // 取消无敌帧
+            if (entity.damage(damageSource, damage)) {
                 this.onHit(livingEntity);
                 if (owner instanceof PlayerEntity player) {
                     player.heal(damage * recoveryOwnerHPPercent);

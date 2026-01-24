@@ -15,10 +15,14 @@
           "type": "shape-shifter-curse:consume_mana",
           "mana": 30
         }
+      },
+      {
+        "type": "origins:play_sound",
+        "sound": "minecraft:entity.evoker.cast_spell"
       }
     ]
   },
-  "cooldown": 60,
+  "cooldown": 20,
   "hud_render": {
     "should_render": false
   },

@@ -62,10 +62,9 @@ public class ShootBloodThornAction {
                                         xOffset = extra_thorn_circle_range * Math.cos(angle);
                                         yOffset = extra_thorn_circle_range * Math.sin(angle);
                                     }
-
-                                    double realXOffset = xOffset * Math.cos(player.getYaw());
-                                    double realZOffset = xOffset * Math.sin(player.getYaw());
-                                    SSCXuAddon.LOGGER.info("Shoot BloodThorn: " + xOffset + " " + realXOffset + " " + yOffset + " " + realZOffset);
+                                    double rYaw = player.getYaw() * ((float)Math.PI / 180F);
+                                    double realXOffset = xOffset * Math.cos(rYaw);
+                                    double realZOffset = xOffset * Math.sin(rYaw);
                                     BloodThornEntity bloodThornEntityExtra;
                                     if (playerTarget != null) {
                                         bloodThornEntityExtra = new BloodThornEntity(player, speed, new Vec3d(realXOffset, yOffset, realZOffset), playerTarget);

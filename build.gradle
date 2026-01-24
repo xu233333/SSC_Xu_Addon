@@ -24,7 +24,7 @@ loom {
 			runDir "run/server"
 		}
 	}
-	// accessWidenerPath = file("src/main/resources/ssc_xu_addon.accesswidener")
+	accessWidenerPath = file("src/main/resources/ssc_xu_addon.accesswidener")
 }
 
 repositories {
