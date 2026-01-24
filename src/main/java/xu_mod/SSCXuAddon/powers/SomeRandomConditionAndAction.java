@@ -5,9 +5,17 @@ import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ai.brain.MemoryModuleType;
+import net.minecraft.entity.ai.goal.PrioritizedGoal;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
+import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
 import xu_mod.SSCXuAddon.init.Init_CCA;
@@ -30,6 +38,56 @@ public class SomeRandomConditionAndAction {
                         }
                 )
         );
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("area_enemy_forget"),
+                new SerializableData()
+                        .add("range", SerializableDataTypes.FLOAT, 40.0f)
+                        .add("only_self", SerializableDataTypes.BOOLEAN, false),
+                (data, entity) -> {
+                    float range = data.getFloat("range");
+                    boolean onlySelf = data.getBoolean("only_self");
+                    if (entity instanceof PlayerEntity player) {
+                        player.getWorld().getOtherEntities(player, player.getBoundingBox().expand(range), e -> (e instanceof MobEntity mob && (!onlySelf || (mob.getTarget() != null && mob.getTarget().equals(player))))).forEach(otherEntity -> {
+                            MobEntity mobEntity = (MobEntity) otherEntity;
+                            mobEntity.setTarget(null);
+                            mobEntity.targetSelector.getGoals().forEach(
+                                    PrioritizedGoal::stop
+                            );
+                            mobEntity.getBrain().forget(MemoryModuleType.ATTACK_TARGET);
+                        });
+                    }
+                }
+        ));
+
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("random_teleport"),
+                new SerializableData()
+                        .add("range", SerializableDataTypes.INT, 8)
+                        .add("min_entity_range", SerializableDataTypes.FLOAT, 3.0f)
+                        .add("max_try", SerializableDataTypes.INT, 8),
+                (data, entity) -> {
+                    int range = data.getInt("range");
+                    float minEntityRange = data.getFloat("min_entity_range");
+                    int maxTry = data.getInt("max_try");
+                    if (entity instanceof PlayerEntity player) {
+                        Random random = player.getRandom();
+                        for (int i = 0; i < maxTry; i++) {
+                            BlockPos pos = MinionRegister.getNearbyEmptySpace(player.getWorld(), random, player.getBlockPos(), range, 3, 2, 3);
+                            if (pos != null) {
+                                Vec3d posVec = new Vec3d(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                                if (player.getWorld().getOtherEntities(player, new Box(posVec.add(-minEntityRange, -minEntityRange, -minEntityRange), posVec.add(minEntityRange, minEntityRange, minEntityRange)), e -> e instanceof MobEntity && !(e instanceof PlayerEntity)).isEmpty()) {
+                                    player.teleport(posVec.getX(), posVec.getY(), posVec.getZ());
+                                    break;
+                                }
+                            }
+                        }
+                        BlockPos pos = MinionRegister.getNearbyEmptySpace(player.getWorld(), random, player.getBlockPos(), range, 3, 2, 8);
+                        if (pos != null) {
+                            player.teleport(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                        }
+                    }
+                }
+        ));
     }
 
 

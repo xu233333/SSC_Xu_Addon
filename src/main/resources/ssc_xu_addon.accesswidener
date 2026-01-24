@@ -1,2 +1,4 @@
 accessWidener   v1  named
 accessible field net/minecraft/entity/LivingEntity lastDamageTaken F
+accessible field net/minecraft/entity/mob/MobEntity targetSelector Lnet/minecraft/entity/ai/goal/GoalSelector;
+
