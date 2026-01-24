@@ -16,6 +16,7 @@ public class Init_Apoli {
         Init_Apoli.registerPower(LeveledManaModifyDamageDealtPower.createFactory());
         Init_Apoli.registerPower(ManaToFoodPower.createFactory());
         Init_Apoli.registerPower(RecoveryOnKillPower.createFactory());
+        Init_Apoli.registerPower(AutoHpToManaPower.createFactory());
     }
 
     private static void init_Condition() {

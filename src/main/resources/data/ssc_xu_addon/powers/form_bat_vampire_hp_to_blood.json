@@ -1,0 +1,16 @@
+{
+  "type": "ssc_xu_addon:auto_hp_to_mana",
+  "tier1_mana_percent_start": 0.1,
+  "tier1_cov_hp_cost": 1.0,
+  "tier1_cov_mana": 10.0,
+  "tier2_mana_percent_start": 0.05,
+  "tier2_cov_hp_cost": 2.0,
+  "tier2_cov_mana": 18.0,
+  "tier3_mana_percent_start": 0.02,
+  "tier3_cov_hp_cost": 3.0,
+  "tier3_cov_mana": 24.0,
+  "tier4_mana_percent_start": 0.01,
+  "tier4_cov_hp_cost": 4.0,
+  "tier4_cov_mana": 30.0,
+  "tick_rate": 100
+}

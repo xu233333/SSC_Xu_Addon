@@ -1,0 +1,11 @@
+{
+  "type": "ssc_xu_addon:mana_to_food",
+  "min_food_value": 20,
+  "min_saturation_value": 10.0,
+  "mana_to_food_ratio": 10.0,
+  "mana_to_saturation_ratio": 5.0,
+  "condition": {
+    "type": "shape-shifter-curse:has_mana_percent",
+    "mana_percent": 0.20
+  }
+}
