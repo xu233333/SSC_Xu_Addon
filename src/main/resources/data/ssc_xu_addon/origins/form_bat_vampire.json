@@ -11,12 +11,6 @@
         "shape-shifter-curse:form_bat_sound_hurt",
         "shape-shifter-curse:form_bat_sound_key",
 
-        "ssc_xu_addon:form_bat_vampire_resource",
-        "ssc_xu_addon:form_bat_vampire_shoot_blood_thorn",
-        "ssc_xu_addon:form_bat_vampire_blood_to_food",
-        "ssc_xu_addon:form_bat_vampire_hp_to_blood",
-        "ssc_xu_addon:form_bat_vampire_undying",
-
         "origins:slow_falling",
         "shape-shifter-curse:form_bat_2_sun_health",
         "shape-shifter-curse:form_bat_3_ground_speed_down",
@@ -25,13 +19,26 @@
         "shape-shifter-curse:form_bat_3_jump_boost",
         "shape-shifter-curse:form_bat_3_jump_high",
         "shape-shifter-curse:prevent_ranged_weapon_use",
-        "shape-shifter-curse:form_vegetarian",
-        "shape-shifter-curse:drop_tool_after_digging",
-        "shape-shifter-curse:drop_weapon_after_hit",
-        "shape-shifter-curse:form_bat_3_damage_up_when_no_sun",
         "shape-shifter-curse:barehand_digging_speed_up",
         "shape-shifter-curse:always_harvest",
-        "shape-shifter-curse:form_vegetarian_food_up",
+
+        "shape-shifter-curse:drop_tool_after_digging",
+        "shape-shifter-curse:drop_weapon_after_hit",
+
+        "ssc_xu_addon:form_bat_vampire_resource",
+        "ssc_xu_addon:form_bat_vampire_shoot_blood_thorn",
+        "ssc_xu_addon:form_bat_vampire_blood_to_food",
+        "ssc_xu_addon:form_bat_vampire_hp_to_blood",
+        "ssc_xu_addon:form_bat_vampire_undying",
+        "ssc_xu_addon:form_bat_vampire_low_blood_debuff",
+        "ssc_xu_addon:form_bat_vampire_kill_recovery_blood",
+        "ssc_xu_addon:form_bat_vampire_all_food_down",
+        "ssc_xu_addon:form_bat_vampire_low_magic_damage",
+        "ssc_xu_addon:form_bat_vampire_no_magic_effect",
+        "ssc_xu_addon:form_bat_vampire_fire_damage_up",
+        "ssc_xu_addon:form_bat_vampire_under_sun",
+        "ssc_xu_addon:form_bat_vampire_damage_up_when_no_sun",
+
         "shape-shifter-curse:form_bat_diamond_mining_claw_tool"
     ],
     "icon": {
