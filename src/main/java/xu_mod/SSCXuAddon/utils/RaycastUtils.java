@@ -6,6 +6,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class RaycastUtils {
@@ -19,5 +21,12 @@ public class RaycastUtils {
             return entityHitResult.getPos();
         }
         return null;
+    }
+
+    public static @NotNull Vec3d getPlayerTargetPos(PlayerEntity player, double range) {
+        Vec3d origin = player.getCameraPosVec(1.0F);
+        Vec3d target = origin.add(player.getRotationVec(1.0F).multiply(range, range, range));
+        RaycastContext context = new RaycastContext(origin, target, RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.NONE, player);
+        return player.getWorld().raycast(context).getPos();
     }
 }

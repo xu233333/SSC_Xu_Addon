@@ -1,5 +1,6 @@
 package xu_mod.SSCXuAddon.powers;
 
+import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.calio.data.SerializableData;
@@ -19,6 +20,7 @@ import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
 import xu_mod.SSCXuAddon.init.Init_CCA;
+import xu_mod.SSCXuAddon.utils.RaycastUtils;
 
 import java.util.function.Consumer;
 
@@ -69,6 +71,9 @@ public class SomeRandomConditionAndAction {
                     int range = data.getInt("range");
                     float minEntityRange = data.getFloat("min_entity_range");
                     int maxTry = data.getInt("max_try");
+                    if (entity.getWorld().isClient) {
+                        return;
+                    }
                     if (entity instanceof PlayerEntity player) {
                         Random random = player.getRandom();
                         for (int i = 0; i < maxTry; i++) {
@@ -84,6 +89,27 @@ public class SomeRandomConditionAndAction {
                         BlockPos pos = MinionRegister.getNearbyEmptySpace(player.getWorld(), random, player.getBlockPos(), range, 3, 2, 8);
                         if (pos != null) {
                             player.teleport(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                        }
+                    }
+                }
+        ));
+
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("teleport"),
+                new SerializableData()
+                        .add("range", SerializableDataTypes.DOUBLE, 8.0d)
+                        .add("actor_action", ApoliDataTypes.ENTITY_ACTION, null),
+                (data, entity) -> {
+                    double range = data.getDouble("range");
+                    ActionFactory<Entity>.Instance actorAction = data.get("actor_action");
+                    if (entity.getWorld().isClient) {
+                        return;
+                    }
+                    if (entity instanceof PlayerEntity player) {
+                        Vec3d targetPos = RaycastUtils.getPlayerTargetPos(player, range);
+                        player.teleport(targetPos.getX(), targetPos.getY(), targetPos.getZ());
+                        if (actorAction != null) {
+                            actorAction.accept(player);
                         }
                     }
                 }

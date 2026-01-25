@@ -8,12 +8,12 @@
     },
     {
       "type": "ssc_xu_addon:area_enemy_forget",
-      "range": 40,
+      "range": 64,
       "only_self": true
     },
     {
       "type": "ssc_xu_addon:random_teleport",
-      "range": 12,
+      "range": 16,
       "min_entity_range": 4,
       "max_try": 16
     }
@@ -29,14 +29,14 @@
     },
     {
       "effect": "minecraft:speed",
-      "duration": 300,
+      "duration": 450,
       "amplifier": 3,
       "show_particles": false,
       "show_icon": true
     },
     {
       "effect": "minecraft:jump_boost",
-      "duration": 300,
+      "duration": 450,
       "amplifier": 3,
       "show_particles": false,
       "show_icon": true

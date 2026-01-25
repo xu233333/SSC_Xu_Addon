@@ -1,0 +1,65 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "ssc_xu_addon:teleport",
+        "range": 16,
+        "owner_action": {
+          "type": "shape-shifter-curse:consume_mana",
+          "mana": 60
+        }
+      },
+      {
+        "type": "origins:apply_effect",
+        "effects": [
+          {
+            "effect": "minecraft:weakness",
+            "duration": 100,
+            "amplifier": 4,
+            "show_particles": false,
+            "show_icon": true
+          },
+          {
+            "effect": "minecraft:speed",
+            "duration": 100,
+            "amplifier": 3,
+            "show_particles": false,
+            "show_icon": true
+          },
+          {
+            "effect": "minecraft:jump_boost",
+            "duration": 100,
+            "amplifier": 3,
+            "show_particles": false,
+            "show_icon": true
+          },
+          {
+            "effect": "minecraft:invisibility",
+            "duration": 100,
+            "amplifier": 0,
+            "show_particles": false,
+            "show_icon": true
+          }
+        ]
+      },
+      {
+        "type": "ssc_xu_addon:area_enemy_forget",
+        "range": 64,
+        "only_self": true
+      },
+      {
+        "type": "origins:play_sound",
+        "sound": "minecraft:entity.enderman.teleport"
+      }
+    ]
+  },
+  "cooldown": 100,
+  "hud_render": {
+    "should_render": false
+  },
+  "key": {
+    "key": "key.origins.secondary_active"
+  }
+}
