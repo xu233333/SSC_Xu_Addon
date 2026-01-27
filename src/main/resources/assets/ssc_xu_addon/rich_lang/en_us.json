@@ -1,5 +1,6 @@
 {
   "message.ssc_xu_addon.power.toggle_mana_level": "Current Mana Level: %s",
+  "codex.form.ssc_xu_addon.familiar_fox_purify.name": ["Familiar Fox (Purify)"],
   "codex.form.ssc_xu_addon.familiar_fox_purify.title": [
     "\n‘The unstable holy golden apple seems unable to dispel the curse from your body,\n",
     "The curse afflicting you is far more stubborn than imagined.\n",
@@ -53,5 +54,7 @@
   "item.ssc_xu_addon.stable_holy_apple": "Stable Holy Golden Apple",
   "message.ssc_xu_addon.item.stable_holy_apple.effect": "The Holy Golden Apple's magic has restored your form, but the curse remains unbroken and continues to affect you.",
   "item.ssc_xu_addon.mana_boost_bracelet": ["Mana Boost Bracelet"],
-  "item.ssc_xu_addon.mana_boost_bracelet.tooltip": ["[Familiar Fox Purify Form] Increases your mana capacity and mana regeneration."]
+  "item.ssc_xu_addon.mana_boost_bracelet.tooltip": ["[Familiar Fox Purify Form] Increases your mana capacity and mana regeneration."],
+
+  "codex.form.ssc_xu_addon.bat_vampire.name": ["Bat (Vampire)"]
 }

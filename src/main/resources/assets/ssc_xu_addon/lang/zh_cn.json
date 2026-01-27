@@ -1,5 +1,6 @@
 {
     "message.ssc_xu_addon.power.toggle_mana_level": "当前魔力等级: %s",
+    "codex.form.ssc_xu_addon.familiar_fox_purify.name": "使魔红狐(净化)",
     "codex.form.ssc_xu_addon.familiar_fox_purify.title": "\n‘不稳定的神圣金苹果似乎无法将你身上的诅咒驱离,\n你身上的诅咒远比想象中的难缠。\n不过幸运的是， 它将女巫的魔法从你身上清除出去。’\n不过经过女巫魔法修改过的身体还无法恢复。\n\n专属饰品/工具：[增魔脚环]",
     "codex.form.ssc_xu_addon.familiar_fox_purify.appearance": "你整体看上去与普通的野生红狐别无二致——除了身后摆动的异于寻常的两条大尾巴以外\n你的眼睛现在毫无疑问属于某种野生动物。在阳光下，你的瞳孔会收缩成一条狭缝\n你意识到体内魔法的性质已经与之前完全不同。女巫的魔力已经被清除了，它带来的能力随着被清除的魔力一起被清除了。\n你的身体现在充斥着一种特殊魔力。你的能力强度与特殊魔力的多少成正比。\n青蓝色的火焰不时从你周身凭空出现，又缓慢消失。看来是你的新魔力再对你周围造成影响。\n\n看来这就是你之后的新生活了",
     "codex.form.ssc_xu_addon.familiar_fox_purify.pros": "新的魔力在你的体内涌动。你已经完全掌控了使用你的魔力储量的方法..\n你的魔力会在你攻击时附着在你的武器上，按比例消耗魔力，造成额外的伤害。\n你的魔力在你四周形成护盾保护你，你获得额外护甲并在受伤时消耗魔力来减免部分伤害\n你的魔力保护你免疫火焰的伤害，当你处于火焰与岩浆中时，你的魔力将被持续消耗来维持这一效果\n你的魔力让你在饥饿时消耗魔力来恢复饱食度\n你可以通过击杀生物和食用金质食物来恢复魔力\n你的魔力会轻度排斥其他魔力，瞬间治疗和瞬间伤害只会受到1/4的效果\n你的奔跑速度变得更快。由于你的体型，远程攻击也难以命中你\n你现在可以堆叠8瓶相同的药水\n当你魔力在1/2以上时，在受到致命伤害时，消耗魔力来避免死亡\n由于你厚实的皮毛，你可以在甜浆果丛中自如穿梭\n",
@@ -12,5 +13,6 @@
     "item.ssc_xu_addon.stable_holy_apple": "稳定的神圣金苹果",
     "message.ssc_xu_addon.item.stable_holy_apple.effect": "神圣金苹果的魔力将你的形态还原了，但是诅咒仍未被破除，它仍然影响着你。",
     "item.ssc_xu_addon.mana_boost_bracelet": "增魔脚环",
-    "item.ssc_xu_addon.mana_boost_bracelet.tooltip": "[净化使魔红狐形态]提升你的魔力上限和魔力回复。"
+    "item.ssc_xu_addon.mana_boost_bracelet.tooltip": "[净化使魔红狐形态]提升你的魔力上限和魔力回复。",
+    "codex.form.ssc_xu_addon.bat_vampire.name": "蝙蝠(吸血)"
 }

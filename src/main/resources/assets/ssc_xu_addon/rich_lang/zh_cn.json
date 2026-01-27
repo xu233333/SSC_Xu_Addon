@@ -1,5 +1,6 @@
 {
   "message.ssc_xu_addon.power.toggle_mana_level": "当前魔力等级: %s",
+  "codex.form.ssc_xu_addon.familiar_fox_purify.name": ["使魔红狐(净化)"],
   "codex.form.ssc_xu_addon.familiar_fox_purify.title": [
     "\n‘不稳定的神圣金苹果似乎无法将你身上的诅咒驱离,\n",
     "你身上的诅咒远比想象中的难缠。\n",
@@ -51,5 +52,7 @@
   "item.ssc_xu_addon.stable_holy_apple": ["稳定的神圣金苹果"],
   "message.ssc_xu_addon.item.stable_holy_apple.effect": ["神圣金苹果的魔力将你的形态还原了，但是诅咒仍未被破除，它仍然影响着你。"],
   "item.ssc_xu_addon.mana_boost_bracelet": ["增魔脚环"],
-  "item.ssc_xu_addon.mana_boost_bracelet.tooltip": ["[净化使魔红狐形态]提升你的魔力上限和魔力回复。"]
+  "item.ssc_xu_addon.mana_boost_bracelet.tooltip": ["[净化使魔红狐形态]提升你的魔力上限和魔力回复。"],
+
+  "codex.form.ssc_xu_addon.bat_vampire.name": ["蝙蝠(吸血)"]
 }
