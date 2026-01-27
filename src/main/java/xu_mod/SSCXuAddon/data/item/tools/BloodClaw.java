@@ -18,6 +18,6 @@ public class BloodClaw extends PickaxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.ssc_xu_addon.blood_claw.tooltip").formatted(Formatting.RED));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.blood_claw.tooltip").formatted(Formatting.YELLOW));
     }
 }

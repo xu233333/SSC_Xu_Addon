@@ -1,0 +1,68 @@
+package xu_mod.SSCXuAddon.data.item;
+
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
+import net.minecraft.world.World;
+import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
+import net.onixary.shapeShifterCurseFabric.player_form.PlayerFormBase;
+import net.onixary.shapeShifterCurseFabric.player_form.RegPlayerForms;
+import net.onixary.shapeShifterCurseFabric.player_form.ability.RegPlayerFormComponent;
+import net.onixary.shapeShifterCurseFabric.player_form.transform.TransformManager;
+import xu_mod.SSCXuAddon.init.Init_Form;
+
+public class BloodGem extends Item {
+    public BloodGem(Settings settings) {
+        super(settings);
+    }
+
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BOW;
+    }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack) {
+        return 16;
+    }
+
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        user.setCurrentHand(hand);
+        return TypedActionResult.consume(user.getStackInHand(hand));
+    }
+
+    @Override
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        if (user instanceof PlayerEntity player && !world.isClient) {
+            // 我认为就一种形态需要用这种方式变身 就不拆成函数吧
+            PlayerFormBase form = RegPlayerFormComponent.PLAYER_FORM.get(user).getCurrentForm();
+            if (RegPlayerForms.BAT_3.equals(form)) {
+                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.blood_gem.special_form").formatted(Formatting.YELLOW), false);
+                TransformManager.handleDirectTransform(player, Init_Form.BatVampire, false);
+            } else if (Init_Form.BatVampire.equals(form)) {
+                player.heal(player.getMaxHealth() * 0.2f);  // 回复 20% 的血量
+            } else {
+                // 血液排斥
+                player.damage(player.getDamageSources().generic(), player.getMaxHealth() * 0.4f);
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 300, 1, false, true));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 300, 1, false, true));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 300, 3, false, true));  // +12 ATK
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 300, 1, false, true));  // -40% 受伤比例
+            }
+            if (!player.getAbilities().creativeMode) {
+                stack.decrement(1);
+                player.getItemCooldownManager().set(this, 600);
+            }
+        }
+        return stack;
+    }
+}

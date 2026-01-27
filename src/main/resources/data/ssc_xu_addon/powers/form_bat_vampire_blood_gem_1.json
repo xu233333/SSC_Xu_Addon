@@ -1,0 +1,13 @@
+{
+  "type": "origins:action_on_item_use",
+  "entity_action": {
+    "type": "ssc_xu_addon:gain_mana_percent",
+    "mana_percent": 0.5
+  },
+  "item_condition": {
+    "type": "origins:ingredient",
+    "ingredient": {
+      "item": "ssc_xu_addon:blood_gem"
+    }
+  }
+}

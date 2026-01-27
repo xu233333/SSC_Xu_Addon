@@ -1,8 +1,10 @@
 package xu_mod.SSCXuAddon.init;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
+import net.minecraft.util.math.BlockPos;
 import net.onixary.shapeShifterCurseFabric.ShapeShifterCurseFabric;
 import net.onixary.shapeShifterCurseFabric.cursed_moon.CursedMoon;
 import net.onixary.shapeShifterCurseFabric.mana.ManaHandler;
@@ -30,6 +32,20 @@ public class Init_ManaType {
     public static Identifier MC_IsNotCursedMoonDay = ManaRegistries.registerManaConditionType(
             ShapeShifterCurseFabric.identifier("is_cursed_moon_day"),
             (player) -> !CursedMoon.isCursedMoon(player.getWorld())
+    );
+
+    public static Identifier MC_UnderSun = ManaRegistries.registerManaConditionType(
+            SSCXuAddon.identifier("under_sun"),
+            (player) -> {
+                if (!player.getWorld().isDay()) {
+                    return false;
+                }
+                if (player.getWorld().isRaining() || player.getWorld().isThundering()) {
+                    return false;
+                }
+                BlockPos blockPos = player.getVehicle() instanceof BoatEntity ? (BlockPos.ofFloored(player.getX(), (double) Math.round(player.getY()), player.getZ())).up() : BlockPos.ofFloored(player.getX(), (double) Math.round(player.getY()), player.getZ());
+                return player.getWorld().isSkyVisible(blockPos);
+            }
     );
 
     // 正常 500/5
@@ -111,6 +127,13 @@ public class Init_ManaType {
                             new Pair<Identifier, ManaUtils.Modifier>(
                                     MC_IsNotCursedMoonDay,
                                     new ManaUtils.Modifier(-0.0125d, 1.0d, 0d)  // -0.25 per sec
+                            )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("under_sun"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_UnderSun,
+                                    new ManaUtils.Modifier(-0.050d, 1.0d, 0d)  // -1.0 per sec
                             )
                     )
             ),

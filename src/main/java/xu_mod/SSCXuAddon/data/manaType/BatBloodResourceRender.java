@@ -40,6 +40,8 @@ public class BatBloodResourceRender implements IManaRender {
             remainTicks = (int)Math.ceil((maxMana - mana) / manaRegen);
         } else if (manaRegen < (double)0.0F) {
             remainTicks = (int)Math.ceil((mana) / (-manaRegen));
+        } else {
+            remainTicks = 0;
         }
 
         int manaWidth = (int)Math.ceil((double)80.0F * ManaUtils.getManaPercent(mana, maxMana, (double)0.0F));
@@ -51,6 +53,8 @@ public class BatBloodResourceRender implements IManaRender {
             manaString.append(" (").append(remainTicks).append(")");
         } else if (remainTicks < 0) {
             manaString.append(" (").append("?").append(")");
+        } else {
+            manaString.append(" (").append("∞").append(")");
         }
 
         Text manaText = Text.literal(manaString.toString());

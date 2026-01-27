@@ -1,0 +1,48 @@
+{
+  "type": "origins:action_on_item_use",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "ssc_xu_addon:gain_mana_percent",
+        "mana_percent": 0.2
+      },
+      {
+        "type": "origins:apply_effect",
+        "effects": [
+          {
+            "effect": "minecraft:strength",
+            "duration": 600,
+            "amplifier": 1,
+            "show_particles": false,
+            "show_icon": true
+          },
+          {
+            "effect": "minecraft:resistance",
+            "duration": 600,
+            "amplifier": 0,
+            "show_particles": false,
+            "show_icon": true
+          },
+          {
+            "effect": "minecraft:speed",
+            "duration": 600,
+            "amplifier": 0,
+            "show_particles": false,
+            "show_icon": true
+          }
+        ]
+      },
+      {
+        "type": "ssc_xu_addon:trigger_cooldown",
+        "cooldown_id": "ssc_xu_addon:bat_vampire_bloodrage"
+      }
+    ]
+  },
+  "item_condition": {
+    "type": "origins:ingredient",
+    "ingredient": {
+      "item": "ssc_xu_addon:blood_gem"
+    }
+  }
+}

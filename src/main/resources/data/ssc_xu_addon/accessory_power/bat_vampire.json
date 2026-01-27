@@ -1,0 +1,45 @@
+{
+  "ssc_xu_addon:charm_of_blood": {
+    "forms": {
+      "ssc_xu_addon:bat_vampire": {
+        "add": [
+          "ssc_xu_addon:form_bat_vampire_charm_of_blood"
+        ]
+      }
+    }
+  },
+  "ssc_xu_addon:sunblock_circlet": {
+    "forms": {
+      "ssc_xu_addon:bat_vampire": {
+        "remove": [
+          "ssc_xu_addon:form_bat_vampire_under_sun"
+        ]
+      }
+    }
+  },
+  "ssc_xu_addon:bloodrage_gauntlets": {
+    "forms": {
+      "ssc_xu_addon:bat_vampire": {
+        "add": [
+          "ssc_xu_addon:form_bat_vampire_blood_gem_2"
+        ],
+        "remove": [
+          "ssc_xu_addon:form_bat_vampire_blood_gem_1"
+        ]
+      }
+    }
+  },
+  "shape-shifter-curse:attach_hook": {
+    "forms": {
+      "ssc_xu_addon:bat_vampire": {
+        "add": [
+          "shape-shifter-curse:form_bat_attach_hook_trinket"
+        ],
+        "remove": [
+          "shape-shifter-curse:drop_tool_after_digging",
+          "shape-shifter-curse:drop_weapon_after_hit"
+        ]
+      }
+    }
+  }
+}

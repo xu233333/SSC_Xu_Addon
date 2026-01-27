@@ -38,6 +38,8 @@
         "ssc_xu_addon:form_bat_vampire_under_sun",
         "ssc_xu_addon:form_bat_vampire_damage_up_when_no_sun",
         "ssc_xu_addon:form_bat_vampire_blood_step",
+        "ssc_xu_addon:form_bat_vampire_blood_gem_1",
+        "ssc_xu_addon:form_bat_vampire_heal_when_dealt_damage",
 
         "shape-shifter-curse:form_bat_diamond_mining_claw_tool"
     ],

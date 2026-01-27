@@ -10,13 +10,16 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ManaBoostBracelet extends TrinketItem {
-    public ManaBoostBracelet(Settings settings) {
+public class TrinketWithToolTip extends TrinketItem {
+    private final List<Text> tooltips;
+
+    public TrinketWithToolTip(Settings settings, Text... tooltip) {
         super(settings);
+        this.tooltips = List.of(tooltip);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.ssc_xu_addon.mana_boost_bracelet.tooltip").formatted(Formatting.YELLOW));
+        tooltip.addAll(this.tooltips);
     }
 }

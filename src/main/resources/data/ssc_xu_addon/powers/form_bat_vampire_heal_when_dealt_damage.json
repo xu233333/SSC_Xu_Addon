@@ -1,0 +1,40 @@
+{
+  "type": "origins:self_action_on_hit",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "shape-shifter-curse:gain_mana",
+        "mana": 20
+      },
+      {
+        "type": "origins:heal",
+        "amount": 0.25
+      }
+    ]
+  },
+  "condition": {
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:inventory",
+        "process_mode": "items",
+        "item_condition": {
+          "type": "origins:ingredient",
+          "ingredient": {
+            "item": "ssc_xu_addon:blood_claw"
+          }
+        },
+        "slots": [
+          "weapon.mainhand"
+        ]
+      },
+      {
+        "type": "ssc_xu_addon:is_not_cooldown",
+        "cooldown_id": "ssc_xu_addon:bat_vampire_bloodrage",
+        "cooldown_time": 600,
+        "inverted": true
+      }
+    ]
+  }
+}

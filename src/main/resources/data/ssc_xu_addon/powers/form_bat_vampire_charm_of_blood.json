@@ -1,0 +1,11 @@
+{
+  "type": "shape-shifter-curse:mana_attribute",
+  "modifierID": "ssc_xu_addon:charm_of_blood",
+  "max_mana_modifier": {
+    "add": 150
+  },
+  "regen_mana_modifier": {
+    "add": 0.0125
+  },
+  "player_side": true
+}
