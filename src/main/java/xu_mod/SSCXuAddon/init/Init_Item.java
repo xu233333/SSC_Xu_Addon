@@ -1,14 +1,24 @@
 package xu_mod.SSCXuAddon.init;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.Items;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.LootFunctionTypes;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import net.onixary.shapeShifterCurseFabric.util.EnchantmentUtils;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.item.BloodGem;
@@ -30,9 +40,9 @@ public class Init_Item {
     public static final Item BLOODRAGE_GAUNTLETS = register("bloodrage_gauntlets", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.bloodrage_gauntlets.tooltip").formatted(Formatting.YELLOW)));
     public static final Item SUNBLOCK_CIRCLET = register("sunblock_circlet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.sunblock_circlet.tooltip").formatted(Formatting.YELLOW)));
 
-    public static final Item BLOOD_CLAW = register("blood_claw", new BloodClaw(Materials.BLOOD_CLAW, 2, -2.4F, new Item.Settings()));
-
     public static final Item BLOOD_GEM = register("blood_gem", new BloodGem(new Item.Settings()));
+    public static final Item BLOOD_CLAW = register("blood_claw", new BloodClaw(Materials.BLOOD_CLAW, 2, -2.4F, new Item.Settings().maxCount(1)));
+
 
     public static void init() {
         // 先放到原版物品栏中 等物品多了之后再开一个标签页(>=9)
@@ -58,6 +68,24 @@ public class Init_Item {
         EnchantmentUtils.registerEnchantmentItem(Enchantments.FIRE_ASPECT, BloodClaw.class);
         EnchantmentUtils.registerEnchantmentItem(Enchantments.KNOCKBACK, BloodClaw.class);
         EnchantmentUtils.registerEnchantmentItem(Enchantments.LOOTING, BloodClaw.class);
+
+        // 鲜血宝石 会在地狱要塞(中 20% 2-3)和废弃地狱门(少 10% 1-2)宝箱刷新
+        LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, tableBuilder, setter) -> {
+            if (id.equals(new Identifier("minecraft", "chests/nether_bridge"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.BLOOD_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
+                        .with(ItemEntry.builder(Items.AIR).weight(8).quality(-1));
+                tableBuilder.pool(poolBuilder);
+            }
+            if (id.equals(new Identifier("minecraft", "chests/ruined_portal"))) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(Init_Item.BLOOD_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
+                        .with(ItemEntry.builder(Items.AIR).weight(18).quality(-2));
+                tableBuilder.pool(poolBuilder);
+            }
+        });
     }
 
     public static <T extends Item> T register(String path, T item) {

@@ -6,6 +6,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -31,7 +33,7 @@ public class BloodGem extends Item {
 
     @Override
     public int getMaxUseTime(ItemStack stack) {
-        return 16;
+        return 24;
     }
 
     @Override
@@ -58,6 +60,7 @@ public class BloodGem extends Item {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 300, 3, false, true));  // +12 ATK
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 300, 1, false, true));  // -40% 受伤比例
             }
+            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_EVOKER_PREPARE_SUMMON, SoundCategory.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().creativeMode) {
                 stack.decrement(1);
                 player.getItemCooldownManager().set(this, 600);

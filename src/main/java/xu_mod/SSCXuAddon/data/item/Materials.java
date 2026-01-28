@@ -1,11 +1,11 @@
 package xu_mod.SSCXuAddon.data.item;
 
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
+import xu_mod.SSCXuAddon.init.Init_Item;
 
 public enum Materials implements ToolMaterial {
-    BLOOD_CLAW(938, 3.0f, 4.0f, 3, 15, Ingredient.ofItems(Items.IRON_INGOT));  // 伤害高(大于钻石爪) 挖掘慢 附魔能力高
+    BLOOD_CLAW(1407, 3.0f, 4.0f, 3, 15, Ingredient.ofItems(Init_Item.BLOOD_GEM));  // 伤害高(大于钻石爪) 挖掘慢 附魔能力高
 
     private final int durability;
     private final float miningSpeedMultiplier;
