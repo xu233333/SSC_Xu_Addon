@@ -38,7 +38,7 @@ public class Init_Item {
     public static final Item MANA_BOOST_BRACELET = register("mana_boost_bracelet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.mana_boost_bracelet.tooltip").formatted(Formatting.YELLOW)));
     public static final Item CHARM_OF_BLOOD = register("charm_of_blood", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.charm_of_blood.tooltip").formatted(Formatting.YELLOW)));
     public static final Item BLOODRAGE_GAUNTLETS = register("bloodrage_gauntlets", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.bloodrage_gauntlets.tooltip").formatted(Formatting.YELLOW)));
-    public static final Item SUNBLOCK_CIRCLET = register("sunblock_circlet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.sunblock_circlet.tooltip").formatted(Formatting.YELLOW)));
+    public static final Item SUNVEIL_CIRCLET = register("sunveil_circlet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.sunveil_circlet.tooltip").formatted(Formatting.YELLOW)));
 
     public static final Item BLOOD_GEM = register("blood_gem", new BloodGem(new Item.Settings()));
     public static final Item BLOOD_CLAW = register("blood_claw", new BloodClaw(Materials.BLOOD_CLAW, 2, -2.4F, new Item.Settings().maxCount(1)));
@@ -50,7 +50,7 @@ public class Init_Item {
             entries.add(MANA_BOOST_BRACELET);
             entries.add(CHARM_OF_BLOOD);
             entries.add(BLOODRAGE_GAUNTLETS);
-            entries.add(SUNBLOCK_CIRCLET);
+            entries.add(SUNVEIL_CIRCLET);
             entries.add(BLOOD_CLAW);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
