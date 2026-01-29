@@ -1,0 +1,14 @@
+{
+  "type": "ssc_xu_addon:fall_flying_boost",
+  "speed": 1.5,
+  "min_speed_boost": 0.1,
+  "action_tick_rate": 20,
+  "action": {
+    "type": "shape-shifter-curse:consume_mana",
+    "mana": 5
+  },
+  "key": {
+    "key": "key.sprint",
+    "continuous": true
+  }
+}

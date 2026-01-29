@@ -94,7 +94,8 @@
     "Press Active Ability (2) to unleash Blood Step, teleporting to the location you point to, gaining Weakness and Invisibility, and causing nearby enemies to lose their target.\n",
     "Using a Blood Gem restores 1/5 of your health and 1/2 of your Blood Resource Bar.\n",
     "While airborne, you can right-click 'use' the side face of a block while empty-handed to cling to it. While clinging, press jump while aiming in a direction to kick off for a high-speed glide in that direction.\n",
-    "While airborne, you can right-click 'use' the underside of a block while empty-handed to hang yourself upside-down from it. While hanging upside-down, your health will slowly regenerate."
+    "While airborne, you can right-click 'use' the underside of a block while empty-handed to hang yourself upside-down from it. While hanging upside-down, your health will slowly regenerate.\n",
+    "While flying, you can press the sprint key to consume your Blood Resource Bar and activate flight boost.\n"
   ],
 
   "item.ssc_xu_addon.charm_of_blood": ["Charm of Blood"],
