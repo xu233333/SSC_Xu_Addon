@@ -97,6 +97,10 @@ repositories {
 		name = "Fuzs Mod Resources"
 		url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
 	}
+	maven {
+		name = "Jared's maven"
+		url = "https://maven.blamejared.com/"
+	}
 	maven { url "https://maven.ryanliptak.com/" }
 	mavenLocal()
 }
@@ -110,6 +114,9 @@ dependencies {
 
 	modImplementation "maven.modrinth:shape-shifter-curse:${ssc_version}"
 	modRuntimeOnly "curse.maven:rich-translatable-text-1342784:7440321"  // 1.0.2
+
+	// compileOnly("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}")
+	// compileOnly("mezz.jei:jei-${project.minecraft_version}-fabric-api:${project.jei_version}")
 
 	// SSC 的依赖
 	modImplementation "maven.modrinth:playeranimator:cfkAgcOh"

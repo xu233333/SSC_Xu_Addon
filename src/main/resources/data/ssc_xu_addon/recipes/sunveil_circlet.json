@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "A A",
+    "ACA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "shape-shifter-curse:moondust_crystal_shard"
+    },
+    "C": {
+      "item": "ssc_xu_addon:blood_gem"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:sunveil_circlet",
+    "count": 1
+  }
+}

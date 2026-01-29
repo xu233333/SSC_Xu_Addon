@@ -108,6 +108,7 @@
   "item.ssc_xu_addon.blood_claw.tooltip": ["[Bat (Vampire) Form] Restore Blood Resource and HP on hit, and accumulate Blood to forge a Blood Gem."],
   "item.ssc_xu_addon.blood_claw.blood_amount": "Blood Amount: %s/%s",
   "item.ssc_xu_addon.blood_gem": ["Blood Gem"],
-  "item.ssc_xu_addon.blood_gem.tooltip": ["A strange power resides within this gem; crushing it should temporarily boost your abilities."],
+  "item.ssc_xu_addon.blood_gem.tooltip.1": ["A strange power resides within this gem; crushing it should temporarily boost your abilities."],
+  "item.ssc_xu_addon.blood_gem.tooltip.2": ["Can be found in Nether Fortresses and Ruined Portals."],
   "message.ssc_xu_addon.item.blood_gem.special_form": ["The Blood Gem has reacted uniquely with your form, transmuting you into a new shape."]
 }

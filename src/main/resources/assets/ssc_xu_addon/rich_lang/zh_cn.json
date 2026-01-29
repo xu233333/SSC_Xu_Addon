@@ -106,6 +106,7 @@
   "item.ssc_xu_addon.blood_claw.tooltip": ["[蝙蝠(吸血)形态]攻击时回复血资源条和生命值，并会积攒鲜血来生成鲜血宝石。"],
   "item.ssc_xu_addon.blood_claw.blood_amount": "鲜血量：%s/%s",
   "item.ssc_xu_addon.blood_gem": ["鲜血宝石"],
-  "item.ssc_xu_addon.blood_gem.tooltip": ["宝石中存在一股特殊的能量，捏碎它应该能临时强化一下自身。"],
+  "item.ssc_xu_addon.blood_gem.tooltip.1": ["宝石中存在一股特殊的能量，捏碎它应该能临时强化一下自身。"],
+  "item.ssc_xu_addon.blood_gem.tooltip.2": ["可以在下界要塞和废弃传送门中找到。"],
   "message.ssc_xu_addon.item.blood_gem.special_form": ["鲜血宝石与你的形态发生了特殊反应，你变化成了新的形态。"]
 }
