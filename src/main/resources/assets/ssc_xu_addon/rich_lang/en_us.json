@@ -69,7 +69,6 @@
     "Your body is now fully specialized for flight and gliding. Your hind legs can no longer support your body weight, forcing you to move slowly on the ground in a near-quadrupedal stance."
   ],
   "codex.form.ssc_xu_addon.bat_vampire.pros": [
-    "That mysterious gem now lets you manipulate the blood within your body to unlock special abilities.\n",
     "When your Blood Resource Bar is above 1/5, you will feel no hunger, and you can convert blood to restore your saturation.\n",
     "Your skin has also changed because of the gem—you are immune to instant damage and instant healing effects, and gain 4/5 resistance to magical damage.\n",
     "When your Blood Resource Bar is above 1/2, taking fatal damage will consume 3/10 of your blood to unleash Blood Step and escape in an emergency.\n",
@@ -82,14 +81,14 @@
     "By flapping your wing membranes, you can jump higher and descend slowly from heights. Naturally, they can also serve as elytra."
   ],
   "codex.form.ssc_xu_addon.bat_vampire.cons": [
+    "Because of the gem, you can no longer consume non-gilded food.\n",
+    "Your body craves blood with an overwhelming urgency—when your Blood Resource Bar falls below 1/10, it will automatically consume your health to restore blood. The lower your blood resource, the faster the conversion speed, and the conversion efficiency diminishes more and more.",
     "Due to the shift in your center of gravity, you can now only move slowly on the ground in a nearly quadrupedal posture.\n",
     "Sunlight now poses a fatal threat to you. Under sunlight, you take 1 point of damage every 2 seconds, suffer from Weakness, your Blood Resource Bar depletes twice as fast, take 1.5x additional damage, and the enhanced melee damage effect cannot be sustained.\n",
     "Your new skin seems extremely vulnerable to fire—you take double damage from fire sources.\n",
     "Your fore claws are no longer suited for grasping bulky tools and weapons. When you use them to dig hard blocks or swing them to hit monsters, they will merely slip off and drop. Naturally, you can also no longer operate bows or crossbows.\n",
-    "Your membrane wings and digitigrade leg structure make equipping chestplates, leggings, and boots impossible.\n",
-    "Because of the gem, you can no longer consume non-gilded food.\n",
-    "Your body craves blood with an overwhelming urgency—when your Blood Resource Bar falls below 1/10, it will automatically consume your health to restore blood. The lower your blood resource, the faster the conversion speed, and the conversion efficiency diminishes more and more."
-  ],
+    "Your membrane wings and digitigrade leg structure make equipping chestplates, leggings, and boots impossible.\n"
+    ],
   "codex.form.ssc_xu_addon.bat_vampire.instincts": [
     "\nPress Active Ability (1) to unleash Blood Spikes, firing 5 blood spikes at the target your gaze is locked on. Hitting a target restores your Blood Resource Bar and health, deals minor damage, and bypasses invincibility frames.\n",
     "Press Active Ability (2) to unleash Blood Step, teleporting to the location you point to, gaining Weakness and Invisibility, and causing nearby enemies to lose their target.\n",
