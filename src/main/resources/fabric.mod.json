@@ -30,6 +30,9 @@
 		],
 		"cardinal-components-entity": [
 			"xu_mod.SSCXuAddon.init.Init_CCA"
+		],
+		"modmenu": [
+			"xu_mod.SSCXuAddon.config.ConfigIntegration"
 		]
 	},
 	"custom": {

@@ -42,5 +42,12 @@
       "operation": "multiply_base",
       "value": 1.0
     }
+  },
+  "blind": {
+    "type": "ssc_xu_addon:fake_blind",
+    "use_client_config": true,
+    "condition": {
+      "type": "origins:sneaking"
+    }
   }
 }

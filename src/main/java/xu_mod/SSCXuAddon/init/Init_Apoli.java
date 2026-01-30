@@ -18,6 +18,7 @@ public class Init_Apoli {
         Init_Apoli.registerPower(RecoveryOnKillPower.createFactory());
         Init_Apoli.registerPower(AutoHpToManaPower.createFactory());
         Init_Apoli.registerPower(FallFlyingBoostPower.createFactory());
+        Init_Apoli.registerPower(FakeBlindPower.createFactory());
     }
 
     private static void init_Condition() {

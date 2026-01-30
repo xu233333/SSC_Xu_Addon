@@ -3,10 +3,13 @@ package xu_mod.SSCXuAddon.init;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import xu_mod.SSCXuAddon.command.SSC_Xu_Addon_Command;
 import xu_mod.SSCXuAddon.data.item.tools.BloodClaw;
+import xu_mod.SSCXuAddon.network.ModPacketsServer;
 import xu_mod.SSCXuAddon.powers.FireRingAction;
 
 public class Init_Event {
@@ -29,6 +32,17 @@ public class Init_Event {
         );
         CommandRegistrationCallback.EVENT.register(
                 (dispatcher, registryAccess, environment) -> SSC_Xu_Addon_Command.register(dispatcher)
+        );
+        ServerPlayConnectionEvents.JOIN.register(
+                (handler, sender, server) -> {
+                    new Thread(() -> {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                        }
+                        ModPacketsServer.sendPlayerLogin(handler.player);
+                    }).start();
+                }
         );
     }
 }

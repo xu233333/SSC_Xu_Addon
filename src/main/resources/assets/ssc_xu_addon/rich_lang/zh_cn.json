@@ -109,5 +109,8 @@
   "item.ssc_xu_addon.blood_gem": ["鲜血宝石"],
   "item.ssc_xu_addon.blood_gem.tooltip.1": ["宝石中存在一股特殊的能量，捏碎它应该能临时强化一下自身。"],
   "item.ssc_xu_addon.blood_gem.tooltip.2": ["可以在下界要塞和废弃传送门中找到。"],
-  "message.ssc_xu_addon.item.blood_gem.special_form": ["鲜血宝石与你的形态发生了特殊反应，你变化成了新的形态。"]
+  "message.ssc_xu_addon.item.blood_gem.special_form": ["鲜血宝石与你的形态发生了特殊反应，你变化成了新的形态。"],
+
+  "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
+  "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果"
 }
