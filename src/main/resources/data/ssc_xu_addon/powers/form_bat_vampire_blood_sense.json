@@ -1,0 +1,46 @@
+{
+  "type": "origins:multiple",
+  "glow": {
+    "type": "origins:entity_glow",
+    "bientity_condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:distance",
+          "comparison": "<=",
+          "compare_to": 64
+        },
+        {
+          "type": "origins:actor_condition",
+          "condition": {
+            "type": "origins:sneaking"
+          }
+        },
+        {
+          "type": "origins:actor_condition",
+          "condition": {
+            "type": "shape-shifter-curse:can_render_gui"
+          }
+        }
+      ]
+    },
+    "use_teams": false,
+    "red": 0.6,
+    "green": 0.0,
+    "blue": 0.0
+  },
+  "arrow_damage_up": {
+    "type": "origins:modify_projectile_damage",
+    "condition": {
+      "type": "origins:sneaking"
+    },
+    "damage_condition": {
+      "type": "origins:projectile",
+      "projectile": "minecraft:arrow"
+    },
+    "modifier": {
+      "operation": "multiply_base",
+      "value": 1.0
+    }
+  }
+}

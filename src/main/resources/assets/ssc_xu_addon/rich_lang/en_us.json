@@ -95,7 +95,8 @@
     "Using a Blood Gem restores 1/5 of your health and 1/2 of your Blood Resource Bar.\n",
     "While airborne, you can right-click 'use' the side face of a block while empty-handed to cling to it. While clinging, press jump while aiming in a direction to kick off for a high-speed glide in that direction.\n",
     "While airborne, you can right-click 'use' the underside of a block while empty-handed to hang yourself upside-down from it. While hanging upside-down, your health will slowly regenerate.\n",
-    "While flying, you can press the sprint key to consume your Blood Resource Bar and activate flight boost.\n"
+    "While flying, you can press the sprint key to consume your Blood Resource Bar and activate flight boost.\n",
+    "Press the sneak key to activate Blood Sense, highlighting nearby mobs and doubling damage dealt by arrows.\n"
   ],
 
   "item.ssc_xu_addon.charm_of_blood": ["Charm of Blood"],
