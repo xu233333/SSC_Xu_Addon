@@ -9,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.goal.PrioritizedGoal;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
@@ -16,10 +17,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.village.VillageGossipType;
+import net.minecraft.village.VillagerGossips;
 import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
 import xu_mod.SSCXuAddon.init.Init_CCA;
+import xu_mod.SSCXuAddon.utils.ExtraReputationTypes;
+import xu_mod.SSCXuAddon.utils.Interface.IVillagerEntityReputationEX;
 import xu_mod.SSCXuAddon.utils.RaycastUtils;
 
 import java.util.function.Consumer;
@@ -114,6 +119,37 @@ public class SomeRandomConditionAndAction {
                     }
                 }
         ));
+
+        BIActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("add_gossip"),
+                new SerializableData()
+                        .add("extra_reputation_type", SerializableDataTypes.STRING, null)
+                        .add("gossip_base", SerializableDataTypes.DOUBLE, 0.0d)
+                        .add("gossip_target", SerializableDataTypes.DOUBLE, 100.0d)
+                        .add("gossip_add_factor", SerializableDataTypes.DOUBLE, 0.15d),
+                (data, entityPair) -> {
+                    String extraReputationType = data.get("extra_reputation_type");
+                    if (extraReputationType == null) {
+                        return;
+                    }
+                    ExtraReputationTypes extraReputationTypes;
+                    try {
+                        extraReputationTypes = ExtraReputationTypes.valueOf(extraReputationType);
+                    } catch (IllegalArgumentException e) {
+                        return;
+                    }
+                    double gossipBase = data.getDouble("gossip_base");
+                    double gossipTarget = data.getDouble("gossip_target");
+                    double gossipAddFactor = data.getDouble("gossip_add_factor");
+                    Entity actor = entityPair.getLeft();
+                    Entity target = entityPair.getRight();
+                    if (actor instanceof PlayerEntity player && target instanceof IVillagerEntityReputationEX villager) {
+                        double extra_gossip = villager.SSC_Xu_Addon$getExtraReputation(player.getUuid(), extraReputationTypes);
+                        extra_gossip += Math.max(gossipBase, gossipAddFactor * (gossipTarget - extra_gossip));
+                        villager.SSC_Xu_Addon$setExtraReputation(player.getUuid(), extraReputationTypes, extra_gossip);
+                    }
+                })
+        );
     }
 
 

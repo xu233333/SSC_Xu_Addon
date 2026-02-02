@@ -7,7 +7,8 @@
 	"mixins": [
 		"LivingEntityMixin",
 		"ProjectileEntityMixin",
-		"SmallFireBallEntityMixin"
+		"SmallFireBallEntityMixin",
+		"VillagerEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

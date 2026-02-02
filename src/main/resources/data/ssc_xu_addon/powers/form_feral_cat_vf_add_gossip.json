@@ -1,0 +1,15 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:selector_action",
+    "selector": "@e[distance=0..16,limit=1,type=minecraft:villager]",
+    "bientity_action": {
+      "type": "ssc_xu_addon:add_gossip",
+      "extra_reputation_type": "CAT_VF",
+      "gossip_base": 10.0,
+      "gossip_target": 150.0,
+      "gossip_add_factor": 0.10
+    }
+  },
+  "interval": 600
+}
