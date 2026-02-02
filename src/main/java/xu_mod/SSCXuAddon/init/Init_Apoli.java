@@ -1,5 +1,7 @@
 package xu_mod.SSCXuAddon.init;
 
+import io.github.apace100.apoli.power.PowerType;
+import io.github.apace100.apoli.power.PowerTypeReference;
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
@@ -7,9 +9,13 @@ import io.github.apace100.apoli.registry.ApoliRegistries;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Pair;
+import net.onixary.shapeShifterCurseFabric.ShapeShifterCurseFabric;
+import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.powers.*;
 
 public class Init_Apoli {
+    public static final PowerType<?> IronGolemFriendlyV1 = new PowerTypeReference<>(SSCXuAddon.identifier("iron_golem_friendly_v1"));  // 攻击铁傀儡是否会还击
+    public static final PowerType<?> IronGolemFriendlyV2 = new PowerTypeReference<>(SSCXuAddon.identifier("iron_golem_friendly_v2"));  // 被打后铁傀儡会不会支援
 
     private static void init_Power() {
         Init_Apoli.registerPower(LeveledManaPower.createFactory());

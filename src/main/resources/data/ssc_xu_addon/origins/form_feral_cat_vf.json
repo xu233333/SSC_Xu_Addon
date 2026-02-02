@@ -10,7 +10,10 @@
         "shape-shifter-curse:form_ocelot_sound",
         "shape-shifter-curse:form_ocelot_sound_hurt",
         "shape-shifter-curse:form_ocelot_hiss_phantom",
-        "shape-shifter-curse:form_ocelot_sound_key"
+        "shape-shifter-curse:form_ocelot_sound_key",
+
+        "ssc_xu_addon:iron_golem_friendly_v1",
+        "ssc_xu_addon:iron_golem_friendly_v2"
     ],
     "icon": {
         "item": "minecraft:player_head"

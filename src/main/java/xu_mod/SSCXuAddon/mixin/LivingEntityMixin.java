@@ -1,15 +1,19 @@
 package xu_mod.SSCXuAddon.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.tag.DamageTypeTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import xu_mod.SSCXuAddon.init.Init_Apoli;
 import xu_mod.SSCXuAddon.powers.LeveledManaModifyDamageDealtPower;
-
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
@@ -25,5 +29,31 @@ public class LivingEntityMixin {
             }
         }
         return newValue;
+    }
+
+    @Inject(method = "canTarget(Lnet/minecraft/entity/LivingEntity;)Z", at = @At("RETURN"), cancellable = true)
+    private void canTarget(LivingEntity target, CallbackInfoReturnable<Boolean> cir) {
+        if ((Object)this instanceof IronGolemEntity) {
+            if (cir.getReturnValueZ() && Init_Apoli.IronGolemFriendlyV1.isActive(target)) {
+                cir.setReturnValue(false);
+            }
+        }
+    }
+
+    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
+    private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        LivingEntity realThis = (LivingEntity)(Object)this;
+        Entity attacker = source.getAttacker();
+        if (attacker instanceof LivingEntity attackerLE) {
+            if (Init_Apoli.IronGolemFriendlyV2.isActive(realThis)) {
+                realThis.getWorld().getOtherEntities(realThis, realThis.getBoundingBox().expand(16, 5, 16), (entity -> entity instanceof IronGolemEntity)).forEach(entity -> {
+                    IronGolemEntity golem = (IronGolemEntity) entity;
+                    golem.setAngryAt(attacker.getUuid());
+                    golem.setAngerTime(600);  // 原版1~2秒 现在30秒
+                    golem.setTarget(attackerLE);
+                    return;
+                });
+            }
+        }
     }
 }
