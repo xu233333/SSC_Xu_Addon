@@ -20,7 +20,9 @@
         "ssc_xu_addon:form_feral_cat_vf_half_health",
         "ssc_xu_addon:form_feral_cat_vf_buff",
         "ssc_xu_addon:form_feral_cat_vf_jump_boost",
-        "ssc_xu_addon:form_feral_cat_speed_up"
+        "ssc_xu_addon:form_feral_cat_speed_up",
+        "ssc_xu_addon:form_feral_cat_vf_digging_speed_down",
+        "ssc_xu_addon:form_feral_cat_vf_water_debuff"
     ],
     "icon": {
         "item": "minecraft:player_head"

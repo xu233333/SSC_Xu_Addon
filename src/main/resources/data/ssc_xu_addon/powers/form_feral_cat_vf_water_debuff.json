@@ -1,0 +1,30 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:apply_effect",
+    "effects": [
+      {
+        "effect": "minecraft:mining_fatigue",
+        "duration": 200,
+        "amplifier": 1,
+        "show_particles": false,
+        "show_icon": true
+      },
+      {
+        "effect": "minecraft:weakness",
+        "duration": 300,
+        "amplifier": 0,
+        "show_particles": false,
+        "show_icon": true
+      }
+
+    ]
+  },
+  "interval": 10,
+  "condition": {
+    "type": "origins:fluid_height",
+    "fluid": "minecraft:water",
+    "comparison": ">",
+    "compare_to": 0
+  }
+}
