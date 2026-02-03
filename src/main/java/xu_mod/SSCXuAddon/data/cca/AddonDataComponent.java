@@ -36,8 +36,12 @@ public class AddonDataComponent implements AutoSyncedComponent {
         cooldownData.put(id, componentOwner.getWorld().getTime());
     }
 
+    public void resetCooldown(Identifier id) {
+        cooldownData.remove(id);
+    }
+
     public boolean isNotInCooldown(Identifier id, long cooldown) {
-        return cooldownData.getOrDefault(id, 0L) + cooldown <= componentOwner.getWorld().getTime();
+        return cooldownData.getOrDefault(id, -1728000L) + cooldown <= componentOwner.getWorld().getTime();
     }
 
     public AddonDataComponent(PlayerEntity player) {

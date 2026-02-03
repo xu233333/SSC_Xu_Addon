@@ -1,0 +1,16 @@
+{
+  "type": "origins:conditioned_attribute",
+  "modifier": {
+    "name": "half health",
+    "attribute": "minecraft:generic.max_health",
+    "value": -0.5,
+    "operation": "multiply_base"
+  },
+  "tick_rate": 10,
+  "condition": {
+    "type": "ssc_xu_addon:is_not_cooldown",
+    "cooldown_id": "ssc_xu_addon:feral_cat_undying",
+    "cooldown_time": 12000,
+    "inverted": true
+  }
+}

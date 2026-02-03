@@ -1,0 +1,40 @@
+{
+  "type": "shape-shifter-curse:virtual_totem",
+  "virtual_totem_type": 0,
+  "totem_stack": {
+    "item": "minecraft:air",
+    "count": 1
+  },
+  "entity_actions": [
+    {
+      "type": "ssc_xu_addon:trigger_cooldown",
+      "cooldown_id": "ssc_xu_addon:feral_cat_undying"
+    }
+  ],
+  "totem_health": 20,
+  "totem_status_effects": [
+    {
+      "effect": "minecraft:absorption",
+      "duration": 1200,
+      "amplifier": 1,
+      "show_particles": false,
+      "show_icon": true
+    },
+    {
+      "effect": "minecraft:fire_resistance",
+      "duration": 1200,
+      "amplifier": 0,
+      "show_particles": false,
+      "show_icon": true
+    }
+  ],
+  "cooldown": 1,
+  "hud_render": {
+    "should_render": false
+  },
+  "condition": {
+    "type": "ssc_xu_addon:is_not_cooldown",
+    "cooldown_id": "ssc_xu_addon:feral_cat_undying",
+    "cooldown_time": 12000
+  }
+}

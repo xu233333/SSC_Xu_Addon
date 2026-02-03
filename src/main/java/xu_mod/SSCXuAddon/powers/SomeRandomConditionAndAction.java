@@ -9,7 +9,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.goal.PrioritizedGoal;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
@@ -17,8 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.village.VillageGossipType;
-import net.minecraft.village.VillagerGossips;
 import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
@@ -41,6 +38,20 @@ public class SomeRandomConditionAndAction {
                             if (entity instanceof PlayerEntity playerEntity && cooldown_id != null) {
                                 AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(playerEntity);
                                 addonDataComponent.triggerCooldown(cooldown_id);
+                            }
+                        }
+                )
+        );
+        ActionRegister.accept(
+                new ActionFactory<>(
+                        SSCXuAddon.identifier("reset_cooldown"),
+                        new SerializableData()
+                                .add("cooldown_id", SerializableDataTypes.IDENTIFIER, null),
+                        (data, entity) -> {
+                            Identifier cooldown_id = data.get("cooldown_id");
+                            if (entity instanceof PlayerEntity playerEntity && cooldown_id != null) {
+                                AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(playerEntity);
+                                addonDataComponent.resetCooldown(cooldown_id);
                             }
                         }
                 )

@@ -12,9 +12,12 @@
         "shape-shifter-curse:form_ocelot_hiss_phantom",
         "shape-shifter-curse:form_ocelot_sound_key",
 
+        "ssc_xu_addon:form_feral_cat_vf_health",
         "ssc_xu_addon:iron_golem_friendly_v1",
         "ssc_xu_addon:iron_golem_friendly_v2",
-        "ssc_xu_addon:form_feral_cat_vf_add_gossip"
+        "ssc_xu_addon:form_feral_cat_vf_add_gossip",
+        "ssc_xu_addon:form_feral_cat_vf_undying",
+        "ssc_xu_addon:form_feral_cat_vf_half_health"
     ],
     "icon": {
         "item": "minecraft:player_head"
