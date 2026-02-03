@@ -137,17 +137,18 @@
     "你的后肢结构使你无法穿戴任何护腿与靴子\n"
   ],
   "codex.form.ssc_xu_addon.feral_cat_vf.instincts": [
-    "\n\n\n与其它形态相比，你觉察到你当前的形态似乎有些“特别之处”：它并没有对你的内心造成太多影响，似乎也没有那么稳定。如果你希望的话，应该可以较为容易地将其逆转",
+    "\n与其它形态相比，你觉察到你当前的形态似乎有些“特别之处”：它并没有对你的内心造成太多影响，似乎也没有那么稳定。如果你希望的话，应该可以较为容易地将其逆转\n\n\n",
     "\n按主动能力(1)可以刷新附近村民的交易选项，并获得交易声誉提升",
     "\n按主动能力(2)可以从身上制造绿宝石，有小概率产出钻石(消耗生命值来减少冷却)",
     "\n使用绿宝石精粹可以召唤一只铁傀儡，并使你隐身15秒并清除附近仇恨"
   ],
   "item.ssc_xu_addon.emerald_essence": ["绿宝石精粹"],
-  "message.ssc_xu_addon.emerald_essence.tooltip": ["使用大量绿宝石内部的魔力制作得来，某些形态似乎能利用它施法，破坏它好像可以获得一些绿宝石。"],
-  "item_ssc_xu_addon.charm_of_emerald": ["绿宝石护符"],
-  "item_ssc_xu_addon.charm_of_emerald.tooltip": ["[猫(村庄之友)形态]提升村民降价幅度(提升村庄英雄等级)"],
-  "item_ssc_xu_addon:anklet_of_the_witchs_familiar": ["女巫之友脚环"],
-  "item_ssc_xu_addon:anklet_of_the_witchs_familiar.tooltip": ["[猫(村庄之友)形态]这件饰品上的魔力让你被掠夺者误认为是女巫的使魔，因而保持中立，但如果你主动攻击，掠夺者将会识破你的伪装。"],
+  "message.ssc_xu_addon.item.emerald_essence.special_form": ["你吸收了绿宝石精粹里的魔力，里面的魔力让你变化成了新的形态。"],
+  "item.ssc_xu_addon.emerald_essence.tooltip": ["使用大量绿宝石内部的魔力制作得来，某些形态似乎能利用它施法，破坏它好像可以获得一些绿宝石。"],
+  "item.ssc_xu_addon.charm_of_emerald": ["绿宝石护符"],
+  "item.ssc_xu_addon.charm_of_emerald.tooltip": ["[猫(村庄之友)形态]提升村民降价幅度(提升村庄英雄等级)"],
+  "item.ssc_xu_addon.anklet_of_the_witch_familiar": ["女巫之友脚环"],
+  "item.ssc_xu_addon.anklet_of_the_witch_familiar.tooltip": ["[猫(村庄之友)形态]这件饰品上的魔力让你被掠夺者误认为是女巫的使魔，因而保持中立，但如果你主动攻击，掠夺者将会识破你的伪装。"],
 
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果"

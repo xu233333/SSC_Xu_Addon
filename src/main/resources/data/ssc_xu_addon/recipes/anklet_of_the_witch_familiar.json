@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "BDB",
+    " C "
+  ],
+  "key": {
+    "B": {
+      "item": "shape-shifter-curse:moondust_crystal_shard"
+    },
+    "C": {
+      "item": "ssc_xu_addon:emerald_essence"
+    },
+    "D": {
+      "item": "shape-shifter-curse:amulet_bracelet"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:anklet_of_the_witch_familiar",
+    "count": 1
+  }
+}

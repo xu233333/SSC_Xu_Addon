@@ -139,18 +139,19 @@
     "The structure of your hind limbs prevents you from wearing any leggings or boots\n"
   ],
   "codex.form.ssc_xu_addon.feral_cat_vf.instincts": [
-    "\n\n\nCompared to other forms, you notice this one seems \"special\": it barely affects your mind and feels less stable. If desired, you could likely revert it relatively easily",
+    "\nCompared to other forms, you notice this one seems \"special\": it barely affects your mind and feels less stable. If desired, you could likely revert it relatively easily\n\n\n",
     "\nPress Active Ability (1) to refresh the trades of nearby villagers and gain trading reputation",
     "\nPress Active Ability (2) to produce emeralds from your body, with a small chance to yield diamonds (consumes health to reduce cooldown)",
     "\nUse Emerald Essence to summon an Iron Golem, turning yourself invisible for 15 seconds and clearing nearby hostility"
   ],
 
   "item.ssc_xu_addon.emerald_essence": ["Emerald Essence"],
-  "message.ssc_xu_addon.emerald_essence.tooltip": ["Crafted from the concentrated magic within vast amounts of emeralds. Some forms seem capable of casting spells with it. Breaking it appears to yield some emeralds."],
+  "message.ssc_xu_addon.item.emerald_essence.special_form": ["You have absorbed the magic within the Emerald Essence, and the power contained within it has transformed you into a new form."],
+  "item.ssc_xu_addon.emerald_essence.tooltip": ["Crafted from the concentrated magic within vast amounts of emeralds. Some forms seem capable of casting spells with it. Breaking it appears to yield some emeralds."],
   "item.ssc_xu_addon.charm_of_emerald": ["Charm of the Emerald"],
   "item.ssc_xu_addon.charm_of_emerald.tooltip": ["[Cat (Village Friend) Form] Improves villager discount rates (increases Hero of the Village effect)."],
-  "item.ssc_xu_addon.anklet_of_the_witchs_familiar": ["Witch's Familiar Anklet"],
-  "item.ssc_xu_addon.anklet_of_the_witchs_familiar.tooltip": ["[Cat (Village Friend) Form] The magic on this trinket causes pillagers to mistake you for a witch's familiar, making them neutral. However, if you initiate an attack, pillagers will see through the ruse."],
+  "item.ssc_xu_addon.anklet_of_the_witch_familiar": ["Witch's Familiar Anklet"],
+  "item.ssc_xu_addon.anklet_of_the_witch_familiar.tooltip": ["[Cat (Village Friend) Form] The magic on this trinket causes pillagers to mistake you for a witch's familiar, making them neutral. However, if you initiate an attack, pillagers will see through the ruse."],
 
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - Player Custom Config",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "Enable Power Blindness Effect"
