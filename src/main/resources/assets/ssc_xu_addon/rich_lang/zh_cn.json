@@ -112,9 +112,42 @@
   "message.ssc_xu_addon.item.blood_gem.special_form": ["鲜血宝石与你的形态发生了特殊反应，你变化成了新的形态。"],
 
   "codex.form.ssc_xu_addon.feral_cat_vf.name": ["猫(村庄之友)"],
-
+  "codex.form.ssc_xu_addon.feral_cat_vf.title": [
+    "\n通过吸收绿宝石精粹内的魔力，你的身上长出了一些绿宝石，现在村民十分喜欢你。",
+    "\n\n专属饰品/工具：[绿宝石护符],[女巫之友脚环]"
+  ],
+  "codex.form.ssc_xu_addon.feral_cat_vf.appearance": [
+    "你的身体化为一只优雅的黑猫，毛皮如夜色般光滑，双眼闪烁着聪慧的微光。\n",
+    "绿宝石的精粹已与你融为一体，数枚细小的、未经雕琢的天然绿宝石晶体，如同生长的鳞片或宝石簇，点缀在你的身上。\n",
+    "你的后肢结构为轻盈敏捷而特化，这让你落地无声且动作灵巧，但也因此无法穿戴常规的护腿与靴子。\n\n"
+  ],
+  "codex.form.ssc_xu_addon.feral_cat_vf.pros": [
+    "你散发着令村庄安心的气息，拥有永久性的村庄英雄II效果，与村民交易获得大幅优惠\n",
+    "你被村庄铁傀儡视为保护对象，其他玩家攻击你时如同攻击村民\n",
+    "你会周期性、被动地提升附近村民的声誉（效果随距离增加而减弱）\n",
+    "由于猫的眼睛，你现在拥有一定的夜视能力\n",
+    "你的轻盈身体让你免疫摔落伤害，并且行走时无声，跳跃能力也显著增强\n",
+    "你从女巫那里学到一些炼药知识，你现在可以快速制作部分的药水，并且可以堆叠8瓶相同的药水\n",
+    "由于你现在的样貌，怕猫的苦力怕和幻翼不会主动对你发起攻击\n",
+    "当你受到致命伤害时，会消耗50%的生命值上限（持续10分钟）来避免死亡，该效果有10分钟冷却时间"
+  ],
+  "codex.form.ssc_xu_addon.feral_cat_vf.cons": [
+    "由于你的爪子不太适合挖掘，你的挖掘速度相对较慢\n",
+    "接触水会让你感到极度不适，你会降低挖掘和攻击速度，并让近战攻击力下降\n",
+    "你的后肢结构使你无法穿戴任何护腿与靴子\n"
+  ],
+  "codex.form.ssc_xu_addon.feral_cat_vf.instincts": [
+    "\n\n\n与其它形态相比，你觉察到你当前的形态似乎有些“特别之处”：它并没有对你的内心造成太多影响，似乎也没有那么稳定。如果你希望的话，应该可以较为容易地将其逆转",
+    "\n按主动能力(1)可以刷新附近村民的交易选项，并获得交易声誉提升",
+    "\n按主动能力(2)可以从身上制造绿宝石，有小概率产出钻石(消耗生命值来减少冷却)",
+    "\n使用绿宝石精粹可以召唤一只铁傀儡，并使你隐身15秒并清除附近仇恨"
+  ],
   "item.ssc_xu_addon.emerald_essence": ["绿宝石精粹"],
   "message.ssc_xu_addon.emerald_essence.tooltip": ["使用大量绿宝石内部的魔力制作得来，某些形态似乎能利用它施法，破坏它好像可以获得一些绿宝石。"],
+  "item_ssc_xu_addon.charm_of_emerald": ["绿宝石护符"],
+  "item_ssc_xu_addon.charm_of_emerald.tooltip": ["[猫(村庄之友)形态]提升村民降价幅度(提升村庄英雄等级)"],
+  "item_ssc_xu_addon:anklet_of_the_witchs_familiar": ["女巫之友脚环"],
+  "item_ssc_xu_addon:anklet_of_the_witchs_familiar.tooltip": ["[猫(村庄之友)形态]这件饰品上的魔力让你被掠夺者误认为是女巫的使魔，因而保持中立，但如果你主动攻击，掠夺者将会识破你的伪装。"],
 
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果"

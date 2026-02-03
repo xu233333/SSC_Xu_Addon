@@ -113,6 +113,45 @@
   "item.ssc_xu_addon.blood_gem.tooltip.2": ["Can be found in Nether Fortresses and Ruined Portals."],
   "message.ssc_xu_addon.item.blood_gem.special_form": ["The Blood Gem has reacted uniquely with your form, transmuting you into a new shape."],
 
+  "codex.form.ssc_xu_addon.feral_cat_vf.name": ["Cat (Village Friend)"],
+  "codex.form.ssc_xu_addon.feral_cat_vf.title": [
+    "\nBy absorbing the magic within Emerald Essence, emeralds have grown upon your body, and villagers now adore you.",
+    "\n\nExclusive trinkets/tools: [Charm of the Emerald], [Witch‘s Familiar Anklet]"
+  ],
+  "codex.form.ssc_xu_addon.feral_cat_vf.appearance": [
+    "Your body has transformed into an elegant black cat, with fur as smooth as night and eyes gleaming with intelligence.\n",
+    "The essence of emeralds has merged with you. Several small, uncut natural emerald crystals, like growing scales or gem clusters, now adorn your body.\n",
+    "Your hind limb structure is specialized for agility and lightness, allowing you to land silently and move deftly, but preventing you from wearing conventional leggings or boots.\n\n"
+  ],
+  "codex.form.ssc_xu_addon.feral_cat_vf.pros": [
+    "You radiate an aura that reassures villages, granting a permanent Hero of the Village II effect and significant discounts with villagers\n",
+    "You are protected by village Iron Golems; other players attacking you is treated as attacking a villager\n",
+    "You periodically and passively improve the reputation of nearby villagers (effect diminishes with distance)\n",
+    "Due to a cat's eyes, you now possess a degree of Night Vision\n",
+    "Your light body makes you immune to fall damage, allows you to move silently, and significantly enhances your jumping ability\n",
+    "You've learned some alchemy from witches. You can now brew certain potions quickly and can stack up to 8 identical potions\n",
+    "Due to your current appearance, cat-phobic Creepers and Phantoms will not initiate attacks against you\n",
+    "When you would take fatal damage, you consume 50% of your max health (for 10 minutes) to avoid death. This effect has a 10-minute cooldown"
+  ],
+  "codex.form.ssc_xu_addon.feral_cat_vf.cons": [
+    "As your claws are less suited for digging, your mining speed is relatively slow\n",
+    "Contact with water causes you great discomfort, reducing your mining and attack speed, and lowering your melee damage\n",
+    "The structure of your hind limbs prevents you from wearing any leggings or boots\n"
+  ],
+  "codex.form.ssc_xu_addon.feral_cat_vf.instincts": [
+    "\n\n\nCompared to other forms, you notice this one seems \"special\": it barely affects your mind and feels less stable. If desired, you could likely revert it relatively easily",
+    "\nPress Active Ability (1) to refresh the trades of nearby villagers and gain trading reputation",
+    "\nPress Active Ability (2) to produce emeralds from your body, with a small chance to yield diamonds (consumes health to reduce cooldown)",
+    "\nUse Emerald Essence to summon an Iron Golem, turning yourself invisible for 15 seconds and clearing nearby hostility"
+  ],
+
+  "item.ssc_xu_addon.emerald_essence": ["Emerald Essence"],
+  "message.ssc_xu_addon.emerald_essence.tooltip": ["Crafted from the concentrated magic within vast amounts of emeralds. Some forms seem capable of casting spells with it. Breaking it appears to yield some emeralds."],
+  "item.ssc_xu_addon.charm_of_emerald": ["Charm of the Emerald"],
+  "item.ssc_xu_addon.charm_of_emerald.tooltip": ["[Cat (Village Friend) Form] Improves villager discount rates (increases Hero of the Village effect)."],
+  "item.ssc_xu_addon.anklet_of_the_witchs_familiar": ["Witch's Familiar Anklet"],
+  "item.ssc_xu_addon.anklet_of_the_witchs_familiar.tooltip": ["[Cat (Village Friend) Form] The magic on this trinket causes pillagers to mistake you for a witch's familiar, making them neutral. However, if you initiate an attack, pillagers will see through the ruse."],
+
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - Player Custom Config",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "Enable Power Blindness Effect"
 }
