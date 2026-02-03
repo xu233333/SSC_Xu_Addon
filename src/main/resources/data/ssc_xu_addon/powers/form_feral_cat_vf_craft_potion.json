@@ -1,0 +1,129 @@
+{
+  "type": "origins:multiple",
+  "harming_potion": {
+    "type": "origins:item_on_item",
+    "using_item_condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:potion"
+          }
+        },
+        {
+          "type": "origins:amount",
+          "comparison": ">=",
+          "compare_to": 3
+        }
+      ]
+    },
+    "on_item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:fermented_spider_eye"
+      }
+    },
+    "using_item_action": {
+      "type": "origins:consume",
+      "amount": 3
+    },
+    "on_item_action": {
+      "type": "origins:consume",
+      "amount": 1
+    },
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:execute_command",
+          "command": "/give @p minecraft:splash_potion{Potion:\"minecraft:strong_harming\"} 3"
+        }
+      ]
+    }
+  },
+  "healing_potion": {
+    "type": "origins:item_on_item",
+    "using_item_condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:potion"
+          }
+        },
+        {
+          "type": "origins:amount",
+          "comparison": ">=",
+          "compare_to": 3
+        }
+      ]
+    },
+    "on_item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:glistering_melon_slice"
+      }
+    },
+    "using_item_action": {
+      "type": "origins:consume",
+      "amount": 3
+    },
+    "on_item_action": {
+      "type": "origins:consume",
+      "amount": 1
+    },
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:execute_command",
+          "command": "/give @p minecraft:splash_potion{Potion:\"minecraft:strong_healing\"} 3"
+        }
+      ]
+    }
+  },
+  "poison_potion": {
+    "type": "origins:item_on_item",
+    "using_item_condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:potion"
+          }
+        },
+        {
+          "type": "origins:amount",
+          "comparison": ">=",
+          "compare_to": 3
+        }
+      ]
+    },
+    "on_item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:spider_eye"
+      }
+    },
+    "using_item_action": {
+      "type": "origins:consume",
+      "amount": 3
+    },
+    "on_item_action": {
+      "type": "origins:consume",
+      "amount": 1
+    },
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:execute_command",
+          "command": "/give @p minecraft:splash_potion{Potion:\"minecraft:strong_poison\"} 3"
+        }
+      ]
+    }
+  }
+}

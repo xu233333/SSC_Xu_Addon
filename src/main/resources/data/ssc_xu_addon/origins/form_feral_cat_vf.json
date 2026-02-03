@@ -12,19 +12,24 @@
         "shape-shifter-curse:form_ocelot_hiss_phantom",
         "shape-shifter-curse:form_ocelot_sound_key",
 
+        "shape-shifter-curse:modify_potion_stack_8",
+
+        "ssc_xu_addon:cat_vision",
         "ssc_xu_addon:form_feral_cat_vf_health",
         "ssc_xu_addon:iron_golem_friendly_v1",
         "ssc_xu_addon:iron_golem_friendly_v2",
         "ssc_xu_addon:form_feral_cat_vf_add_gossip",
         "ssc_xu_addon:form_feral_cat_vf_undying",
         "ssc_xu_addon:form_feral_cat_vf_half_health",
-        "ssc_xu_addon:form_feral_cat_vf_buff",
+        "ssc_xu_addon:form_feral_cat_vf_hotv1",
         "ssc_xu_addon:form_feral_cat_vf_jump_boost",
         "ssc_xu_addon:form_feral_cat_speed_up",
         "ssc_xu_addon:form_feral_cat_vf_digging_speed_down",
         "ssc_xu_addon:form_feral_cat_vf_water_debuff",
         "ssc_xu_addon:form_feral_cat_vf_force_restock",
-        "ssc_xu_addon:form_feral_cat_vf_create_emerald"
+        "ssc_xu_addon:form_feral_cat_vf_create_emerald",
+        "ssc_xu_addon:form_feral_cat_vf_emerald_essence",
+        "ssc_xu_addon:form_feral_cat_vf_craft_potion"
     ],
     "icon": {
         "item": "minecraft:player_head"

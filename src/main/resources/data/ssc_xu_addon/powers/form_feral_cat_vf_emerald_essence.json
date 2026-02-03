@@ -1,0 +1,31 @@
+{
+  "type": "origins:action_on_item_use",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:apply_effect",
+        "effects": [
+          {
+            "effect": "minecraft:invisibility",
+            "duration": 300,
+            "amplifier": 0,
+            "show_particles": false,
+            "show_icon": true
+          }
+        ]
+      },
+      {
+        "type": "ssc_xu_addon:area_enemy_forget",
+        "range": 64,
+        "only_self": true
+      }
+    ]
+  },
+  "item_condition": {
+    "type": "origins:ingredient",
+    "ingredient": {
+      "item": "ssc_xu_addon:emerald_essence"
+    }
+  }
+}

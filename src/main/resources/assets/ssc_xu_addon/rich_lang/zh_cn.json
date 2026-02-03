@@ -111,6 +111,11 @@
   "item.ssc_xu_addon.blood_gem.tooltip.2": ["可以在下界要塞和废弃传送门中找到。"],
   "message.ssc_xu_addon.item.blood_gem.special_form": ["鲜血宝石与你的形态发生了特殊反应，你变化成了新的形态。"],
 
+  "codex.form.ssc_xu_addon.feral_cat_vf.name": ["猫(村庄之友)"],
+
+  "item.ssc_xu_addon.emerald_essence": ["绿宝石精粹"],
+  "message.ssc_xu_addon.emerald_essence.tooltip": ["使用大量绿宝石内部的魔力制作得来，某些形态似乎能利用它施法，破坏它好像可以获得一些绿宝石。"],
+
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果"
 }

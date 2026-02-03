@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BAB",
+    "ACA",
+    "BAB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:emerald_block"
+    },
+    "B": {
+      "item": "minecraft:gold_ingot"
+    },
+    "C": {
+      "item": "shape-shifter-curse:moondust_crystal_shard"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:emerald_essence",
+    "count": 1
+  }
+}
