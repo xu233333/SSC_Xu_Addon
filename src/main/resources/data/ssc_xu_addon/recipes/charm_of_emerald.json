@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " B ",
+    " A ",
     "BDB",
     " C "
   ],
@@ -10,13 +10,13 @@
       "item": "minecraft:string"
     },
     "B": {
-      "item": "shape-shifter-curse:moondust_crystal_shard"
+      "item": "minecraft:iron_ingot"
     },
     "C": {
       "item": "ssc_xu_addon:emerald_essence"
     },
     "D": {
-      "item": "minecraft:iron_ingot"
+      "item": "shape-shifter-curse:moondust_crystal_shard"
     }
   },
   "result": {
