@@ -9,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.goal.PrioritizedGoal;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
@@ -16,6 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.village.VillageGossipType;
 import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
@@ -130,9 +132,22 @@ public class SomeRandomConditionAndAction {
                     }
                 }
         ));
+        BIActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("add_gossip_trade"),
+                new SerializableData()
+                        .add("value", SerializableDataTypes.INT, 0),
+                (data, entityPair) -> {
+                    int value = data.getInt("value");
+                    Entity actor = entityPair.getLeft();
+                    Entity target = entityPair.getRight();
+                    if (actor instanceof PlayerEntity player && target instanceof VillagerEntity villager) {
+                        villager.getGossip().startGossip(player.getUuid(), VillageGossipType.TRADING, value);
+                    }
+                }
+        ));
 
         BIActionRegister.accept(new ActionFactory<>(
-                SSCXuAddon.identifier("add_gossip"),
+                SSCXuAddon.identifier("add_gossip_extra"),
                 new SerializableData()
                         .add("extra_reputation_type", SerializableDataTypes.STRING, null)
                         .add("gossip_base", SerializableDataTypes.DOUBLE, 0.0d)
@@ -161,6 +176,15 @@ public class SomeRandomConditionAndAction {
                     }
                 })
         );
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("restock_trade"),
+                new SerializableData(),
+                (data, entity) -> {
+                    if (entity instanceof VillagerEntity villager) {
+                        villager.restock();
+                    }
+                }
+        ));
     }
 
 

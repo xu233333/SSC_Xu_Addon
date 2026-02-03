@@ -4,7 +4,7 @@
     "type": "origins:selector_action",
     "selector": "@e[distance=0..16,limit=1,type=minecraft:villager]",
     "bientity_action": {
-      "type": "ssc_xu_addon:add_gossip",
+      "type": "ssc_xu_addon:add_gossip_extra",
       "extra_reputation_type": "CAT_VF",
       "gossip_base": 10.0,
       "gossip_target": 150.0,
