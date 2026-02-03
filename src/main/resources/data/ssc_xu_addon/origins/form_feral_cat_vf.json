@@ -17,7 +17,10 @@
         "ssc_xu_addon:iron_golem_friendly_v2",
         "ssc_xu_addon:form_feral_cat_vf_add_gossip",
         "ssc_xu_addon:form_feral_cat_vf_undying",
-        "ssc_xu_addon:form_feral_cat_vf_half_health"
+        "ssc_xu_addon:form_feral_cat_vf_half_health",
+        "ssc_xu_addon:form_feral_cat_vf_buff",
+        "ssc_xu_addon:form_feral_cat_vf_jump_boost",
+        "ssc_xu_addon:form_feral_cat_speed_up"
     ],
     "icon": {
         "item": "minecraft:player_head"

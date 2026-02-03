@@ -1,0 +1,12 @@
+{
+  "type": "shape-shifter-curse:apply_effect",
+  "status_effects": [
+    {
+      "effect": "minecraft:hero_of_the_village",
+      "duration": 1000000000,
+      "amplifier": 1,
+      "show_particles": false,
+      "show_icon": false
+    }
+  ]
+}

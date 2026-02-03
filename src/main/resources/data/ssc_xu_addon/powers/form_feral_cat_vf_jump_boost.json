@@ -1,0 +1,43 @@
+{
+  "type": "origins:multiple",
+  "sprint": {
+    "type": "origins:modify_jump",
+    "modifier": {
+      "operation": "addition",
+      "value": 0.18
+    },
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "origins:food_level",
+          "comparison": ">=",
+          "compare_to": 6
+        }
+      ]
+    }
+  },
+  "sneak": {
+    "type": "origins:modify_jump",
+    "modifier": {
+      "operation": "addition",
+      "value": 0.6
+    },
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sneaking"
+        },
+        {
+          "type": "origins:food_level",
+          "comparison": ">=",
+          "compare_to": 6
+        }
+      ]
+    }
+  }
+}
