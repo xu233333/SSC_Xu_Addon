@@ -24,8 +24,8 @@ public class AddonDataComponent implements AutoSyncedComponent {
         return cooldownData;
     }
 
-    public long getCooldown(Identifier id) {
-        return cooldownData.getOrDefault(id, 0L);
+    public long getCooldown(Identifier id, long DefaultCooldown) {
+        return cooldownData.getOrDefault(id, DefaultCooldown);
     }
 
     public void setCooldown(Identifier id, long cooldown) {

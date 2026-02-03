@@ -23,7 +23,8 @@
         "ssc_xu_addon:form_feral_cat_speed_up",
         "ssc_xu_addon:form_feral_cat_vf_digging_speed_down",
         "ssc_xu_addon:form_feral_cat_vf_water_debuff",
-        "ssc_xu_addon:form_feral_cat_vf_force_restock"
+        "ssc_xu_addon:form_feral_cat_vf_force_restock",
+        "ssc_xu_addon:form_feral_cat_vf_create_emerald"
     ],
     "icon": {
         "item": "minecraft:player_head"

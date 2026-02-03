@@ -46,6 +46,46 @@ public class SomeRandomConditionAndAction {
         );
         ActionRegister.accept(
                 new ActionFactory<>(
+                        SSCXuAddon.identifier("trigger_cooldown_cost_hp"),
+                        new SerializableData()
+                                .add("cooldown_id", SerializableDataTypes.IDENTIFIER, null)
+                                .add("hp_cost_tier1", SerializableDataTypes.INT, 0)
+                                .add("hp_cost_tier1_value", SerializableDataTypes.FLOAT, 0.0f)
+                                .add("hp_cost_tier2", SerializableDataTypes.INT, 0)
+                                .add("hp_cost_tier2_value", SerializableDataTypes.FLOAT, 0.0f)
+                                .add("hp_cost_tier3", SerializableDataTypes.INT, 0)
+                                .add("hp_cost_tier3_value", SerializableDataTypes.FLOAT, 0.0f)
+                                .add("hp_cost_tier4", SerializableDataTypes.INT, 0)
+                                .add("hp_cost_tier4_value", SerializableDataTypes.FLOAT, 0.0f),
+                        (data, entity) -> {
+                            Identifier cooldown_id = data.get("cooldown_id");
+                            int hp_cost_tier1 = data.getInt("hp_cost_tier1");
+                            int hp_cost_tier2 = data.getInt("hp_cost_tier2");
+                            int hp_cost_tier3 = data.getInt("hp_cost_tier3");
+                            int hp_cost_tier4 = data.getInt("hp_cost_tier4");
+                            float hp_cost_tier1_value = data.getFloat("hp_cost_tier1_value");
+                            float hp_cost_tier2_value = data.getFloat("hp_cost_tier2_value");
+                            float hp_cost_tier3_value = data.getFloat("hp_cost_tier3_value");
+                            float hp_cost_tier4_value = data.getFloat("hp_cost_tier4_value");
+                            if (entity instanceof PlayerEntity playerEntity && cooldown_id != null) {
+                                AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(playerEntity);
+                                double PastCooldown = playerEntity.getWorld().getTime() - addonDataComponent.getCooldown(cooldown_id, -1728000L);
+                                if (PastCooldown < hp_cost_tier4 && hp_cost_tier4_value > 0.0f) {
+                                    playerEntity.damage(playerEntity.getDamageSources().magic(), hp_cost_tier4_value);
+                                } else if (PastCooldown < hp_cost_tier3 && hp_cost_tier3_value > 0.0f) {
+                                    playerEntity.damage(playerEntity.getDamageSources().magic(), hp_cost_tier3_value);
+                                } else if (PastCooldown < hp_cost_tier2 && hp_cost_tier2_value > 0.0f) {
+                                    playerEntity.damage(playerEntity.getDamageSources().magic(), hp_cost_tier2_value);
+                                } else if (PastCooldown < hp_cost_tier1 && hp_cost_tier1_value > 0.0f) {
+                                    playerEntity.damage(playerEntity.getDamageSources().magic(), hp_cost_tier1_value);
+                                }
+                                addonDataComponent.triggerCooldown(cooldown_id);
+                            }
+                        }
+                )
+        );
+        ActionRegister.accept(
+                new ActionFactory<>(
                         SSCXuAddon.identifier("reset_cooldown"),
                         new SerializableData()
                                 .add("cooldown_id", SerializableDataTypes.IDENTIFIER, null),

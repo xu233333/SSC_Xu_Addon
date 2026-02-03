@@ -60,6 +60,7 @@ public class Init_Event {
         ServerPlayerEvents.AFTER_RESPAWN.register(
                 (oldPlayer, newPlayer, alive) -> {
                     AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(newPlayer);
+                    addonDataComponent.triggerCooldown(SSCXuAddon.identifier("respawn"));
                     for (Identifier cooldown : NeedResetCooldownWhenRespawn) {
                         addonDataComponent.resetCooldown(cooldown);
                     }

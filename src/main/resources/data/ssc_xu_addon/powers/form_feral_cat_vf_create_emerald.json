@@ -1,0 +1,102 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:choice",
+        "actions": [
+          {
+            "element": {
+              "type": "origins:give",
+              "stack": {
+                "item": "minecraft:emerald",
+                "count": 1
+              }
+            },
+            "weight": 40
+          },
+          {
+            "element": {
+              "type": "origins:give",
+              "stack": {
+                "item": "minecraft:emerald",
+                "count": 2
+              }
+            },
+            "weight": 30
+          },
+          {
+            "element": {
+              "type": "origins:give",
+              "stack": {
+                "item": "minecraft:emerald",
+                "count": 3
+              }
+            },
+            "weight": 15
+          },
+          {
+            "element": {
+              "type": "origins:give",
+              "stack": {
+                "item": "minecraft:emerald",
+                "count": 4
+              }
+            },
+            "weight": 10
+          },
+          {
+            "element": {
+              "type": "origins:give",
+              "stack": {
+                "item": "minecraft:diamond",
+                "count": 1
+              }
+            },
+            "weight": 3
+          },
+          {
+            "element": {
+              "type": "origins:give",
+              "stack": {
+                "item": "minecraft:diamond",
+                "count": 2
+              }
+            },
+            "weight": 2
+          }
+        ]
+      },
+      {
+        "type": "origins:play_sound",
+        "sound": "block.enchantment_table.use",
+        "volume": 0.5
+      },
+      {
+        "type": "ssc_xu_addon:trigger_cooldown_cost_hp",
+        "cooldown_id": "form_feral_cat_vf_create_emerald",
+        "hp_cost_tier1": 1200,
+        "hp_cost_tier1_value": 2.0,
+        "hp_cost_tier2": 800,
+        "hp_cost_tier2_value": 4.0,
+        "hp_cost_tier3": 400,
+        "hp_cost_tier3_value": 6.0,
+        "hp_cost_tier4": 200,
+        "hp_cost_tier4_value": 8.0
+      }
+    ]
+  },
+  "cooldown": 50,
+  "hud_render": {
+    "should_render": false
+  },
+  "key": {
+    "key": "key.origins.secondary_active"
+  },
+  "condition": {
+    "type": "ssc_xu_addon:is_not_cooldown",
+    "cooldown_id": "ssc_xu_addon:respawn",
+    "cooldown_time": 2400
+  }
+}
