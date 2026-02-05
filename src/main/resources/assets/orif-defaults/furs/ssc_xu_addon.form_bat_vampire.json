@@ -2,6 +2,7 @@
   "model": "orif-defaults:geo/form_bat_vampire.geo.json",
   "texture": "orif-defaults:textures/form_bat_vampire/form_bat_vampire.png",
   "texture_mask": "orif-defaults:textures/form_bat_vampire/form_bat_vampire_colormask.png",
+  "fullbrightTexture": "orif-defaults:textures/form_bat_vampire/form_bat_vampire_emissive_overlay.png",
   "hidden": [
     "leftArm",
     "rightArm",

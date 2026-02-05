@@ -41,7 +41,8 @@
 		]
 	},
 	"mixins": [
-		"ssc_xu_addon.mixins.json"
+		"ssc_xu_addon.mixins.json",
+		"ssc_xu_addon_extra.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.12.3",
