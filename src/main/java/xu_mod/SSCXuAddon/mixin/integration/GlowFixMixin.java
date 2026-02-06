@@ -23,10 +23,6 @@ public abstract class GlowFixMixin<T extends LivingEntity, M extends BipedEntity
     @Shadow
     protected abstract void ProcessModel(OriginFurModel m, PlayerEntityRenderer eR, T entity, float limbAngle, float limbDistance, float headYaw, float headPitch);
 
-    static {
-        System.out.println("SSC-XuAddon: GlowFixMixin loaded");
-    }
-
     public GlowFixMixin(FeatureRendererContext<T, M> context) {
         super(context);
     }
