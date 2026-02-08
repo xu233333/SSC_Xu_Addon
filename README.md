@@ -1,6 +1,8 @@
 # SSC Xu Addon
 ### ShapeShifterCurse Xu Addon
-### 最新版本(仓库版本): 1.0.0 (1.1.0-beta.5)
+### 最新版本(仓库版本): 1.2.0 (1.2.0)
+
+这几天暂时停止更新(2026/02/08) 我最近正在研究电路+pcb 没多少时间去更新(SSC快要出新形态了 我还得开发 别拓展开发到一半终止)
 
 # 下载链接:
 [CurseForge] (https://www.curseforge.com/minecraft/mc-mods/ssc-xu-addon)
