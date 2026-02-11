@@ -2,6 +2,9 @@ package xu_mod.SSCXuAddon.data.cca;
 
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
@@ -11,6 +14,9 @@ public class AddonDataComponent implements AutoSyncedComponent {
     private final PlayerEntity componentOwner;
     private final HashMap<Identifier, Long> cooldownData = new HashMap<>();
     private int manaLevel = 1;
+
+    private static final int SpaceBagSlotCount = 27;
+    private SimpleInventory SpaceBag = new SimpleInventory(SpaceBagSlotCount);
 
     public int getManaLevel() {
         return manaLevel;
@@ -44,6 +50,10 @@ public class AddonDataComponent implements AutoSyncedComponent {
         return cooldownData.getOrDefault(id, -1728000L) + cooldown <= componentOwner.getWorld().getTime();
     }
 
+    public Inventory getSpaceBag() {
+        return SpaceBag;
+    }
+
     public AddonDataComponent(PlayerEntity player) {
         this.componentOwner = player;
     }
@@ -60,6 +70,10 @@ public class AddonDataComponent implements AutoSyncedComponent {
                 cooldownData.put(new Identifier(id), cooldownCompound.getLong(id));
             }
         }
+        if (nbtCompound.contains("spaceBag")) {
+            this.SpaceBag = new SimpleInventory(SpaceBagSlotCount);
+            Inventories.readNbt(nbtCompound.getCompound("spaceBag"), SpaceBag.stacks);
+        }
     }
 
     @Override
@@ -68,6 +82,9 @@ public class AddonDataComponent implements AutoSyncedComponent {
         NbtCompound cooldownCompound = new NbtCompound();
         cooldownData.forEach((id, cooldown) -> cooldownCompound.putLong(id.toString(), cooldown));
         nbtCompound.put("cooldownData", cooldownCompound);
+        NbtCompound spaceBagCompound = new NbtCompound();
+        Inventories.writeNbt(spaceBagCompound, SpaceBag.stacks);
+        nbtCompound.put("spaceBag", spaceBagCompound);
     }
 
     /*
