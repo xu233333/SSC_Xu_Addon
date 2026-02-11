@@ -24,6 +24,7 @@ import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
 import xu_mod.SSCXuAddon.init.Init_CCA;
 import xu_mod.SSCXuAddon.utils.ExtraReputationTypes;
 import xu_mod.SSCXuAddon.utils.Interface.IVillagerEntityReputationEX;
+import xu_mod.SSCXuAddon.utils.InventoryMenuUtils;
 import xu_mod.SSCXuAddon.utils.RaycastUtils;
 
 import java.util.function.Consumer;
@@ -222,6 +223,19 @@ public class SomeRandomConditionAndAction {
                 (data, entity) -> {
                     if (entity instanceof VillagerEntity villager) {
                         villager.restock();
+                    }
+                }
+        ));
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("open_player_space_bag"),
+                new SerializableData()
+                        .add("slot_level", SerializableDataTypes.INT, 2),
+                (data, entity) -> {
+                    if (entity instanceof PlayerEntity player) {
+                        int slotLevel = data.getInt("slot_level");
+                        if (slotLevel == 1 || slotLevel == 2 || slotLevel == 3) {
+                            InventoryMenuUtils.openPlayerSpaceBag(player, slotLevel);
+                        }
                     }
                 }
         ));
