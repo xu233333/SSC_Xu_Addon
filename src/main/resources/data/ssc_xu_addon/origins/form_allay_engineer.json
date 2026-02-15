@@ -25,7 +25,9 @@
     "ssc_xu_addon:form_allay_engineer_levitate_utils",
     "ssc_xu_addon:form_allay_engineer_debuff",
     "ssc_xu_addon:form_allay_engineer_food",
-    "ssc_xu_addon:form_allay_engineer_translucent"
+    "ssc_xu_addon:form_allay_engineer_translucent",
+    "ssc_xu_addon:form_allay_engineer_ghost_toggle",
+    "ssc_xu_addon:form_allay_engineer_ghost"
   ],
   "icon": {
     "item": "minecraft:player_head"

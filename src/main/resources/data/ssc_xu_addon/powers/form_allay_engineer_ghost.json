@@ -1,0 +1,127 @@
+{
+  "type": "apoli:multiple",
+  "hidden": false,
+  "hud_green": {
+    "type": "apoli:overlay",
+    "hidden": true,
+    "texture": "minecraft:textures/misc/nausea.png",
+    "red": 0.2,
+    "green": 0.4,
+    "blue": 0.2,
+    "strength": 0.7,
+    "draw_mode": "nausea",
+    "draw_phase": "above_hud",
+    "visible_in_third_person": true,
+    "hide_with_hud": true,
+    "condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:power_active",
+          "power": "ssc_xu_addon:form_allay_engineer_ghost_toggle"
+        },
+        {
+          "type": "shape-shifter-curse:has_mana_percent",
+          "mana_percent": 0.50,
+          "inverted": true
+        }
+      ]
+    }
+  },
+  "hud_orange": {
+    "type": "apoli:overlay",
+    "hidden": true,
+    "texture": "minecraft:textures/misc/nausea.png",
+    "red": 0.3,
+    "green": 0.3,
+    "blue": 0.2,
+    "strength": 0.7,
+    "draw_mode": "nausea",
+    "draw_phase": "above_hud",
+    "visible_in_third_person": true,
+    "hide_with_hud": true,
+    "condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:power_active",
+          "power": "ssc_xu_addon:form_allay_engineer_ghost_toggle"
+        },
+        {
+          "type": "shape-shifter-curse:has_mana_percent",
+          "mana_percent": 0.50
+        },
+        {
+          "type": "shape-shifter-curse:has_mana_percent",
+          "mana_percent": 0.75,
+          "inverted": true
+        }
+      ]
+    }
+  },
+  "hud_red": {
+    "type": "apoli:overlay",
+    "hidden": true,
+    "texture": "minecraft:textures/misc/nausea.png",
+    "red": 0.4,
+    "green": 0.2,
+    "blue": 0.2,
+    "strength": 0.7,
+    "draw_mode": "nausea",
+    "draw_phase": "above_hud",
+    "visible_in_third_person": true,
+    "hide_with_hud": true,
+    "condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:power_active",
+          "power": "ssc_xu_addon:form_allay_engineer_ghost_toggle"
+        },
+        {
+          "type": "shape-shifter-curse:has_mana_percent",
+          "mana_percent": 0.75
+        }
+      ]
+    }
+  },
+  "ghost": {
+    "type": "origins:phasing",
+    "blacklist": false,
+    "block_condition": {
+      "type": "origins:constant",
+      "value": true
+    },
+    "render_type": "blindness",
+    "view_distance": 24,
+    "phase_down_condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sneaking"
+        }
+      ]
+    },
+    "condition": {
+      "type": "origins:power_active",
+      "power": "ssc_xu_addon:form_allay_engineer_ghost_toggle"
+    }
+  },
+  "ghost_cost": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "shape-shifter-curse:gain_mana",
+      "mana": 2.5
+    },
+    "interval": 10,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:power_active",
+          "power": "ssc_xu_addon:form_allay_engineer_ghost_toggle"
+        }
+      ]
+    }
+  }
+}
