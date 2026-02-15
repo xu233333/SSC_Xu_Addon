@@ -1,0 +1,60 @@
+{
+    "type": "origins:multiple",
+    "cost_mana": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "shape-shifter-curse:gain_mana",
+            "mana": 2
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "ssc_xu_addon:form_allay_engineer_levitate"
+                },
+                {
+                    "type": "shape-shifter-curse:has_mana_percent",
+                    "mana_percent": 0.80,
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "fly_boost": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": 0.16,
+            "name": "Inc speed when flying"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "ssc_xu_addon:form_allay_engineer_levitate"
+                },
+                {
+                    "type": "shape-shifter-curse:has_mana_percent",
+                    "mana_percent": 0.80,
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "low_mining": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "ssc_xu_addon:form_allay_engineer_levitate"
+        }
+    }
+}

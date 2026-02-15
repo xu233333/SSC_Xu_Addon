@@ -171,7 +171,7 @@ public class Init_ManaType {
                 }
                 if (manaComponent.Mana > manaComponent.MaxManaClient - 2) {  //  不知道为什么 我的那套触发机制无法稳定触发 之后试试修一下
                     player.lastDamageTaken = 0.0f;  // 取消无敌帧 防止骗伤
-                    player.damage(player.getWorld().getDamageSources().outOfWorld(), 4);
+                    player.damage(player.getWorld().getDamageSources().outOfWorld(), 5);
                     player.lastDamageTaken = 0.0f;  // 取消无敌帧 Again 防止用这个伤害骗伤
                     manaComponent.consumeMana(24d);
                 }

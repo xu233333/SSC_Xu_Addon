@@ -1,0 +1,25 @@
+{
+  "type": "origins:multiple",
+  "level_1_food": {
+    "type": "origins:modify_food",
+    "entity_action": {
+      "type": "shape-shifter-curse:gain_mana_with_time",
+      "mana": -1,
+      "time": 60
+    },
+    "always_edible": true,
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:amethyst_shard"
+      }
+    }
+  },
+  "max_hunger": {
+    "type": "ssc_xu_addon:mana_to_food",
+    "min_food_value": 20,
+    "min_saturation_value": 0.0,
+    "mana_to_food_ratio": 0.0,
+    "mana_to_saturation_ratio": 0.0
+  }
+}
