@@ -139,8 +139,42 @@ public class Init_ManaType {
             ),
             new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
                 // 最差的转换比例 自动转换比率 5% 1 -> 10 (50t) | 2% 2 -> 17.5 (50t) | 0% 10 -> 75 (1t)
+                player.lastDamageTaken = 0.0f;  // 取消无敌帧
                 player.damage(player.getWorld().getDamageSources().starve(), 10);
                 manaComponent.gainMana(75);
+            }))
+    );
+
+    public static Identifier AllayResource = ManaRegistries.registerManaType(
+            SSCXuAddon.identifier("allay_resource"),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    ManaRegistries.MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(240d, 1.0d, 0d)
+                            )
+                    )
+            ),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    ManaRegistries.MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(-0.1d, 1.0d, 0d)  // -2 per sec
+                            )
+                    )
+            ),
+            new ManaHandler().setOnServerManaTick(((manaComponent, player) -> {
+                if (player.age % 10 != 0 || !player.isAlive()) {
+                    return;
+                }
+                if (manaComponent.Mana > manaComponent.MaxManaClient - 2) {  //  不知道为什么 我的那套触发机制无法稳定触发 之后试试修一下
+                    player.lastDamageTaken = 0.0f;  // 取消无敌帧 防止骗伤
+                    player.damage(player.getWorld().getDamageSources().outOfWorld(), 4);
+                    player.lastDamageTaken = 0.0f;  // 取消无敌帧 Again 防止用这个伤害骗伤
+                    manaComponent.consumeMana(24d);
+                }
             }))
     );
 

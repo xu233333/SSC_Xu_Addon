@@ -1,0 +1,7 @@
+{
+  "type": "ssc_xu_addon:mana_type_power_pro",
+  "mana_type": "ssc_xu_addon:allay_resource",
+  "mana_source": "ssc_xu_addon:form_allay_engineer",
+  "default_max": false,
+  "default_min": true
+}

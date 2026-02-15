@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xu_mod.SSCXuAddon.init.Init_Apoli;
+import xu_mod.SSCXuAddon.powers.AllayPower;
 import xu_mod.SSCXuAddon.powers.LeveledManaModifyDamageDealtPower;
 
 @Mixin(LivingEntity.class)
@@ -26,7 +27,13 @@ public class LivingEntityMixin {
                 for (LeveledManaModifyDamageDealtPower power : PowerHolderComponent.getPowers(source.getAttacker(), LeveledManaModifyDamageDealtPower.class)) {
                     newValue = power.modifyDamageDealt(source, newValue, thisAsLiving);
                 }
+                for (AllayPower power : PowerHolderComponent.getPowers(source.getAttacker(), AllayPower.class)) {
+                    newValue = power.modifyDamageDealt(source, newValue, thisAsLiving);
+                }
             }
+        }
+        for (AllayPower power : PowerHolderComponent.getPowers(thisAsLiving, AllayPower.class)) {
+            newValue = power.modifyDamageTaken(source, newValue, source.getAttacker());
         }
         return newValue;
     }

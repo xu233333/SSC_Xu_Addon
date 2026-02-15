@@ -10,6 +10,10 @@
       {
         "type": "origins:play_sound",
         "sound": "minecraft:block.ender_chest.open"
+      },
+      {
+        "type": "shape-shifter-curse:gain_mana",
+        "mana": 10.0
       }
     ]
   },

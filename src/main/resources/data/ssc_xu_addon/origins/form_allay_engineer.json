@@ -27,6 +27,8 @@
     "shape-shifter-curse:can_eat_amethyst_shard",
     "shape-shifter-curse:form_allay_sp_sound_key",
 
+    "ssc_xu_addon:form_allay_engineer_mana_bar",
+    "ssc_xu_addon:form_allay_engineer_power",
     "ssc_xu_addon:form_allay_engineer_space_bag"
   ],
   "icon": {

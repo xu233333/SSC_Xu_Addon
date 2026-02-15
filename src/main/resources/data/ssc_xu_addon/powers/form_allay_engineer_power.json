@@ -1,0 +1,8 @@
+{
+  "type": "ssc_xu_addon:allay_power",
+  "reverse_mana_percent": false,
+  "damage_dealt_modifier": -1.0,
+  "damage_taken_modifier": -0.8,
+  "damage_dealt_mana_gain_modifier": 0.0,
+  "damage_taken_mana_gain_modifier": 4.0
+}
