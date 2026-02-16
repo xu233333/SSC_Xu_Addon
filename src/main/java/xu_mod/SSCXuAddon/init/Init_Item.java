@@ -23,6 +23,7 @@ import net.onixary.shapeShifterCurseFabric.util.EnchantmentUtils;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.item.*;
 import xu_mod.SSCXuAddon.data.item.tools.BloodClaw;
+import xu_mod.SSCXuAddon.data.item.tools.SpaceBag;
 import xu_mod.SSCXuAddon.data.item.tools.StableSpaceGem;
 import xu_mod.SSCXuAddon.data.item.trinket.TrinketWithToolTip;
 
@@ -47,6 +48,7 @@ public class Init_Item {
 
     public static final Item SPACE_GEM = register("space_gem", new SpaceGem(new Item.Settings().maxCount(64)));
     public static final Item STABLE_SPACE_GEM = register("stable_space_gem", new StableSpaceGem(new Item.Settings().maxCount(1).maxDamage(32)));
+    public static final Item SPACE_BAG = register("space_bag", new SpaceBag(new Item.Settings().maxCount(1)));
 
     public static void init() {
         // 先放到原版物品栏中 等物品多了之后再开一个标签页(>=9)
@@ -59,6 +61,7 @@ public class Init_Item {
             entries.add(CHARM_OF_EMERALD);
             entries.add(ANKLET_OF_THE_WITCH_FAMILIAR);
             entries.add(STABLE_SPACE_GEM);
+            entries.add(SPACE_BAG);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
             entries.add(UNSTABLE_HOLY_APPLE);
