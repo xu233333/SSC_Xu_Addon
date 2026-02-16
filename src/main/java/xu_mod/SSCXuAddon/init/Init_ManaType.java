@@ -173,7 +173,7 @@ public class Init_ManaType {
                     player.lastDamageTaken = 0.0f;  // 取消无敌帧 防止骗伤
                     player.damage(player.getWorld().getDamageSources().outOfWorld(), 5);
                     player.lastDamageTaken = 0.0f;  // 取消无敌帧 Again 防止用这个伤害骗伤
-                    manaComponent.consumeMana(24d);
+                    manaComponent.consumeMana(manaComponent.MaxManaClient * 0.1d);
                 }
             }))
     );
