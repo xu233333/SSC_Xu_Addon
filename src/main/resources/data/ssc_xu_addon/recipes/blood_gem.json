@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BGC",
+    "AFA",
+    "DAE"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:netherrack"
+    },
+    "B": {
+      "item": "minecraft:porkchop"
+    },
+    "C": {
+      "item": "minecraft:chicken"
+    },
+    "D": {
+      "item": "minecraft:beef"
+    },
+    "E": {
+      "item": "minecraft:mutton"
+    },
+    "F": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:blood_gem",
+    "count": 1
+  }
+}
