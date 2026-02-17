@@ -195,5 +195,7 @@
   "item.ssc_xu_addon.space_stabilizer.tooltip": ["[悦灵(空间工程师)形态]经过黄金和青金石稳定的空间宝石，它发出的能量可以让你身上的空间宝石稳定一些，提升虚化值上限，并减少虚化能力消耗。"],
 
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
-  "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果"
+  "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果",
+  "text.autoconfig.ssc_xu_addon_server.title": "SSC Xu Addon - 服务器配置",
+  "text.autoconfig.ssc_xu_addon_server.option.enableSpaceBag": "启用空间袋"
 }

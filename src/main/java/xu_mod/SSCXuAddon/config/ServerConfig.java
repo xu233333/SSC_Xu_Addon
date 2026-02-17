@@ -10,6 +10,6 @@ public class ServerConfig implements ConfigData {
     public ServerConfig() {}
 
     @ConfigEntry.Category("General")
-    @Comment("Enable space bag item. Default: false")
+    @Comment("Enable space bag item. Default: true")
     public boolean enableSpaceBag = true;
 }
