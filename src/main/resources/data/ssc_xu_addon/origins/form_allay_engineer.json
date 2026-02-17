@@ -27,7 +27,8 @@
     "ssc_xu_addon:form_allay_engineer_food",
     "ssc_xu_addon:form_allay_engineer_translucent",
     "ssc_xu_addon:form_allay_engineer_ghost_toggle",
-    "ssc_xu_addon:form_allay_engineer_ghost"
+    "ssc_xu_addon:form_allay_engineer_ghost",
+    "ssc_xu_addon:form_allay_engineer_ghost_cost_high"
   ],
   "icon": {
     "item": "minecraft:player_head"

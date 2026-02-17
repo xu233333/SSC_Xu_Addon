@@ -1,0 +1,17 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "shape-shifter-curse:gain_mana",
+    "mana": 2.5
+  },
+  "interval": 10,
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:power_active",
+        "power": "ssc_xu_addon:form_allay_engineer_ghost_toggle"
+      }
+    ]
+  }
+}
