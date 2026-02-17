@@ -1,0 +1,20 @@
+{
+  "ssc_xu_addon:space_stabilizer": {
+    "accessory_powers": [],
+    "all_form": {
+      "add": [],
+      "remove": []
+    },
+    "forms": {
+      "ssc_xu_addon:allay_engineer": {
+        "add": [
+          "ssc_xu_addon:form_allay_engineer_ghost_cost_low",
+          "ssc_xu_addon:form_allay_engineer_bar_boost"
+        ],
+        "remove": [
+          "ssc_xu_addon:form_allay_engineer_ghost_cost_high"
+        ]
+      }
+    }
+  }
+}

@@ -49,6 +49,7 @@ public class Init_Item {
     public static final Item SPACE_GEM = register("space_gem", new SpaceGem(new Item.Settings().maxCount(64)));
     public static final Item STABLE_SPACE_GEM = register("stable_space_gem", new StableSpaceGem(new Item.Settings().maxCount(1).maxDamage(32)));
     public static final Item SPACE_BAG = register("space_bag", new SpaceBag(new Item.Settings().maxCount(1)));
+    public static final Item SPACE_STABILIZER = register("space_stabilizer", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.space_stabilizer.tooltip").formatted(Formatting.YELLOW)));
 
     public static void init() {
         // 先放到原版物品栏中 等物品多了之后再开一个标签页(>=9)

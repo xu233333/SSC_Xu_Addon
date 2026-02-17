@@ -2,7 +2,7 @@
   "type": "origins:action_over_time",
   "entity_action": {
     "type": "shape-shifter-curse:gain_mana",
-    "mana": 1.25
+    "mana": 2
   },
   "interval": 10,
   "condition": {
