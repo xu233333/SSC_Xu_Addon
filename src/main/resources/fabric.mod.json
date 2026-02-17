@@ -3,7 +3,7 @@
 	"id": "ssc_xu_addon",
 	"version": "${version}",
 	"name": "SSC_Xu_Addon",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Shape Shifter Curse Addon, Add some new special form.",
 	"authors": [
 		{
 			"name": "XuHaoNan",
@@ -14,8 +14,7 @@
 		}
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/xu233333/SSC_Xu_Addon"
 	},
 	"license": "MIT",
 	"icon": "assets/ssc_xu_addon/icon.png",
