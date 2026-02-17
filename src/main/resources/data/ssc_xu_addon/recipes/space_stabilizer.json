@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "B": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "ssc_xu_addon:stable_space_gem"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:space_stabilizer",
+    "count": 1
+  }
+}

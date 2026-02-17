@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:gold_block"
+    },
+    "C": {
+      "item": "ssc_xu_addon:space_gem"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:stable_space_gem",
+    "count": 1
+  }
+}

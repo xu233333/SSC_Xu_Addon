@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:popped_chorus_fruit"
+    },
+    "B": {
+      "item": "minecraft:ender_pearl"
+    },
+    "C": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:space_gem",
+    "count": 1
+  }
+}
