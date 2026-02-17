@@ -21,13 +21,15 @@ public class ConfigMenuScreen extends Screen {
         int Config_BTN_Size_X = 240;  // 按钮长 英文过长时请修改
         int Config_BTN_Size_Y = 20;  // 按钮宽
         int Config_BTN_Interval = 10;  // 按钮Y方向间隔 留空部分
-        int Config_Count = 1;  // 配置数量  **** 添加配置时修改 ****
+        int Config_Count = 2;  // 配置数量  **** 添加配置时修改 ****
         int Additional_Button_Count = 1;  // 额外按钮数量 [关闭配置界面按钮]
         int Config_BTN_X_Pos = (width - Config_BTN_Size_X) / 2;  // 按钮X坐标
         int Config_BTN_Y_Start_Pos = (height - Config_BTN_Size_Y * (Config_Count + Additional_Button_Count) - Config_BTN_Interval * (Config_Count + Additional_Button_Count - 1)) / 2;  // 按钮Y坐标起始位置
         int Config_BTN_Y_Pos = Config_BTN_Y_Start_Pos;  // 按钮Y坐标
 
         // 添加按钮
+        AddButton(Config_BTN_X_Pos, Config_BTN_Y_Pos, Config_BTN_Size_X, Config_BTN_Size_Y, Text.translatable("text.autoconfig.ssc_xu_addon_server.title"), AutoConfig.getConfigScreen(ServerConfig.class, this));
+        Config_BTN_Y_Pos += Config_BTN_Size_Y + Config_BTN_Interval;
         // 自动同步配置
         AddButton(Config_BTN_X_Pos, Config_BTN_Y_Pos, Config_BTN_Size_X, Config_BTN_Size_Y, Text.translatable("text.autoconfig.ssc_xu_addon_custom.title"), AutoConfig.getConfigScreen(PlayerCustomConfig.class, this));
         Config_BTN_Y_Pos += Config_BTN_Size_Y + Config_BTN_Interval;
