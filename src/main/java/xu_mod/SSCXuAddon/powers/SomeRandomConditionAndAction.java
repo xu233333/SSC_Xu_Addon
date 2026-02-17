@@ -24,7 +24,7 @@ import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
 import xu_mod.SSCXuAddon.init.Init_CCA;
 import xu_mod.SSCXuAddon.utils.ExtraReputationTypes;
 import xu_mod.SSCXuAddon.utils.Interface.IVillagerEntityReputationEX;
-import xu_mod.SSCXuAddon.utils.InventoryMenuUtils;
+import xu_mod.SSCXuAddon.utils.Inventory.InventoryMenuUtils;
 import xu_mod.SSCXuAddon.utils.RaycastUtils;
 
 import java.util.function.Consumer;

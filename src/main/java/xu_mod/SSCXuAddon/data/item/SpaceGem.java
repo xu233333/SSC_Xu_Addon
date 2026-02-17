@@ -24,7 +24,7 @@ import net.onixary.shapeShifterCurseFabric.player_form.ability.RegPlayerFormComp
 import net.onixary.shapeShifterCurseFabric.player_form.transform.TransformManager;
 import org.jetbrains.annotations.Nullable;
 import xu_mod.SSCXuAddon.init.Init_Form;
-import xu_mod.SSCXuAddon.utils.InventoryMenuUtils;
+import xu_mod.SSCXuAddon.utils.Inventory.InventoryMenuUtils;
 
 import java.util.List;
 
@@ -103,6 +103,6 @@ public class SpaceGem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.ssc_xu_addon.space_gem.tooltip.1").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.space_gem.tooltip").formatted(Formatting.YELLOW));
     }
 }

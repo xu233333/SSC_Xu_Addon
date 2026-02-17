@@ -1,4 +1,4 @@
-package xu_mod.SSCXuAddon.utils;
+package xu_mod.SSCXuAddon.utils.Inventory;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;

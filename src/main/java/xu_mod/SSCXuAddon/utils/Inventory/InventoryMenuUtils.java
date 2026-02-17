@@ -1,7 +1,8 @@
-package xu_mod.SSCXuAddon.utils;
+package xu_mod.SSCXuAddon.utils.Inventory;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
@@ -10,6 +11,7 @@ import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.text.Text;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.init.Init_CCA;
+import xu_mod.SSCXuAddon.init.Init_Item;
 
 public class InventoryMenuUtils {
     public static void openPlayerSpaceBag(PlayerEntity player, int SlotLevel) {
@@ -31,7 +33,7 @@ public class InventoryMenuUtils {
                 }
             }
             return screenHandler;
-        }, Text.empty());
+        }, Text.translatable("container.ssc_xu_addon.player_space_bag"));
         player.openHandledScreen(factory);
     }
 
@@ -41,20 +43,20 @@ public class InventoryMenuUtils {
         SimpleNamedScreenHandlerFactory factory = new SimpleNamedScreenHandlerFactory((syncId, inventory, playerEntity) -> {
             ScreenHandler screenHandler = null;
             if (SlotCount <= 9) {
-                screenHandler = new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X1, syncId, inventory, SpaceBagInventory, 1);
+                screenHandler = new NBTInventoryScreenHandler(ScreenHandlerType.GENERIC_9X1, syncId, inventory, SpaceBagInventory, 1, (itemStack -> !itemStack.getItem().equals(SpaceBag.getItem())));
             } else if (SlotCount <= 18) {
-                screenHandler = new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X2, syncId, inventory, SpaceBagInventory, 2);
+                screenHandler = new NBTInventoryScreenHandler(ScreenHandlerType.GENERIC_9X2, syncId, inventory, SpaceBagInventory, 2, (itemStack -> !itemStack.getItem().equals(SpaceBag.getItem())));
             } else if (SlotCount <= 27) {
-                screenHandler = new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X3, syncId, inventory, SpaceBagInventory, 3);
+                screenHandler = new NBTInventoryScreenHandler(ScreenHandlerType.GENERIC_9X3, syncId, inventory, SpaceBagInventory, 3, (itemStack -> !itemStack.getItem().equals(SpaceBag.getItem())));
             } else if (SlotCount <= 36) {
-                screenHandler = new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X4, syncId, inventory, SpaceBagInventory, 4);
+                screenHandler = new NBTInventoryScreenHandler(ScreenHandlerType.GENERIC_9X4, syncId, inventory, SpaceBagInventory, 4, (itemStack -> !itemStack.getItem().equals(SpaceBag.getItem())));
             } else if (SlotCount <= 45) {
-                screenHandler = new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X5, syncId, inventory, SpaceBagInventory, 5);
+                screenHandler = new NBTInventoryScreenHandler(ScreenHandlerType.GENERIC_9X5, syncId, inventory, SpaceBagInventory, 5, (itemStack -> !itemStack.getItem().equals(SpaceBag.getItem())));
             } else {
-                screenHandler = new GenericContainerScreenHandler(ScreenHandlerType.GENERIC_9X6, syncId, inventory, SpaceBagInventory, 6);
+                screenHandler = new NBTInventoryScreenHandler(ScreenHandlerType.GENERIC_9X6, syncId, inventory, SpaceBagInventory, 6, (itemStack -> !itemStack.getItem().equals(SpaceBag.getItem())));
             }
             return screenHandler;
-        }, Text.empty());
+        }, SpaceBag.getName());
         player.openHandledScreen(factory);
     }
 }

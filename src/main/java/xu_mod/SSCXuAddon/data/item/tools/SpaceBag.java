@@ -3,11 +3,8 @@ package xu_mod.SSCXuAddon.data.item.tools;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.GenericContainerScreenHandler;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -18,7 +15,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import xu_mod.SSCXuAddon.init.Init_Config;
-import xu_mod.SSCXuAddon.utils.InventoryMenuUtils;
+import xu_mod.SSCXuAddon.utils.Inventory.InventoryMenuUtils;
 
 import java.util.List;
 
@@ -56,6 +53,6 @@ public class SpaceBag extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.ssc_xu_addon.space_bag.tooltip.1").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.space_bag.tooltip").formatted(Formatting.YELLOW));
     }
 }

@@ -193,6 +193,7 @@
   "item.ssc_xu_addon.space_bag.tooltip": ["使用空间宝石制作的储物袋，利用黄金与青金石来进行稳定。"],
   "item.ssc_xu_addon.space_stabilizer": ["空间稳定器"],
   "item.ssc_xu_addon.space_stabilizer.tooltip": ["[悦灵(空间工程师)形态]经过黄金和青金石稳定的空间宝石，它发出的能量可以让你身上的空间宝石稳定一些，提升虚化值上限，并减少虚化能力消耗。"],
+  "container.ssc_xu_addon.player_space_bag": ["个人空间存储"],
 
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果",
