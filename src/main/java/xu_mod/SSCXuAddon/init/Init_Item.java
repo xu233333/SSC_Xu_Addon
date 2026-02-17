@@ -63,6 +63,7 @@ public class Init_Item {
             entries.add(ANKLET_OF_THE_WITCH_FAMILIAR);
             entries.add(STABLE_SPACE_GEM);
             entries.add(SPACE_BAG);
+            entries.add(SPACE_STABILIZER);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
             entries.add(UNSTABLE_HOLY_APPLE);
