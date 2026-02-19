@@ -1,19 +1,13 @@
 {
   "type": "origins:multiple",
-  "level_1_food": {
-    "type": "origins:modify_food",
-    "entity_action": {
-      "type": "shape-shifter-curse:gain_mana_with_time",
-      "mana": -1,
-      "time": 60
-    },
-    "always_edible": true,
-    "item_condition": {
-      "type": "origins:ingredient",
-      "ingredient": {
-        "item": "minecraft:amethyst_shard"
-      }
-    }
+  "can_eat_amethyst": {
+    "type": "shape-shifter-curse:custom_edible",
+    "item_id_list": [
+      "minecraft:amethyst_shard"
+    ],
+    "hunger": 10,
+    "saturation_modifier": 0.5,
+    "always_edible": true
   },
   "max_hunger": {
     "type": "ssc_xu_addon:mana_to_food",
@@ -21,5 +15,50 @@
     "min_saturation_value": 0.0,
     "mana_to_food_ratio": 0.0,
     "mana_to_saturation_ratio": 0.0
+  },
+  "level_1_food": {
+    "type": "origins:modify_food",
+    "entity_action": {
+      "type": "shape-shifter-curse:gain_mana_with_time",
+      "mana": -1,
+      "time": 40
+    },
+    "always_edible": true,
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "ssc_xu_addon:ffp_food_1"
+      }
+    }
+  },
+  "level_2_food": {
+    "type": "origins:modify_food",
+    "entity_action": {
+      "type": "shape-shifter-curse:gain_mana_with_time",
+      "mana": -2,
+      "time": 60
+    },
+    "always_edible": true,
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "ssc_xu_addon:ffp_food_2"
+      }
+    }
+  },
+  "level_3_food": {
+    "type": "origins:modify_food",
+    "entity_action": {
+      "type": "shape-shifter-curse:gain_mana_with_time",
+      "mana": -12,
+      "time": 100
+    },
+    "always_edible": true,
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "ssc_xu_addon:ffp_food_3"
+      }
+    }
   }
 }
