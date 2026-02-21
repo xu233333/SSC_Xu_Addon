@@ -1,0 +1,7 @@
+{
+  "type": "ssc_xu_addon:mana_type_power_pro",
+  "mana_type": "ssc_xu_addon:ocelot_stamina_resource",
+  "mana_source": "ssc_xu_addon:form_ocelot_jungle",
+  "default_max": true,
+  "default_min": false
+}

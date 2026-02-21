@@ -17,12 +17,14 @@ import xu_mod.SSCXuAddon.SSCXuAddon;
 public class SpeedDamageBoostPower extends Power {
     private final ActionFactory<Pair<Entity, Entity>>.Instance onHitAction;
     private final double speedToDamageRadio;
+    private final double knockbackRadio;
 
 
-    public SpeedDamageBoostPower(PowerType<?> type, LivingEntity entity, ActionFactory<Pair<Entity, Entity>>.Instance onHitAction, double speedToDamageRadio) {
+    public SpeedDamageBoostPower(PowerType<?> type, LivingEntity entity, ActionFactory<Pair<Entity, Entity>>.Instance onHitAction, double speedToDamageRadio, double knockbackRadio) {
         super(type, entity);
         this.onHitAction = onHitAction;
         this.speedToDamageRadio = speedToDamageRadio;
+        this.knockbackRadio = knockbackRadio;
     }
 
     public float modifyDamageDealt(DamageSource source, float amount, LivingEntity target) {
@@ -32,6 +34,7 @@ public class SpeedDamageBoostPower extends Power {
             if (this.onHitAction != null) {
                 this.onHitAction.accept(new Pair<>(this.entity, target));
             }
+            target.takeKnockback(knockbackRadio * playerSpeed, this.entity.getX() - target.getX(), this.entity.getZ() - target.getZ());
             return amount + BoostValue;
         }
         return amount;
@@ -42,8 +45,9 @@ public class SpeedDamageBoostPower extends Power {
                 SSCXuAddon.identifier("speed_to_damage"),
                 new SerializableData()
                         .add("speed_to_damage_radio", SerializableDataTypes.DOUBLE, 0.0d)
+                        .add("knockback_radio", SerializableDataTypes.DOUBLE, 0.0d)
                         .add("on_hit_action", ApoliDataTypes.BIENTITY_ACTION, null),
-                data -> (type, player) -> new SpeedDamageBoostPower(type, player, data.get("on_hit_action"), data.get("speed_to_damage_radio"))
+                data -> (type, player) -> new SpeedDamageBoostPower(type, player, data.get("on_hit_action"), data.get("speed_to_damage_radio"), data.get("knockback_radio"))
         ).allowCondition();
     }
 }

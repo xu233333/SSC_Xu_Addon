@@ -58,6 +58,6 @@ public class StaminaResourceRender implements IManaRender {
         }
 
         Text manaText = Text.literal(manaString.toString());
-        context.drawText(mc.textRenderer, manaText, x, y - 8, 0xFF00CFFF, false);
+        context.drawText(mc.textRenderer, manaText, x, y - 8, manaRegen == 0 ? 0xFF7F7F7F : 0xFF00CFFF, false);
     }
 }

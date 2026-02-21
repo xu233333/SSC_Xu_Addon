@@ -16,6 +16,7 @@ import xu_mod.SSCXuAddon.powers.*;
 public class Init_Apoli {
     public static final PowerType<?> IronGolemFriendlyV1 = new PowerTypeReference<>(SSCXuAddon.identifier("iron_golem_friendly_v1"));  // 攻击铁傀儡是否会还击
     public static final PowerType<?> IronGolemFriendlyV2 = new PowerTypeReference<>(SSCXuAddon.identifier("iron_golem_friendly_v2"));  // 被打后铁傀儡会不会支援
+    public static final PowerType<?> NoStopSprintWhileAttack = new PowerTypeReference<>(SSCXuAddon.identifier("no_stop_sprint_while_attack"));  // 攻击时不会停止冲刺
 
     private static void init_Power() {
         Init_Apoli.registerPower(LeveledManaPower.createFactory());

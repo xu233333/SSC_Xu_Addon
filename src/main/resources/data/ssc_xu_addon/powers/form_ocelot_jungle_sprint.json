@@ -1,0 +1,251 @@
+{
+  "type": "origins:multiple",
+  "lv1": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "addition",
+      "value": 0.03,
+      "name": "normal speed up"
+    },
+    "tick_rate": 5,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 40
+        }
+      ]
+    }
+  },
+  "lv1_cost": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "shape-shifter-curse:consume_mana",
+      "mana": 1
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 40
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": "<",
+          "compare_to": 80
+        }
+      ]
+    }
+  },
+  "lv2": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "addition",
+      "value": 0.03,
+      "name": "normal speed up"
+    },
+    "tick_rate": 5,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 80
+        }
+      ]
+    }
+  },
+  "lv2_cost": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "shape-shifter-curse:consume_mana",
+      "mana": 2
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 80
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": "<",
+          "compare_to": 120
+        }
+      ]
+    }
+  },
+  "lv3": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "addition",
+      "value": 0.03,
+      "name": "normal speed up"
+    },
+    "tick_rate": 5,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 120
+        }
+      ]
+    }
+  },
+  "lv3_cost": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "shape-shifter-curse:consume_mana",
+      "mana": 3
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 120
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": "<",
+          "compare_to": 160
+        }
+      ]
+    }
+  },
+  "lv4": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "addition",
+      "value": 0.03,
+      "name": "normal speed up"
+    },
+    "tick_rate": 5,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 160
+        }
+      ]
+    }
+  },
+  "lv4_cost": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "shape-shifter-curse:consume_mana",
+      "mana": 4
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 160
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": "<",
+          "compare_to": 200
+        }
+      ]
+    }
+  },
+  "lv5": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "addition",
+      "value": 0.03,
+      "name": "normal speed up"
+    },
+    "tick_rate": 5,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 200
+        }
+      ]
+    }
+  },
+  "lv5_cost": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "shape-shifter-curse:consume_mana",
+      "mana": 5
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        },
+        {
+          "type": "ssc_xu_addon:sprinting_time",
+          "comparison": ">=",
+          "compare_to": 200
+        }
+      ]
+    }
+  },
+  "step_height": {
+    "type": "shape-shifter-curse:modify_step_height",
+    "step_height_scale": 2.0,
+    "affect_sneak": false,
+    "condition": {
+      "type": "origins:sprinting"
+    }
+  }
+}

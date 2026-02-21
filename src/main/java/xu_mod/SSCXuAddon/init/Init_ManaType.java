@@ -12,6 +12,7 @@ import net.onixary.shapeShifterCurseFabric.mana.ManaRegistries;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import xu_mod.SSCXuAddon.powers.LeveledManaPower;
 import xu_mod.SSCXuAddon.SSCXuAddon;
+import xu_mod.SSCXuAddon.utils.Utils;
 
 public class Init_ManaType {
     public static Identifier MC_IsNight = ManaRegistries.registerManaConditionType(
@@ -46,6 +47,11 @@ public class Init_ManaType {
                 BlockPos blockPos = player.getVehicle() instanceof BoatEntity ? (BlockPos.ofFloored(player.getX(), (double) Math.round(player.getY()), player.getZ())).up() : BlockPos.ofFloored(player.getX(), (double) Math.round(player.getY()), player.getZ());
                 return player.getWorld().isSkyVisible(blockPos);
             }
+    );
+
+    public static Identifier MC_InExhaustion = ManaRegistries.registerManaConditionType(
+            SSCXuAddon.identifier("in_exhaustion"),
+            (player) -> Utils.exhaustionTime.getOrDefault(player.getUuid(), 0) > 0
     );
 
     // 正常 500/5
@@ -196,10 +202,17 @@ public class Init_ManaType {
                                     ManaRegistries.MC_AlwaysTrue,
                                     new ManaUtils.Modifier(0.1d, 1.0d, 0d)  // +2 per sec 1 min to full
                             )
+                    ),
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("exhaustion_no_regen"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    MC_InExhaustion,
+                                    new ManaUtils.Modifier(0, 0.0d, 0d)
+                            )
                     )
             ),
             new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
-                // TODO 衰竭状态
+                Utils.exhaustionTime.put(player.getUuid(), 300);
             }))
     );
 

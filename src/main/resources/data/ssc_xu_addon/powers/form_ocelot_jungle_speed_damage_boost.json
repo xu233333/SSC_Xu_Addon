@@ -1,0 +1,17 @@
+{
+  "type": "ssc_xu_addon:speed_to_damage",
+  "speed_to_damage_radio": 1.0,
+  "knockback_radio": 0.2,
+  "on_hit_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:actor_action",
+        "action": {
+          "type": "ssc_xu_addon:add_sprinting_time",
+          "percent": 0.8
+        }
+      }
+    ]
+  }
+}
