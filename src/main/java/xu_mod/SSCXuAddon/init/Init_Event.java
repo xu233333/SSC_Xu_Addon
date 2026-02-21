@@ -15,6 +15,7 @@ import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
 import xu_mod.SSCXuAddon.data.item.tools.BloodClaw;
 import xu_mod.SSCXuAddon.network.ModPacketsServer;
 import xu_mod.SSCXuAddon.powers.FireRingAction;
+import xu_mod.SSCXuAddon.utils.Utils;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class Init_Event {
     public static void init() {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             FireRingAction.Tick();
+            Utils.Tick(server);
         });
         AttackEntityCallback.EVENT.register(
                 (player, world, hand, entity, hitResult) -> {

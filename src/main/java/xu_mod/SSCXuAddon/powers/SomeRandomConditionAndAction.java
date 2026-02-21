@@ -3,9 +3,11 @@ package xu_mod.SSCXuAddon.powers;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
+import io.github.apace100.apoli.util.Comparison;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.goal.PrioritizedGoal;
 import net.minecraft.entity.mob.MobEntity;
@@ -18,6 +20,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.village.VillageGossipType;
+import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.minion.MinionRegister;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.cca.AddonDataComponent;
@@ -26,6 +29,7 @@ import xu_mod.SSCXuAddon.utils.ExtraReputationTypes;
 import xu_mod.SSCXuAddon.utils.Interface.IVillagerEntityReputationEX;
 import xu_mod.SSCXuAddon.utils.Inventory.InventoryMenuUtils;
 import xu_mod.SSCXuAddon.utils.RaycastUtils;
+import xu_mod.SSCXuAddon.utils.Utils;
 
 import java.util.function.Consumer;
 
@@ -239,6 +243,40 @@ public class SomeRandomConditionAndAction {
                     }
                 }
         ));
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("boost_speed"),
+                new SerializableData()
+                        .add("speed_base", SerializableDataTypes.DOUBLE, 0.0d)
+                        .add("speed_percent", SerializableDataTypes.DOUBLE, 1.0d),
+                (data, entity) -> {
+                    if (entity instanceof LivingEntity livingEntity) {
+                        double speed_base = data.getDouble("speed_base");
+                        double speed_percent = data.getDouble("speed_percent");
+                        double now_speed = livingEntity.getVelocity().length();
+                        if (now_speed == 0) {
+                            return;
+                        }
+                        double final_percent = speed_base / now_speed + speed_percent;
+                        livingEntity.setVelocity(livingEntity.getVelocity().multiply(final_percent));
+                        livingEntity.velocityModified = true;
+                    }
+                }
+        ));
+        ActionRegister.accept(new ActionFactory<>(
+                SSCXuAddon.identifier("add_sprinting_time"),
+                new SerializableData()
+                        .add("base", SerializableDataTypes.INT, 0)
+                        .add("percent", SerializableDataTypes.DOUBLE, 1.0d),
+                (data, entity) -> {
+                    if (entity instanceof PlayerEntity player) {
+                        int base = data.getInt("base");
+                        double percent = data.getDouble("percent");
+                        long nowTime = Utils.sprintingTime.getOrDefault(player.getUuid(), 0L);
+                        long finalTime = (long) ((nowTime + base) * percent);
+                        Utils.sprintingTime.put(player.getUuid(), finalTime);
+                    }
+                }
+        ));
     }
 
 
@@ -255,6 +293,21 @@ public class SomeRandomConditionAndAction {
                             if (entity instanceof PlayerEntity playerEntity && cooldown_id != null) {
                                 AddonDataComponent addonDataComponent = Init_CCA.AddonData.get(playerEntity);
                                 return addonDataComponent.isNotInCooldown(cooldown_id, cooldown_time);
+                            }
+                            return false;
+                        }
+                )
+        );
+        ConditionRegister.accept(
+                new ConditionFactory<>(
+                        SSCXuAddon.identifier("sprinting_time"),
+                        new SerializableData()
+                                .add("comparison", ApoliDataTypes.COMPARISON, null)
+                                .add("compare_to", SerializableDataTypes.INT, 0),
+                        (data, entity) -> {
+                            Comparison comparison = data.get("comparison");
+                            if (comparison != null && entity instanceof PlayerEntity player) {
+                                return comparison.compare(Utils.sprintingTime.getOrDefault(player.getUuid(), 0L), data.getInt("compare_to"));
                             }
                             return false;
                         }

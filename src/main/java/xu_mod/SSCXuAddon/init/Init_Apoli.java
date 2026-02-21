@@ -27,6 +27,7 @@ public class Init_Apoli {
         Init_Apoli.registerPower(FakeBlindPower.createFactory());
         Init_Apoli.registerPower(ManaTypePowerV2.createFactory());
         Init_Apoli.registerPower(AllayPower.createFactory());
+        Init_Apoli.registerPower(SpeedDamageBoostPower.createFactory());
     }
 
     private static void init_Condition() {

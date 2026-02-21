@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xu_mod.SSCXuAddon.init.Init_Apoli;
 import xu_mod.SSCXuAddon.powers.AllayPower;
 import xu_mod.SSCXuAddon.powers.LeveledManaModifyDamageDealtPower;
+import xu_mod.SSCXuAddon.powers.SpeedDamageBoostPower;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
@@ -28,6 +29,9 @@ public class LivingEntityMixin {
                     newValue = power.modifyDamageDealt(source, newValue, thisAsLiving);
                 }
                 for (AllayPower power : PowerHolderComponent.getPowers(source.getAttacker(), AllayPower.class)) {
+                    newValue = power.modifyDamageDealt(source, newValue, thisAsLiving);
+                }
+                for (SpeedDamageBoostPower power : PowerHolderComponent.getPowers(source.getAttacker(), SpeedDamageBoostPower.class)) {
                     newValue = power.modifyDamageDealt(source, newValue, thisAsLiving);
                 }
             }
