@@ -1,10 +1,7 @@
 package xu_mod.SSCXuAddon.init;
 
 import net.onixary.shapeShifterCurseFabric.player_form.*;
-import xu_mod.SSCXuAddon.data.form.AllayEngineer;
-import xu_mod.SSCXuAddon.data.form.BatVampire;
-import xu_mod.SSCXuAddon.data.form.CatVF;
-import xu_mod.SSCXuAddon.data.form.FamiliarFoxPurify;
+import xu_mod.SSCXuAddon.data.form.*;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 
 public class Init_Form {
@@ -16,6 +13,8 @@ public class Init_Form {
     public static PlayerFormGroup FeralCatVFGroup = RegPlayerForms.registerPlayerFormGroup((new PlayerFormGroup(SSCXuAddon.identifier("feral_cat_vf_form")).addForm(FeralCatVF, 5)));
     public static PlayerFormBase AllayEngineer = RegPlayerForms.registerPlayerForm(new AllayEngineer(SSCXuAddon.identifier("allay_engineer")).setPhase(PlayerFormPhase.PHASE_SP));
     public static PlayerFormGroup AllayEngineerGroup = RegPlayerForms.registerPlayerFormGroup((new PlayerFormGroup(SSCXuAddon.identifier("allay_engineer_form")).addForm(AllayEngineer, 5)));
+    public static PlayerFormBase OcelotJungle = RegPlayerForms.registerPlayerForm(new OcelotJungle(SSCXuAddon.identifier("ocelot_jungle")).setPhase(PlayerFormPhase.PHASE_3));
+    public static PlayerFormGroup OcelotJungleGroup = RegPlayerForms.registerPlayerFormGroup((new PlayerFormGroup(SSCXuAddon.identifier("ocelot_jungle_form")).addForm(OcelotJungle, 3)));
 
     public static void init() {}
 }
