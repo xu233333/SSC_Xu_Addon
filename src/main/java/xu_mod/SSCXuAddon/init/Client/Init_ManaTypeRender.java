@@ -4,6 +4,7 @@ import net.onixary.shapeShifterCurseFabric.mana.ManaRegistriesClient;
 import xu_mod.SSCXuAddon.data.manaType.AllayResourceRender;
 import xu_mod.SSCXuAddon.data.manaType.BatBloodResourceRender;
 import xu_mod.SSCXuAddon.data.manaType.FamiliarFoxPurifyManaRender;
+import xu_mod.SSCXuAddon.data.manaType.StaminaResourceRender;
 import xu_mod.SSCXuAddon.init.Init_ManaType;
 
 public class Init_ManaTypeRender {
@@ -11,6 +12,7 @@ public class Init_ManaTypeRender {
         ManaRegistriesClient.registerManaTypeRender(Init_ManaType.FamiliarFoxPurifyMana, new FamiliarFoxPurifyManaRender());
         ManaRegistriesClient.registerManaTypeRender(Init_ManaType.BatBloodResource, new BatBloodResourceRender());
         ManaRegistriesClient.registerManaTypeRender(Init_ManaType.AllayResource, new AllayResourceRender());
+        ManaRegistriesClient.registerManaTypeRender(Init_ManaType.OcelotStaminaResource, new StaminaResourceRender());
     }
 
     public static void init() {}

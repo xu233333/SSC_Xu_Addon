@@ -178,6 +178,33 @@ public class Init_ManaType {
             }))
     );
 
+    public static Identifier OcelotStaminaResource = ManaRegistries.registerManaType(
+            SSCXuAddon.identifier("ocelot_stamina_resource"),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    ManaRegistries.MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(120d, 1.0d, 0d)
+                            )
+                    )
+            ),
+            new ManaUtils.ModifierList(
+                    new Pair<Identifier, Pair<Identifier, ManaUtils.Modifier>>(
+                            SSCXuAddon.identifier("base_value"),
+                            new Pair<Identifier, ManaUtils.Modifier>(
+                                    ManaRegistries.MC_AlwaysTrue,
+                                    new ManaUtils.Modifier(0.1d, 1.0d, 0d)  // +2 per sec 1 min to full
+                            )
+                    )
+            ),
+            new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
+                // TODO 衰竭状态
+            }))
+    );
+
+
+
     public static void init() {
     }
 }
