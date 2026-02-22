@@ -2,6 +2,7 @@ package xu_mod.SSCXuAddon.utils;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.Vec3d;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -9,6 +10,8 @@ import java.util.UUID;
 public class Utils {
     // 纯服务端数据 如果客户端调用 只会获得一个空HashMap
     public static final HashMap<UUID, Long> sprintingTime = new HashMap<>();
+    private static final HashMap<UUID, Vec3d> playerLastPos = new HashMap<>();
+    public static final HashMap<UUID, Double> playerSpeed = new HashMap<>();
     public static final HashMap<UUID, Integer> exhaustionTime = new HashMap<>();
 
     public static long MaxSprintingTime = 300;
@@ -27,6 +30,10 @@ public class Utils {
             } else if (playerExhaustionTime < 0) {
                 exhaustionTime.put(uuid, 0);
             }
+            if (playerLastPos.containsKey(uuid)) {
+                playerSpeed.put(uuid, player.getPos().distanceTo(playerLastPos.get(uuid)));
+            }
+            playerLastPos.put(uuid, player.getPos());
         }
     }
 }

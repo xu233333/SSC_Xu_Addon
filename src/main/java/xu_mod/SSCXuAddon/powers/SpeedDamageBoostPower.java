@@ -12,46 +12,29 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Pair;
-import net.minecraft.util.math.Vec3d;
 import xu_mod.SSCXuAddon.SSCXuAddon;
+import xu_mod.SSCXuAddon.utils.Utils;
 
 public class SpeedDamageBoostPower extends Power {
     private final ActionFactory<Pair<Entity, Entity>>.Instance onHitAction;
     private final double speedToDamageRadio;
     private final double knockbackRadio;
-    private Vec3d lastPos;
-    private double lastSpeed = 0;
 
     public SpeedDamageBoostPower(PowerType<?> type, LivingEntity entity, ActionFactory<Pair<Entity, Entity>>.Instance onHitAction, double speedToDamageRadio, double knockbackRadio) {
         super(type, entity);
         this.onHitAction = onHitAction;
         this.speedToDamageRadio = speedToDamageRadio;
         this.knockbackRadio = knockbackRadio;
-        this.setTicking();
-        if (this.entity != null) {
-            this.lastPos = this.entity.getPos();
-        } else {
-            this.lastPos = Vec3d.ZERO;
-        }
-    }
-
-    @Override
-    public void tick() {
-        if (this.entity instanceof PlayerEntity player) {
-            Vec3d nowPos = this.entity.getPos();
-            Vec3d movement = nowPos.subtract(this.lastPos);
-            this.lastSpeed = movement.length();
-            this.lastPos = nowPos;
-        }
     }
 
     public float modifyDamageDealt(DamageSource source, float amount, LivingEntity target) {
         if (this.entity instanceof PlayerEntity player) {
-            float BoostValue = (float) (lastSpeed * speedToDamageRadio);
+            Double speed = Utils.playerSpeed.getOrDefault(player.getUuid(), 0.0d);
+            float BoostValue = (float) (speed * speedToDamageRadio);
             if (this.onHitAction != null) {
                 this.onHitAction.accept(new Pair<>(this.entity, target));
             }
-            target.takeKnockback(knockbackRadio * lastSpeed, this.entity.getX() - target.getX(), this.entity.getZ() - target.getZ());
+            target.takeKnockback(knockbackRadio * speed, this.entity.getX() - target.getX(), this.entity.getZ() - target.getZ());
             return amount + BoostValue;
         }
         return amount;

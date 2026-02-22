@@ -313,5 +313,21 @@ public class SomeRandomConditionAndAction {
                         }
                 )
         );
+        ConditionRegister.accept(
+                new ConditionFactory<>(
+                        SSCXuAddon.identifier("speed"),
+                        new SerializableData()
+                                .add("comparison", ApoliDataTypes.COMPARISON, null)
+                                .add("compare_to", SerializableDataTypes.DOUBLE, 0.0d),
+                        (data, entity) -> {
+                            Comparison comparison = data.get("comparison");
+                            if (comparison != null && entity instanceof PlayerEntity player) {
+                                return comparison.compare(Utils.playerSpeed.getOrDefault(player.getUuid(), 0.0d), data.getInt("compare_to"));
+                            }
+                            return false;
+                        }
+                )
+        );
+
     }
 }
