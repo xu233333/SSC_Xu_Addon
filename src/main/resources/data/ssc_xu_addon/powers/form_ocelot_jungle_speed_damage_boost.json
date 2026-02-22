@@ -1,7 +1,7 @@
 {
   "type": "ssc_xu_addon:speed_to_damage",
-  "speed_to_damage_radio": 1.0,
-  "knockback_radio": 0.2,
+  "speed_to_damage_radio": 18.0,
+  "knockback_radio": 4.0,
   "on_hit_action": {
     "type": "origins:and",
     "actions": [
