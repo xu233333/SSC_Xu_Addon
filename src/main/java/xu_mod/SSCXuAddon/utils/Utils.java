@@ -11,11 +11,13 @@ public class Utils {
     public static final HashMap<UUID, Long> sprintingTime = new HashMap<>();
     public static final HashMap<UUID, Integer> exhaustionTime = new HashMap<>();
 
+    public static long MaxSprintingTime = 300;
+
     public static void Tick(MinecraftServer server) {
         for (PlayerEntity player : server.getPlayerManager().getPlayerList()) {
             UUID uuid = player.getUuid();
             if (player.isSprinting()) {
-                sprintingTime.put(uuid, sprintingTime.getOrDefault(uuid, 0L) + 1);
+                sprintingTime.put(uuid, Math.min(MaxSprintingTime, sprintingTime.getOrDefault(uuid, 0L) + 1));
             } else {
                 sprintingTime.put(uuid, 0L);
             }
