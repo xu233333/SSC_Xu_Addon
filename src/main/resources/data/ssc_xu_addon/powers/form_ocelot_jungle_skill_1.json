@@ -1,0 +1,21 @@
+{
+  "type": "ssc_xu_addon:ocelot_rush_skill",
+  "small_explosion_damage": 9.0,
+  "small_explosion_radius": 2.5,
+  "big_explosion_power": 6.0,
+  "small_explosion_tick_rate": 5,
+  "movement_speed_x": 4.0,
+  "movement_speed_y": 0.5,
+  "on_invoke_action": {
+    "type": "shape-shifter-curse:consume_mana",
+    "mana": 90
+  },
+  "cooldown": 100,
+  "key": {
+    "key": "key.origins.primary_active"
+  },
+  "condition": {
+    "type": "ssc_xu_addon:is_exhaustion",
+    "inverted": true
+  }
+}

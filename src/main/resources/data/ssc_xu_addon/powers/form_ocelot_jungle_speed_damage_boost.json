@@ -13,5 +13,9 @@
         }
       }
     ]
+  },
+  "condition": {
+    "type": "ssc_xu_addon:is_exhaustion",
+    "inverted": true
   }
 }

@@ -315,6 +315,18 @@ public class SomeRandomConditionAndAction {
         );
         ConditionRegister.accept(
                 new ConditionFactory<>(
+                        SSCXuAddon.identifier("is_exhaustion"),
+                        new SerializableData(),
+                        (data, entity) -> {
+                            if (entity instanceof PlayerEntity player) {
+                                return Utils.exhaustionTime.getOrDefault(player.getUuid(), 0) > 0;
+                            }
+                            return false;
+                        }
+                )
+        );
+        ConditionRegister.accept(
+                new ConditionFactory<>(
                         SSCXuAddon.identifier("speed"),
                         new SerializableData()
                                 .add("comparison", ApoliDataTypes.COMPARISON, null)

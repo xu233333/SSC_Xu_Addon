@@ -245,7 +245,18 @@
     "step_height_scale": 2.0,
     "affect_sneak": false,
     "condition": {
-      "type": "origins:sprinting"
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sprinting"
+        }
+      ]
+    }
+  },
+  "no_sprinting": {
+    "type": "origins:prevent_sprinting",
+    "condition": {
+      "type": "ssc_xu_addon:is_exhaustion"
     }
   }
 }

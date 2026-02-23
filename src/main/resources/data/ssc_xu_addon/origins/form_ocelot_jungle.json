@@ -37,7 +37,8 @@
     "ssc_xu_addon:form_ocelot_jungle_resource_bar",
     "ssc_xu_addon:form_ocelot_jungle_sprint",
     "ssc_xu_addon:no_stop_sprint_while_attack",
-    "ssc_xu_addon:form_ocelot_jungle_speed_damage_boost"
+    "ssc_xu_addon:form_ocelot_jungle_speed_damage_boost",
+    "ssc_xu_addon:form_ocelot_jungle_skill_1"
   ],
   "icon": {
     "item": "minecraft:player_head"

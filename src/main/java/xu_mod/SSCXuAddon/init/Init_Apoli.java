@@ -12,6 +12,7 @@ import net.minecraft.util.Pair;
 import net.onixary.shapeShifterCurseFabric.ShapeShifterCurseFabric;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.powers.*;
+import xu_mod.SSCXuAddon.powers.skills.OcelotRush1Power;
 
 public class Init_Apoli {
     public static final PowerType<?> IronGolemFriendlyV1 = new PowerTypeReference<>(SSCXuAddon.identifier("iron_golem_friendly_v1"));  // 攻击铁傀儡是否会还击
@@ -29,6 +30,9 @@ public class Init_Apoli {
         Init_Apoli.registerPower(ManaTypePowerV2.createFactory());
         Init_Apoli.registerPower(AllayPower.createFactory());
         Init_Apoli.registerPower(SpeedDamageBoostPower.createFactory());
+
+        // Skill Power
+        Init_Apoli.registerPower(OcelotRush1Power.createFactory());
     }
 
     private static void init_Condition() {
