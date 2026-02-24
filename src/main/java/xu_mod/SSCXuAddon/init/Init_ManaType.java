@@ -213,6 +213,15 @@ public class Init_ManaType {
             ),
             new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
                 Utils.exhaustionTime.put(player.getUuid(), 300);
+                ManaUtils.setPlayerMana(player, manaComponent.MaxManaClient * 0.025f);
+            })).setOnServerManaTick(((manaComponent, player) -> {
+                if (player.age % 10 != 0 || !player.isAlive()) {
+                    return;
+                }
+                if (manaComponent.Mana <= manaComponent.MaxManaClient * 0.02f) {  //  不知道为什么 我的那套触发机制无法稳定触发 之后试试修一下
+                    Utils.exhaustionTime.put(player.getUuid(), 300);
+                    ManaUtils.setPlayerMana(player, manaComponent.MaxManaClient * 0.025f);
+                }
             }))
     );
 

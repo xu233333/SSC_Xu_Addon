@@ -14,7 +14,7 @@
   "key": {
     "key": "key.origins.primary_active"
   },
-  "condition": {
+  "trigger_condition": {
     "type": "ssc_xu_addon:is_exhaustion",
     "inverted": true
   }

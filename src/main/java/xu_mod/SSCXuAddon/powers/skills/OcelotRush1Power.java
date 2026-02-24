@@ -10,7 +10,6 @@ import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -18,14 +17,13 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.joml.Vector3f;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.utils.Misc.ExplosionBehaviorExceptBreakBlock;
 
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class OcelotRush1Power extends ActiveCooldownPower {
     // 由于部分技能需要Power驱动(需要持续触发) 用Action极其难处理 所以添加了skills放这种基本上无法复用的能力
@@ -44,6 +42,7 @@ public class OcelotRush1Power extends ActiveCooldownPower {
     private float movementSpeedY = 0.2f;  // 初始移动速度Y 未调整
     private Consumer<Entity> onInvokeAction = null;
     private Consumer<Entity> onLandAction = null;
+    private Predicate<Entity> triggerCondition = null;
 
     private long skillRemainTick = 0;
     private long skillTimer = 0;
@@ -54,7 +53,7 @@ public class OcelotRush1Power extends ActiveCooldownPower {
 
     @Override
     public void onUse() {
-        if(canUse()) {
+        if(canUse() && (triggerCondition == null || triggerCondition.test(this.entity))) {
             this.skillRemainTick = skillMaxTick;
             this.setTicking();
             Vector3f vec = new Vector3f(0, 0, movementSpeedX);
@@ -147,6 +146,7 @@ public class OcelotRush1Power extends ActiveCooldownPower {
                         .add("on_invoke_action", ApoliDataTypes.ENTITY_ACTION, null)
                         .add("on_land_action", ApoliDataTypes.ENTITY_ACTION, null)
                         .add("cooldown", SerializableDataTypes.INT, 100)
+                        .add("trigger_condition", ApoliDataTypes.ENTITY_CONDITION, null)
                         .add("key", ApoliDataTypes.KEY, null),
                 data -> (type, entity) -> {
                     Key key = data.get("key");
@@ -162,6 +162,7 @@ public class OcelotRush1Power extends ActiveCooldownPower {
                     power.movementSpeedY = data.getFloat("movement_speed_y");
                     power.onInvokeAction = data.get("on_invoke_action");
                     power.onLandAction = data.get("on_land_action");
+                    power.triggerCondition = data.get("trigger_condition");
                     return power;
                 }
         ).allowCondition();

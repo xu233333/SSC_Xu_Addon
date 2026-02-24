@@ -5,10 +5,10 @@
     "actions": [
       {
         "type": "ssc_xu_addon:teleport",
-        "range": 16,
+        "range": 64,
         "actor_action": {
           "type": "shape-shifter-curse:consume_mana",
-          "mana": 60
+          "mana": 120
         }
       },
       {
@@ -16,28 +16,35 @@
         "effects": [
           {
             "effect": "minecraft:weakness",
-            "duration": 100,
-            "amplifier": 4,
+            "duration": 300,
+            "amplifier": 9,
+            "show_particles": false,
+            "show_icon": true
+          },
+          {
+            "effect": "minecraft:mining_fatigue",
+            "duration": 300,
+            "amplifier": 9,
             "show_particles": false,
             "show_icon": true
           },
           {
             "effect": "minecraft:speed",
-            "duration": 100,
+            "duration": 300,
             "amplifier": 3,
             "show_particles": false,
             "show_icon": true
           },
           {
             "effect": "minecraft:jump_boost",
-            "duration": 100,
+            "duration": 300,
             "amplifier": 3,
             "show_particles": false,
             "show_icon": true
           },
           {
             "effect": "minecraft:invisibility",
-            "duration": 100,
+            "duration": 300,
             "amplifier": 0,
             "show_particles": false,
             "show_icon": true
@@ -55,9 +62,13 @@
       }
     ]
   },
-  "cooldown": 100,
+  "cooldown": 300,
   "hud_render": {
     "should_render": false
+  },
+  "condition": {
+    "type": "ssc_xu_addon:is_exhaustion",
+    "inverted": true
   },
   "key": {
     "key": "key.origins.secondary_active"
