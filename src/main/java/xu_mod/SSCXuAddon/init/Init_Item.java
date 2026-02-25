@@ -52,6 +52,8 @@ public class Init_Item {
     public static final Item SPACE_BAG = register("space_bag", new SpaceBag(new Item.Settings().maxCount(1)));
     public static final Item SPACE_STABILIZER = register("space_stabilizer", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.space_stabilizer.tooltip").formatted(Formatting.YELLOW)));
 
+    public static final Item WIND_GEM = register("wind_gem", new WindGem(new Item.Settings().maxCount(64)));
+
     public static void init() {
         // 先放到原版物品栏中 等物品多了之后再开一个标签页(>=9)
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
@@ -74,6 +76,7 @@ public class Init_Item {
             entries.add(BLOOD_GEM);
             entries.add(EMERALD_ESSENCE);
             entries.add(SPACE_GEM);
+            entries.add(WIND_GEM);
         });
 
         // 挂载附魔 使用我在主Mod写的API 与神化部分冲突 会在启用神化后禁用附魔台修改(不过仅互联版本会出现此冲突 毕竟神化没Fabric版)
