@@ -58,7 +58,7 @@
       },
       {
         "type": "origins:play_sound",
-        "sound": "minecraft:entity.enderman.teleport"
+        "sound": "minecraft:entity.goat.long_jump"
       }
     ]
   },

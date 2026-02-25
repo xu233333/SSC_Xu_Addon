@@ -1,0 +1,47 @@
+{
+  "type": "origins:action_on_hit",
+  "bientity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:target_action",
+        "action": {
+          "type": "origins:apply_effect",
+          "effect": {
+            "effect": "minecraft:poison",
+            "duration": 200,
+            "amplifier": 0
+          }
+        }
+      }
+    ]
+  },
+  "bientity_condition": {
+    "type": "origins:actor_condition",
+    "condition": {
+      "type": "origins:or",
+      "conditions": [
+        {
+          "type": "origins:inventory",
+          "process_mode": "items",
+          "item_condition": {
+            "type": "shape-shifter-curse:is_weapon"
+          },
+          "slots": [
+            "weapon.mainhand"
+          ],
+          "inverted": true
+        },
+        {
+          "type": "origins:inventory",
+          "process_mode": "items",
+          "comparison": "==",
+          "compare_to": 0,
+          "slots": [
+            "weapon.mainhand"
+          ]
+        }
+      ]
+    }
+  }
+}

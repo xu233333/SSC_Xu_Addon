@@ -1,0 +1,66 @@
+{
+  "type": "origins:multiple",
+  "eh1": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "add damage taken",
+      "value": 0.25,
+      "operation": "multiply_base"
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.40,
+      "inverted": true
+    }
+  },
+  "eh2": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": 0.25,
+      "operation": "multiply_base"
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.20,
+      "inverted": true
+    }
+  },
+  "eh3": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": 0.25,
+      "operation": "multiply_base"
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.10,
+      "inverted": true
+    }
+  },
+  "eh4": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": 0.25,
+      "operation": "multiply_base"
+    },
+    "condition": {
+      "type": "shape-shifter-curse:has_mana_percent",
+      "mana_percent": 0.05,
+      "inverted": true
+    }
+  },
+  "eh5": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": 0.50,
+      "operation": "multiply_base"
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_exhaustion"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "origins:multiple",
+  "sweeping": {
+    "type": "shape-shifter-curse:always_sweeping",
+    "condition": {
+      "type": "ssc_xu_addon:is_exhaustion",
+      "inverted": true
+    }
+  },
+  "cost": {
+    "type": "origins:self_action_on_hit",
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "shape-shifter-curse:consume_mana",
+          "mana": 2
+        }
+      ]
+    },
+    "condition": {
+      "type": "ssc_xu_addon:is_exhaustion",
+      "inverted": true
+    }
+  }
+}

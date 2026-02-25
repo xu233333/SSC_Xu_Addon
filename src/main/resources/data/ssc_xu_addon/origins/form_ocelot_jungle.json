@@ -1,16 +1,12 @@
 {
   "powers": [
-    "shape-shifter-curse:barehand_attack_up",
     "shape-shifter-curse:form_ocelot_2_sneaking_speed_up",
     "shape-shifter-curse:form_ocelot_3_jump_far",
     "shape-shifter-curse:form_ocelot_3_jump_high",
     "shape-shifter-curse:form_ocelot_3_hunger",
     "shape-shifter-curse:form_ocelot_3_sneaking_jump_clash",
     "shape-shifter-curse:form_ocelot_3_sneaking_step_height",
-    "shape-shifter-curse:form_ocelot_2_arrow_dodge",
-    "shape-shifter-curse:form_ocelot_2_barepaw_sweeping",
 
-    "shape-shifter-curse:form_ocelot_2_health",
     "shape-shifter-curse:form_raw_meat_food_up",
     "shape-shifter-curse:form_disable_chest_armor",
     "shape-shifter-curse:form_disable_feet_armor",
@@ -39,7 +35,14 @@
     "ssc_xu_addon:no_stop_sprint_while_attack",
     "ssc_xu_addon:form_ocelot_jungle_speed_damage_boost",
     "ssc_xu_addon:form_ocelot_jungle_skill_1",
-    "ssc_xu_addon:form_ocelot_jungle_skill_2"
+    "ssc_xu_addon:form_ocelot_jungle_skill_2",
+    "ssc_xu_addon:form_ocelot_jungle_health",
+    "ssc_xu_addon:form_ocelot_jungle_sweeping",
+    "ssc_xu_addon:form_ocelot_jungle_dodge",
+    "ssc_xu_addon:form_ocelot_jungle_extra_hurt",
+    "ssc_xu_addon:form_ocelot_jungle_barehand_attack_up",
+    "ssc_xu_addon:form_ocelot_jungle_barehand_poison"
+
   ],
   "icon": {
     "item": "minecraft:player_head"

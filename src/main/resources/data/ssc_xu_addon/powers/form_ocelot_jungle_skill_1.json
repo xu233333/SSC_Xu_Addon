@@ -7,8 +7,17 @@
   "movement_speed_x": 4.0,
   "movement_speed_y": 0.5,
   "on_invoke_action": {
-    "type": "shape-shifter-curse:consume_mana",
-    "mana": 90
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "shape-shifter-curse:consume_mana",
+        "mana": 90
+      },
+      {
+        "type": "origins:play_sound",
+        "sound": "minecraft:entity.goat.long_jump"
+      }
+    ]
   },
   "cooldown": 100,
   "key": {

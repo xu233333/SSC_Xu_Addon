@@ -1,0 +1,23 @@
+{
+  "type": "shape-shifter-curse:projectile_dodge",
+  "range": 7.0,
+  "trigger_distance": 7.0,
+  "dodge_speed": 2,
+  "cooldown": 20,
+  "entity_condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:on_block"
+      },
+      {
+        "type": "shape-shifter-curse:has_mana_percent",
+        "mana_percent": 0.75
+      }
+    ]
+  },
+  "action": {
+    "type": "origins:play_sound",
+    "sound": "minecraft:entity.goat.long_jump"
+  }
+}

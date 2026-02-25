@@ -1,6 +1,6 @@
 {
   "type": "ssc_xu_addon:speed_to_damage",
-  "speed_to_damage_radio": 18.0,
+  "speed_to_damage_radio": 20.0,
   "knockback_radio": 4.0,
   "on_hit_action": {
     "type": "origins:and",
@@ -11,11 +11,23 @@
           "type": "ssc_xu_addon:add_sprinting_time",
           "percent": 0.8
         }
+      },
+      {
+        "type": "shape-shifter-curse:consume_mana",
+        "mana": 5
       }
     ]
   },
   "condition": {
-    "type": "ssc_xu_addon:is_exhaustion",
-    "inverted": true
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:sprinting"
+      },
+      {
+        "type": "ssc_xu_addon:is_exhaustion",
+        "inverted": true
+      }
+    ]
   }
 }
