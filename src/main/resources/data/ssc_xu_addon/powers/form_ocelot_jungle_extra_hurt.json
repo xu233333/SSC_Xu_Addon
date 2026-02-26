@@ -62,5 +62,14 @@
     "condition": {
       "type": "ssc_xu_addon:is_exhaustion"
     }
+  },
+  "low_def": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "armor debuff",
+      "attribute": "minecraft:generic.armor",
+      "value": -0.20,
+      "operation": "multiply_base"
+    }
   }
 }
