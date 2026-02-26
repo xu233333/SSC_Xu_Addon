@@ -5,7 +5,7 @@
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
-      "value": 0.025,
+      "value": 0.020,
       "name": "normal speed up"
     },
     "tick_rate": 5,
@@ -54,7 +54,7 @@
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
-      "value": 0.025,
+      "value": 0.020,
       "name": "normal speed up"
     },
     "tick_rate": 5,
@@ -103,7 +103,7 @@
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
-      "value": 0.025,
+      "value": 0.020,
       "name": "normal speed up"
     },
     "tick_rate": 5,
@@ -152,7 +152,7 @@
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
-      "value": 0.025,
+      "value": 0.020,
       "name": "normal speed up"
     },
     "tick_rate": 5,
@@ -201,7 +201,7 @@
     "modifier": {
       "attribute": "minecraft:generic.movement_speed",
       "operation": "addition",
-      "value": 0.025,
+      "value": 0.020,
       "name": "normal speed up"
     },
     "tick_rate": 5,

@@ -53,9 +53,12 @@ public class Init_Item {
     public static final Item SPACE_STABILIZER = register("space_stabilizer", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.space_stabilizer.tooltip").formatted(Formatting.YELLOW)));
 
     public static final Item WIND_GEM = register("wind_gem", new WindGem(new Item.Settings().maxCount(64)));
+    public static final Item CHARM_OF_WIND = register("charm_of_wind", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.charm_of_wind.tooltip").formatted(Formatting.YELLOW)));
+    public static final Item HEAVY_BRACELET = register("heavy_bracelet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.heavy_bracelet.tooltip").formatted(Formatting.YELLOW)));
+    public static final Item VITALITY_STONE = register("vitality_stone", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.vitality_stone.tooltip").formatted(Formatting.YELLOW)));
 
     public static void init() {
-        // 先放到原版物品栏中 等物品多了之后再开一个标签页(>=9)
+        // TODO 开新标签页(得画图标)
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.add(MANA_BOOST_BRACELET);
             entries.add(CHARM_OF_BLOOD);
@@ -67,6 +70,9 @@ public class Init_Item {
             entries.add(STABLE_SPACE_GEM);
             entries.add(SPACE_BAG);
             entries.add(SPACE_STABILIZER);
+            entries.add(CHARM_OF_WIND);
+            entries.add(HEAVY_BRACELET);
+            entries.add(VITALITY_STONE);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
             entries.add(UNSTABLE_HOLY_APPLE);
@@ -87,6 +93,7 @@ public class Init_Item {
         EnchantmentUtils.registerEnchantmentItem(Enchantments.KNOCKBACK, BloodClaw.class);
         EnchantmentUtils.registerEnchantmentItem(Enchantments.LOOTING, BloodClaw.class);
 
+        // 互联似乎没有LootTableLoadingCallback的API 所以加个判断
         if (!FabricLoader.getInstance().isModLoaded("connectormod")) {
             // 鲜血宝石 会在地狱要塞(中 20% 2-3)和废弃地狱门(少 10% 1-2)宝箱刷新
             LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, tableBuilder, setter) -> {

@@ -1,0 +1,11 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "ssc_xu_addon:add_sprinting_time",
+    "base": 5
+  },
+  "interval": 10,
+  "condition": {
+    "type": "origins:sprinting"
+  }
+}

@@ -1,12 +1,16 @@
 {
   "type": "ssc_xu_addon:speed_to_damage",
-  "speed_to_damage_radio": 20.0,
+  "speed_to_damage_radio": 24.0,
   "knockback_radio": 6.0,
   "on_hit_action": {
     "type": "origins:actor_action",
     "action": {
       "type": "origins:and",
       "actions": [
+        {
+          "type": "ssc_xu_addon:add_sprinting_time",
+          "percent": 0.9
+        },
         {
           "type": "shape-shifter-curse:consume_mana",
           "mana": 5
