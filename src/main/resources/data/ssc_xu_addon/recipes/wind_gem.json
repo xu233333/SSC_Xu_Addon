@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "DCD",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:feather"
+    },
+    "B": {
+      "item": "minecraft:slime_ball"
+    },
+    "C": {
+      "item": "minecraft:diamond"
+    },
+    "D": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:wind_gem",
+    "count": 1
+  }
+}

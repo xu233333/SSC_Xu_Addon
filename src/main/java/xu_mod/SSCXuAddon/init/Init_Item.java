@@ -95,8 +95,8 @@ public class Init_Item {
 
         // 互联似乎没有LootTableLoadingCallback的API 所以加个判断
         if (!FabricLoader.getInstance().isModLoaded("connectormod")) {
-            // 鲜血宝石 会在地狱要塞(中 20% 2-3)和废弃地狱门(少 10% 1-2)宝箱刷新
             LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, tableBuilder, setter) -> {
+                // 鲜血宝石 会在地狱要塞(中 20% 2-3)和废弃地狱门(少 10% 1-2)宝箱刷新
                 if (id.equals(new Identifier("minecraft", "chests/nether_bridge"))) {
                     LootPool.Builder poolBuilder = LootPool.builder()
                             .rolls(ConstantLootNumberProvider.create(1))
@@ -109,6 +109,14 @@ public class Init_Item {
                             .rolls(ConstantLootNumberProvider.create(1))
                             .with(ItemEntry.builder(Init_Item.BLOOD_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
                             .with(ItemEntry.builder(Items.AIR).weight(18).quality(-2));
+                    tableBuilder.pool(poolBuilder);
+                }
+                // 风之宝石 丛林神庙刷新 或者用很贵的材料合成(别问为什么配方那么难获得 主要为了鼓励探索丛林神庙)
+                if (id.equals(new Identifier("minecraft", "chests/jungle_temple"))) {
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1))
+                            .with(ItemEntry.builder(Init_Item.WIND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 3))))
+                            .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
                     tableBuilder.pool(poolBuilder);
                 }
             });

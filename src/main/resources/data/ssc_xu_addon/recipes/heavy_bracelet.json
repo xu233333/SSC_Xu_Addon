@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BDB",
+    "ACA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:gold_ingot"
+    },
+    "C": {
+      "item": "minecraft:anvil"
+    },
+    "D": {
+      "item": "shape-shifter-curse:moondust_crystal_shard"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:heavy_bracelet",
+    "count": 1
+  }
+}
