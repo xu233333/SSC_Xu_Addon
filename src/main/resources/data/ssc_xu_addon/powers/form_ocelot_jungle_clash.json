@@ -60,6 +60,10 @@
                                 "y": 0.5,
                                 "z": 0.5
                             }
+                        },
+                        {
+                            "type": "shape-shifter-curse:consume_mana",
+                            "mana": 12
                         }
                     ]
                 }
@@ -78,6 +82,11 @@
             {
                 "type": "ssc_xu_addon:is_exhaustion",
                 "inverted": true
+            },
+            {
+                "type": "ssc_xu_addon:sprinting_time",
+                "comparison": ">=",
+                "compare_to": 120
             }
         ]
     }

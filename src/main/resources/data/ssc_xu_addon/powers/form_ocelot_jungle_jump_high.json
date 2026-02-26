@@ -3,6 +3,6 @@
     "modifier": {
         "name": "Bonus jump force",
         "operation": "multiply_base",
-        "value": 0.25
+        "value": 0.20
     }
 }

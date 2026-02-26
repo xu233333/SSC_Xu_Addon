@@ -2,7 +2,7 @@
     "type": "shape-shifter-curse:action_on_jump",
     "entity_action": {
         "type": "origins:add_velocity",
-        "z": 0.8,
+        "z": 0.4,
         "space": "local"
     },
     "entity_condition": {
@@ -23,6 +23,11 @@
             {
                 "type": "ssc_xu_addon:is_exhaustion",
                 "inverted": true
+            },
+            {
+                "type": "ssc_xu_addon:sprinting_time",
+                "comparison": ">=",
+                "compare_to": 120
             }
         ]
     }

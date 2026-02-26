@@ -1,8 +1,8 @@
 {
   "type": "shape-shifter-curse:mana_attribute",
-  "modifierID": "ssc_xu_addon:mana_boost_bracelet",
+  "modifierID": "ssc_xu_addon:ocelot_jungle_buff2",
   "max_mana_modifier": {
-    "multiply": 1.1
+    "add": 15
   },
   "regen_mana_modifier": {
     "multiply": 1.1
