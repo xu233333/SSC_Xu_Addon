@@ -83,6 +83,7 @@ public class WindGem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.ssc_xu_addon.wind_gem.tooltip").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.wind_gem.tooltip.1").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.wind_gem.tooltip.2").formatted(Formatting.AQUA));
     }
 }

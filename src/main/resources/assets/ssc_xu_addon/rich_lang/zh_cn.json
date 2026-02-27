@@ -195,6 +195,51 @@
   "item.ssc_xu_addon.space_stabilizer.tooltip": ["[悦灵(空间工程师)形态]经过黄金和青金石稳定的空间宝石，它发出的能量可以让你身上的空间宝石稳定一些，提升虚化值上限，并减少虚化能力消耗。"],
   "container.ssc_xu_addon.player_space_bag": ["个人空间存储"],
 
+  "codex.form.ssc_xu_addon.ocelot_jungle.name": ["豹猫(丛林刺客)"],
+  "codex.form.ssc_xu_addon.ocelot_jungle.title": [
+    "\n你吸收了风之宝石中的魔力，它让你获得了极致的速度。",
+    "\n\n专属饰品/工具：[疾风挂坠],[千钧脚环],[活力之石],[消化毛球]"
+  ],
+  "codex.form.ssc_xu_addon.ocelot_jungle.appearance": [
+    "除了皮毛的颜色与身体的尺寸以及那些花纹以外，你整体看上去与一只野生豹猫几乎没有差别\n你是密林中的王者。在你敏锐的双眼与尖利的四爪下，任何生物都是你的狩猎目标"
+  ],
+  "codex.form.ssc_xu_addon.ocelot_jungle.pros": [
+    "你的身体完全变为了四足结构，让你的跳跃力大大加强了。\n",
+    "更加强力的四爪让你可以在几乎任何表面上攀爬\n",
+    "你可以利用风之魔力来提升自己的速度，疾跑时间越长，速度越快。你在疾跑时可以自动跨越一格的高度\n",
+    "当你在疾跑时攻击，你会造成额外的伤害和击退，速度越快，伤害越高。\n",
+    "你极为敏锐的感官可以让你本能地闪躲将要命中你的投射物(体力大于3/4)\n",
+    "你在黑夜也能够清晰视物\n",
+    "你能够在空手时使用前爪造成大量伤害，并给予中毒效果。\n",
+    "你现在可以在不使用剑时触发横扫攻击\n",
+    "你不会发出脚步声，也不会受到摔落伤害\n",
+    "新鲜的生肉给与你更高的饥饿值\n",
+    "你的身体给了你强大的免疫力，让你不会受到饥饿与中毒的异常状态\n",
+    "苦力怕和幻翼会对你敬而远之"
+  ],
+  "codex.form.ssc_xu_addon.ocelot_jungle.cons": [
+    "由于你的能力来源于体能爆发，你的能力受到体力值的限制。\n",
+    "冲刺和攻击都会消耗你的体力，当体力耗尽时你会陷入衰竭状态，在此期间，你无法触发大部分能力。\n",
+    "防御值下降1/5，当你的体力值小于4/10时，你将受到额外的伤害，体力值越低，额外伤害越高。\n",
+    "完全改变的身体让你只能从生肉中获取能量。\n",
+    "任何护甲对你运动的阻碍都让你难以忍受。现在你只能穿戴头盔，也无法正常使用盾牌"
+  ],
+  "codex.form.ssc_xu_addon.ocelot_jungle.instincts": [
+    "\n按主动技能(1)触发进攻性冲刺，消耗大量体力，向目标方向跳跃，在空中时触发小型爆炸，落地后触发大型爆炸。\n",
+    "按主动技能(2)触发防御性闪现，消耗全部体力，瞬移至64格远，给予隐身和额外速度，但是在15s内无法攻击。\n",
+    "疾跑6s后按跳跃触发猛扑，可以对前方造成大量的扑击伤害。"
+  ],
+  "item.ssc_xu_addon.wind_gem": ["风之宝石"],
+  "item.ssc_xu_addon.wind_gem.tooltip.1": ["宝石中存在一股特殊的能量，捏碎它应该能临时强化一下自身。"],
+  "item.ssc_xu_addon.wind_gem.tooltip.2": ["可以在丛林神庙中找到。"],
+  "message.ssc_xu_addon.item.wind_gem.special_form": ["你吸收的风之宝石中的魔力，你变化成了新的形态。"],
+  "item.ssc_xu_addon.charm_of_wind": ["疾风挂坠"],
+  "item.ssc_xu_addon.charm_of_wind.tooltip": ["[豹猫(丛林刺客)形态]获得15点额外体力值上限，提升1/10的体力恢复速率，提升冲刺速度提升速率。"],
+  "item.ssc_xu_addon.heavy_bracelet": ["千钧脚环"],
+  "item.ssc_xu_addon.heavy_bracelet.tooltip": ["[豹猫(丛林刺客)形态]降低冲刺速度，提升冲刺攻击伤害比例，降低冲刺伤害造成的速度降低效果。"],
+  "item.ssc_xu_addon.vitality_stone": ["活力之石"],
+  "item.ssc_xu_addon.vitality_stone.tooltip": ["[豹猫(丛林刺客)形态]提升生命值上限至20点，获得15点额外体力值上限，提升1/10的体力恢复速率。"],
+
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果",
   "text.autoconfig.ssc_xu_addon_server.title": "SSC Xu Addon - 服务器配置",

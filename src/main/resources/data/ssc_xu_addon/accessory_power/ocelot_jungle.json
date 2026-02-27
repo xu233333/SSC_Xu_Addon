@@ -49,5 +49,22 @@
         ]
       }
     }
+  },
+  "shape-shifter-curse:digestion_fiber_ball": {
+    "accessory_powers": [],
+    "all_form": {
+      "add": [],
+      "remove": []
+    },
+    "forms": {
+      "ssc_xu_addon:ocelot_jungle": {
+        "add": [
+          "shape-shifter-curse:form_ocelot_digestion_fiber_ball_trinket"
+        ],
+        "remove": [
+          "shape-shifter-curse:form_ocelot_2_raw_meat_only"
+        ]
+      }
+    }
   }
 }
