@@ -214,15 +214,15 @@ public class Init_ManaType {
             new ManaHandler().setOnServerManaEmpty(((manaComponent, player) -> {
                 Utils.exhaustionTime.put(player.getUuid(), 300);
                 player.setSprinting(false);
-                ManaUtils.setPlayerMana(player, manaComponent.MaxManaClient * 0.030f);
+                ManaUtils.setPlayerMana(player, manaComponent.MaxManaClient * 0.025f);
             })).setOnServerManaTick(((manaComponent, player) -> {
-                if (player.age % 10 != 0 || !player.isAlive()) {
+                if (player.age % 5 != 0 || !player.isAlive()) {
                     return;
                 }
-                if (manaComponent.Mana <= manaComponent.MaxManaClient * 0.025f) {  //  不知道为什么 我的那套触发机制无法稳定触发 之后试试修一下
+                if (manaComponent.Mana <= manaComponent.MaxManaClient * 0.020f) {  //  不知道为什么 我的那套触发机制无法稳定触发 之后试试修一下
                     Utils.exhaustionTime.put(player.getUuid(), 300);
                     player.setSprinting(false);
-                    ManaUtils.setPlayerMana(player, manaComponent.MaxManaClient * 0.030f);
+                    ManaUtils.setPlayerMana(player, manaComponent.MaxManaClient * 0.025f);
                 }
             }))
     );
