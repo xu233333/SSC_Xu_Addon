@@ -1,5 +1,6 @@
 package xu_mod.SSCXuAddon.data.item;
 
+import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -17,16 +18,15 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.player_form.PlayerFormBase;
-import net.onixary.shapeShifterCurseFabric.player_form.RegPlayerForms;
 import net.onixary.shapeShifterCurseFabric.player_form.ability.RegPlayerFormComponent;
-import net.onixary.shapeShifterCurseFabric.player_form.transform.TransformManager;
 import org.jetbrains.annotations.Nullable;
 import xu_mod.SSCXuAddon.init.Init_Form;
+import xu_mod.SSCXuAddon.powers.LeveledManaPower;
 
 import java.util.List;
 
-public class BloodGem extends Item {
-    public BloodGem(Settings settings) {
+public class GroundGem extends Item {
+    public GroundGem(Settings settings) {
         super(settings);
     }
 
@@ -49,22 +49,13 @@ public class BloodGem extends Item {
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (user instanceof PlayerEntity player && !world.isClient) {
-            // 我认为就一种形态需要用这种方式变身 就不拆成函数吧
-            PlayerFormBase form = RegPlayerFormComponent.PLAYER_FORM.get(user).getCurrentForm();
-            if (RegPlayerForms.BAT_3.equals(form)) {
-                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.blood_gem.special_form").formatted(Formatting.YELLOW), false);
-                TransformManager.handleDirectTransform(player, Init_Form.BatVampire, false);
-            } else if (Init_Form.BatVampire.equals(form)) {
-                player.heal(player.getMaxHealth() * 0.2f);  // 回复 20% 的血量
-            } else {
-                // 血液排斥
-                player.damage(player.getDamageSources().generic(), player.getMaxHealth() * 0.4f);
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 400, 1, false, true));
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 400, 1, false, true));
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 400, 3, false, true));  // +12 ATK
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 400, 1, false, true));  // -40% 受伤比例
-            }
-            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_EVOKER_PREPARE_SUMMON, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            // 强力 buff 等什么时候有形态需要这个物品时再削弱
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 400, 3, false, true));  // -80% 受伤比例
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1200, 0, false, true));  // 防火
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 1200, 4, false, true));  // 伤害吸收
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 1, false, true));  // 减速2
+            player.getHungerManager().add(20, 2.0f);  // 回满饱食度
+            world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().creativeMode) {
                 stack.decrement(1);
                 player.getItemCooldownManager().set(this, 600);
@@ -75,7 +66,7 @@ public class BloodGem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.ssc_xu_addon.blood_gem.tooltip.1").formatted(Formatting.YELLOW));
-        tooltip.add(Text.translatable("item.ssc_xu_addon.blood_gem.tooltip.2").formatted(Formatting.DARK_RED));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.ground_gem.tooltip.1").formatted(Formatting.YELLOW));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.ground_gem.tooltip.2").formatted(Formatting.YELLOW));  // 地下矿坑/藏宝图宝箱
     }
 }

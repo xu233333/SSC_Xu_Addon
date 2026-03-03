@@ -61,14 +61,13 @@ public class FireGem extends Item {
                     }
                 });  // 解除魔力衰竭
             } else {
-                // 血液排斥
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 300, 1, false, true));  // +6 ATK
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600, 0, false, true));  // 防火
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 600, 1, false, true));  // +6 ATK
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 1200, 0, false, true));  // 防火
             }
             world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F);
             if (!player.getAbilities().creativeMode) {
                 stack.decrement(1);
-                player.getItemCooldownManager().set(this, 600);
+                player.getItemCooldownManager().set(this, 300);
             }
         }
         return stack;
@@ -76,7 +75,6 @@ public class FireGem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.ssc_xu_addon.fire_gem.tooltip.1").formatted(Formatting.YELLOW));
-        tooltip.add(Text.translatable("item.ssc_xu_addon.fire_gem.tooltip.2").formatted(Formatting.RED));
+        tooltip.add(Text.translatable("item.ssc_xu_addon.fire_gem.tooltip").formatted(Formatting.YELLOW));
     }
 }
