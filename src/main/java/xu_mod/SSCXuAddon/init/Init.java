@@ -8,6 +8,7 @@ public class Init {
         Init_Config.init();
         Init_Form.init();
         Init_Item.init();
+        Init_Enchantment.init();
         Init_Entity.init();
         Init_ManaType.init();
         Init_Apoli.init();
