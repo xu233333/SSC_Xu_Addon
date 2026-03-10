@@ -62,20 +62,22 @@ public class WindGem extends Item {
             if (RegPlayerForms.OCELOT_3.equals(form)) {
                 player.sendMessage(Text.translatable("message.ssc_xu_addon.item.wind_gem.special_form").formatted(Formatting.YELLOW), false);
                 TransformManager.handleDirectTransform(player, Init_Form.OcelotJungle, false);
-                if (!player.getAbilities().creativeMode) {
-                    stack.decrement(1);
-                }
             }
             else if (Init_Form.OcelotJungle.equals(form)) {
                 ManaUtils.gainPlayerMana(player, ManaUtils.getPlayerMaxMana(player));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 2400, 1, false, true));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 2400, 1, false, true));
+                player.getItemCooldownManager().set(this, 600);
             }
             else {
                 // 加速5min
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 6000, 1, false, true));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 6000, 1, false, true));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 6000, 0, false, true));
+                player.getItemCooldownManager().set(this, 600);
+            }
+            if (!player.getAbilities().creativeMode) {
+                stack.decrement(1);
             }
         }
         return stack;
