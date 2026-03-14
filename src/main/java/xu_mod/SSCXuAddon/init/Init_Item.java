@@ -60,6 +60,7 @@ public class Init_Item {
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
     public static final Item GROUND_GEM = register("ground_gem", new GroundGem(new Item.Settings().maxCount(64)));
+    public static final Item WATER_GEM = register("ground_gem", new WaterGem(new Item.Settings().maxCount(64)));
     public static final Item SUPER_HOLY_APPLE = register("super_holy_apple", new SuperHolyApple(new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().hunger(4).saturationModifier(1.2f).build()).maxCount(64)));
 
     // 魔法海螺
@@ -95,6 +96,7 @@ public class Init_Item {
             entries.add(WIND_GEM);
             entries.add(FIRE_GEM);
             entries.add(GROUND_GEM);
+            entries.add(WATER_GEM);
         });
 
         // 挂载附魔 使用我在主Mod写的API 与神化部分冲突 会在启用神化后禁用附魔台修改(不过仅互联版本会出现此冲突 毕竟神化没Fabric版)
