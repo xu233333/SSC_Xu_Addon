@@ -1,0 +1,12 @@
+{
+  "ssc_xu_addon:charm_of_nine_live": {
+    "accessory_powers": [
+      "ssc_xu_addon:trinket_charm_of_nine_live"
+    ]
+  },
+  "ssc_xu_addon:charm_of_blood_thirst": {
+    "accessory_powers": [
+      "ssc_xu_addon:trinket_charm_of_blood_thirst"
+    ]
+  }
+}

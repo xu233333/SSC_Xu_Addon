@@ -26,6 +26,7 @@ import xu_mod.SSCXuAddon.data.item.*;
 import xu_mod.SSCXuAddon.data.item.tools.BloodClaw;
 import xu_mod.SSCXuAddon.data.item.tools.SpaceBag;
 import xu_mod.SSCXuAddon.data.item.tools.StableSpaceGem;
+import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
 import xu_mod.SSCXuAddon.data.item.trinket.TrinketWithToolTip;
 
 public class Init_Item {
@@ -60,16 +61,23 @@ public class Init_Item {
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
     public static final Item GROUND_GEM = register("ground_gem", new GroundGem(new Item.Settings().maxCount(64)));
-    public static final Item WATER_GEM = register("ground_gem", new WaterGem(new Item.Settings().maxCount(64)));
+    public static final Item WATER_GEM = register("water_gem", new WaterGem(new Item.Settings().maxCount(64)));
     public static final Item SUPER_HOLY_APPLE = register("super_holy_apple", new SuperHolyApple(new Item.Settings().food(new FoodComponent.Builder().alwaysEdible().hunger(4).saturationModifier(1.2f).build()).maxCount(64)));
 
     // 魔法海螺
+    public static final Item MAGIC_CONCH = register("magic_conch", new MagicConch(new Item.Settings().maxCount(1)));
+
+    // 通用饰品
+    public static final Item CHARM_OF_NINE_LIVE = register("charm_of_nine_live", new NineLiveCharm(new Item.Settings().maxCount(1).maxDamage(8)));
+    public static final Item CHARM_OF_BLOOD_THIRST = register("charm_of_blood_thirst", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.charm_of_blood_thirst.tooltip").formatted(Formatting.YELLOW)));
+
 
     // 图标物品
 
     public static void init() {
         // TODO 开新标签页(得画图标)
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            entries.add(MAGIC_CONCH);
             entries.add(MANA_BOOST_BRACELET);
             entries.add(CHARM_OF_BLOOD);
             entries.add(BLOODRAGE_GAUNTLETS);
@@ -83,6 +91,8 @@ public class Init_Item {
             entries.add(CHARM_OF_WIND);
             entries.add(HEAVY_BRACELET);
             entries.add(VITALITY_STONE);
+            entries.add(CHARM_OF_NINE_LIVE);
+            entries.add(CHARM_OF_BLOOD_THIRST);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
             entries.add(UNSTABLE_HOLY_APPLE);

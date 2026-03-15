@@ -1,0 +1,64 @@
+{
+  "type": "origins:multiple",
+  "boost_attack_damage_1": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "2 extra damage",
+      "attribute": "minecraft:generic.attack_damage",
+      "value": 2.5,
+      "operation": "addition"
+    }
+  },
+  "boost_attack_damage_2": {
+    "type": "origins:modify_damage_dealt",
+    "modifier": {
+      "name": "Extra 10 percent damage",
+      "operation": "multiply_base",
+      "value": 0.25
+    }
+  },
+  "boost_attack_speed": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "Extra attack speed",
+      "attribute": "minecraft:generic.attack_speed",
+      "operation": "multiply_base",
+      "value": 0.25
+    }
+  },
+  "boost_speed": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "Extra speed",
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "multiply_base",
+      "value": 0.125
+    }
+  },
+  "low_health": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "4 health reduction",
+      "attribute": "minecraft:generic.max_health",
+      "value": -4.0,
+      "operation": "addition"
+    }
+  },
+  "low_defense": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "Extra speed",
+      "attribute": "minecraft:generic.armor",
+      "operation": "multiply_base",
+      "value": -0.2
+    }
+  },
+  "high_damage_taken": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "name": "reduce damage taken",
+      "value": 0.25,
+      "operation": "multiply_base"
+    }
+  }
+}
