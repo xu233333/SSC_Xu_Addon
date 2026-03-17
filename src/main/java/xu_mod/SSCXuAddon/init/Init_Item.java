@@ -1,13 +1,11 @@
 package xu_mod.SSCXuAddon.init;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.LootFunctionTypes;
@@ -20,6 +18,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.onixary.shapeShifterCurseFabric.ShapeShifterCurseFabric;
 import net.onixary.shapeShifterCurseFabric.util.EnchantmentUtils;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.data.item.*;
@@ -71,43 +70,44 @@ public class Init_Item {
     public static final Item CHARM_OF_NINE_LIVE = register("charm_of_nine_live", new NineLiveCharm(new Item.Settings().maxCount(1).maxDamage(8)));
     public static final Item CHARM_OF_BLOOD_THIRST = register("charm_of_blood_thirst", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.charm_of_blood_thirst.tooltip").formatted(Formatting.YELLOW)));
 
+    // 单独画一个 Icon 没有灵感 还是用魔法海螺作为 Icon 或者之后我重绘神圣金苹果(不是太好看 我觉得现在的图标就魔法海螺好看点)或整点什么终极物品后再换吧
+    public static final ItemGroup SSC_XU_ADDON_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(MAGIC_CONCH))
+            .displayName(Text.translatable("itemGroup.ssc_xu_addon.ssc_xu_addon_item"))
+            .entries((context, entries) -> {
+                entries.add(MAGIC_CONCH);
+                entries.add(MANA_BOOST_BRACELET);
+                entries.add(CHARM_OF_BLOOD);
+                entries.add(BLOODRAGE_GAUNTLETS);
+                entries.add(SUNVEIL_CIRCLET);
+                entries.add(BLOOD_CLAW);
+                entries.add(CHARM_OF_EMERALD);
+                entries.add(ANKLET_OF_THE_WITCH_FAMILIAR);
+                entries.add(STABLE_SPACE_GEM);
+                entries.add(SPACE_BAG);
+                entries.add(SPACE_STABILIZER);
+                entries.add(CHARM_OF_WIND);
+                entries.add(HEAVY_BRACELET);
+                entries.add(VITALITY_STONE);
+                // entries.add(CHARM_OF_NINE_LIVE);  // 隐藏物品 不展示 之后加一下掉落
+                entries.add(CHARM_OF_BLOOD_THIRST);
 
-    // 图标物品
+                entries.add(UNSTABLE_HOLY_APPLE);
+                entries.add(STABLE_HOLY_APPLE);
+                entries.add(SUPER_HOLY_APPLE);
+
+                entries.add(BLOOD_GEM);
+                entries.add(EMERALD_ESSENCE);
+                entries.add(SPACE_GEM);
+                entries.add(WIND_GEM);
+                entries.add(FIRE_GEM);
+                entries.add(GROUND_GEM);
+                entries.add(WATER_GEM);
+            })
+            .build();
 
     public static void init() {
-        // TODO 开新标签页(得画图标)
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
-            entries.add(MAGIC_CONCH);
-            entries.add(MANA_BOOST_BRACELET);
-            entries.add(CHARM_OF_BLOOD);
-            entries.add(BLOODRAGE_GAUNTLETS);
-            entries.add(SUNVEIL_CIRCLET);
-            entries.add(BLOOD_CLAW);
-            entries.add(CHARM_OF_EMERALD);
-            entries.add(ANKLET_OF_THE_WITCH_FAMILIAR);
-            entries.add(STABLE_SPACE_GEM);
-            entries.add(SPACE_BAG);
-            entries.add(SPACE_STABILIZER);
-            entries.add(CHARM_OF_WIND);
-            entries.add(HEAVY_BRACELET);
-            entries.add(VITALITY_STONE);
-            entries.add(CHARM_OF_NINE_LIVE);
-            entries.add(CHARM_OF_BLOOD_THIRST);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
-            entries.add(UNSTABLE_HOLY_APPLE);
-            entries.add(STABLE_HOLY_APPLE);
-            entries.add(SUPER_HOLY_APPLE);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.add(BLOOD_GEM);
-            entries.add(EMERALD_ESSENCE);
-            entries.add(SPACE_GEM);
-            entries.add(WIND_GEM);
-            entries.add(FIRE_GEM);
-            entries.add(GROUND_GEM);
-            entries.add(WATER_GEM);
-        });
+        Registry.register(Registries.ITEM_GROUP, SSCXuAddon.identifier("ssc_xu_addon_item"), SSC_XU_ADDON_GROUP);
 
         // 挂载附魔 使用我在主Mod写的API 与神化部分冲突 会在启用神化后禁用附魔台修改(不过仅互联版本会出现此冲突 毕竟神化没Fabric版)
         EnchantmentUtils.registerEnchantmentItem(Enchantments.SHARPNESS, BloodClaw.class);
