@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "ABA",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "B": {
+      "item": "minecraft:water_gem"
+    },
+    "C": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "D": {
+      "item": "shape-shifter-curse:book_of_shape_shifter"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:magic_conch",
+    "count": 1
+  }
+}

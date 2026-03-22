@@ -270,6 +270,8 @@
   "item.ssc_xu_addon.magic_conch.message.9": ["据说猫的身上藏有1件可以免疫死亡的饰品，不知道是否为谣传。"],
   "item.ssc_xu_addon.magic_conch.message.10": ["空间宝石的魔力似乎可以让拥有空间能力的悦灵开辟更大的储物空间。"],
 
+  "message.ssc_xu_addon.special_form.unfinish": ["你手上的物品能让你当前的形态变化，不过这个世界上还没有那个形态，或许可以等一下之后的更新后再来试试。"],
+
   "text.autoconfig.ssc_xu_addon_custom.title": "SSC Xu Addon - 玩家自定义配置",
   "text.autoconfig.ssc_xu_addon_custom.option.enableFakeBlindPower": "启用 Power 失明效果",
   "text.autoconfig.ssc_xu_addon_server.title": "SSC Xu Addon - 服务器配置",

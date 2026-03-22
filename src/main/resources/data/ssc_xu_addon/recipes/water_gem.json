@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ACA",
+    "DBE",
+    "FHG"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "B": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "minecraft:tube_coral"
+    },
+    "D": {
+      "item": "minecraft:bubble_coral"
+    },
+    "E": {
+      "item": "minecraft:brain_coral"
+    },
+    "F": {
+      "item": "minecraft:fire_coral"
+    },
+    "G": {
+      "item": "minecraft:horn_coral"
+    },
+    "H": {
+      "item": "minecraft:prismarine_crystals"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:water_gem",
+    "count": 1
+  }
+}

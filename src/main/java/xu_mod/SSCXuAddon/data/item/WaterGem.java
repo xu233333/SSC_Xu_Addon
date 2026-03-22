@@ -54,10 +54,11 @@ public class WaterGem extends Item {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (user instanceof PlayerEntity player && !world.isClient) {
             PlayerFormBase form = RegPlayerFormComponent.PLAYER_FORM.get(user).getCurrentForm();
-            // if (RegPlayerForms.AXOLOTL_3.equals(form)) {
-            //     player.sendMessage(Text.translatable("message.ssc_xu_addon.item.water_gem.special_form").formatted(Formatting.YELLOW), false);
-            //     // TransformManager.handleDirectTransform(player, Init_Form.AXOLOTL_SEA, false);
-            // }
+            if (RegPlayerForms.AXOLOTL_3.equals(form)) {
+                 // player.sendMessage(Text.translatable("message.ssc_xu_addon.item.water_gem.special_form").formatted(Formatting.YELLOW), false);
+                 // TransformManager.handleDirectTransform(player, Init_Form.AXOLOTL_SEA, false);
+                player.sendMessage(Text.translatable("message.ssc_xu_addon.special_form.unfinish").formatted(Formatting.YELLOW), false);
+            }
             // else if (Init_Form.AXOLOTL_SEA.equals(form)) {
             //     player.getItemCooldownManager().set(this, 600);
             // }

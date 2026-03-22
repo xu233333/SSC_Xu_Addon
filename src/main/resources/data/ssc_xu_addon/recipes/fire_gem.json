@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:coal"
+    },
+    "B": {
+      "item": "minecraft:blaze_powder"
+    },
+    "C": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:fire_gem",
+    "count": 1
+  }
+}

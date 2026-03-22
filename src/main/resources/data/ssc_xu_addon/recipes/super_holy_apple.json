@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ACA",
+    "DBE",
+    "AFA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:nether_star"
+    },
+    "B": {
+      "item": "ssc_xu_addon:stable_holy_apple"
+    },
+    "C": {
+      "item": "ssc_xu_addon:wind_gem"
+    },
+    "D": {
+      "item": "ssc_xu_addon:fire_gem"
+    },
+    "E": {
+      "item": "ssc_xu_addon:water_gem"
+    },
+    "F": {
+      "item": "ssc_xu_addon:ground_gem"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:super_holy_apple",
+    "count": 1
+  }
+}

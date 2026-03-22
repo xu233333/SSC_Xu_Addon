@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ADA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:stone"
+    },
+    "B": {
+      "item": "minecraft:raw_iron"
+    },
+    "C": {
+      "item": "minecraft:diamond"
+    },
+    "D": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "result": {
+    "item": "ssc_xu_addon:ground_gem",
+    "count": 1
+  }
+}
