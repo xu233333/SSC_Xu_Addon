@@ -5,21 +5,27 @@ import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Pair;
+import net.minecraft.world.World;
 import net.onixary.shapeShifterCurseFabric.additional_power.VirtualTotemPower;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
 import xu_mod.SSCXuAddon.init.Init_Apoli;
+import xu_mod.SSCXuAddon.init.Init_Item;
 import xu_mod.SSCXuAddon.powers.AllayPower;
 import xu_mod.SSCXuAddon.powers.LeveledManaModifyDamageDealtPower;
 import xu_mod.SSCXuAddon.powers.SpeedDamageBoostPower;
@@ -99,6 +105,26 @@ public class LivingEntityMixin {
                             return;
                         }
                     }
+                }
+            }
+        }
+    }
+
+    // 互联对 LootTableLoadingCallback 支持不太行 这种还是用mixin比较好
+    @Inject(method = "onDeath", at = @At(value = "HEAD"))
+    private void onEntityDeath(DamageSource source, CallbackInfo ci) {
+        LivingEntity entity = (LivingEntity)(Object)this;
+        World world = entity.getWorld();
+
+        if (world.isClient) return;
+        Entity attacker = source.getAttacker();
+        if (attacker instanceof ServerPlayerEntity) {
+            if (entity instanceof CatEntity) {
+                if (entity.getRandom().nextInt(100) < 1) {  // 1%
+                    // 特殊掉落物 发个光
+                    ItemEntity itemEntity = new ItemEntity(world, entity.getX(), entity.getY(), entity.getZ(), new ItemStack(Init_Item.CHARM_OF_NINE_LIVE));
+                    itemEntity.setGlowing(true);
+                    world.spawnEntity(itemEntity);
                 }
             }
         }

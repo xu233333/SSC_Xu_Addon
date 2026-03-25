@@ -143,6 +143,27 @@ public class Init_Item {
                             .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
                     tableBuilder.pool(poolBuilder);
                 }
+                // 地之宝石 废弃矿井和藏宝图宝藏中刷新
+                if (id.equals(new Identifier("minecraft", "chests/abandoned_mineshaft"))) {
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1))
+                            .with(ItemEntry.builder(Init_Item.GROUND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2))))
+                            .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
+                    tableBuilder.pool(poolBuilder);
+                }
+                // 还有魔法海螺
+                if (id.equals(new Identifier("minecraft", "chests/buried_treasure"))) {
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1))
+                            .with(ItemEntry.builder(Init_Item.GROUND_GEM).weight(2).quality(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 5))))
+                            .with(ItemEntry.builder(Items.AIR).weight(6).quality(-1));
+                    tableBuilder.pool(poolBuilder);
+                    poolBuilder = LootPool.builder()
+                            .rolls(ConstantLootNumberProvider.create(1))
+                            .with(ItemEntry.builder(Init_Item.MAGIC_CONCH).weight(2).quality(1).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1))))
+                            .with(ItemEntry.builder(Items.AIR).weight(12).quality(-1));
+                    tableBuilder.pool(poolBuilder);
+                }
             });
         }
     }
