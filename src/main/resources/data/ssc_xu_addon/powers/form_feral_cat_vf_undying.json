@@ -1,6 +1,6 @@
 {
   "type": "shape-shifter-curse:virtual_totem",
-  "virtual_totem_type": 0,
+  "virtual_totem_type": "shape-shifter-curse:default",
   "totem_stack": {
     "item": "minecraft:air",
     "count": 1
