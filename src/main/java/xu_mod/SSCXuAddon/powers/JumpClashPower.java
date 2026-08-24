@@ -94,7 +94,7 @@ public class JumpClashPower extends Power {
                 LivingEntity.class, expandedBox, 
                 e -> e != player && e.isAlive() && !e.isRemoved())) {
 
-            if (player.getWorld().raycast(new RaycastContext(player.getPos(), target.getPos(), RaycastContext.ShapeType.OUTLINE, RaycastContext.FluidHandling.NONE, player)).getType() == HitResult.Type.BLOCK) {
+            if (player.getWorld().raycast(new RaycastContext(new Vec3d(player.getX(), player.getBodyY(0.5f), player.getZ()), new Vec3d(target.getX(), target.getBodyY(0.5f), target.getZ()), RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, player)).getType() == HitResult.Type.BLOCK) {
                 continue;
             }
 
