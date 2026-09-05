@@ -93,7 +93,7 @@ public class LivingEntityMixin {
         }
     }
 
-    @Inject(method = "tryUseTotem", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "tryUseTotem", at = @At("RETURN"), cancellable = true, order = 750)
     public void tryUseTotem(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         if (source.isIn(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
             return;
