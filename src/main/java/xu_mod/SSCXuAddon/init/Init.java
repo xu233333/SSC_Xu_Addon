@@ -14,6 +14,7 @@ public class Init {
         Init_Apoli.init();
         Init_Event.init();
         Init_Effect.init();
+        Init_Perk.init();
         ModPacketsServer.register();
     }
 }

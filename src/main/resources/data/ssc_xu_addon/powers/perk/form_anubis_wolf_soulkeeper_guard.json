@@ -1,0 +1,24 @@
+{
+  "type": "apoli:self_action_when_hit",
+  "damage_condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "apoli:attacker",
+        "condition": {
+          "type": "apoli:exists"
+        }
+      },
+      {
+        "type": "apoli:amount",
+        "comparison": ">=",
+        "compare_to": 2
+      }
+    ]
+  },
+  "entity_action": {
+    "type": "ssc_xu_addon:wolf_soul_hurt_lose",
+    "percent": 0.1
+  },
+  "cooldown": 20
+}
