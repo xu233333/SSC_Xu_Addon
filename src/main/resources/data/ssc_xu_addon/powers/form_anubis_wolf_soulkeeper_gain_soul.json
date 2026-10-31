@@ -14,5 +14,6 @@
       "type": "ssc_xu_addon:wolf_soul_negative_kill_gain",
       "multiplier": 0.125
     }
-  }
+  },
+  "cooldown": 0
 }

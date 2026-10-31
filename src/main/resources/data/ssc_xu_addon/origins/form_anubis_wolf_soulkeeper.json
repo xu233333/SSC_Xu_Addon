@@ -26,11 +26,8 @@
     "ssc_xu_addon:form_anubis_wolf_soulkeeper_lose_soul",
     "ssc_xu_addon:form_anubis_wolf_soulkeeper_looting",
     "ssc_xu_addon:form_anubis_wolf_soulkeeper_skill1_0",
+    "ssc_xu_addon:form_anubis_wolf_soulkeeper_skill2",
     "ssc_xu_addon:form_anubis_wolf_soulkeeper_undying"
-  ],
-  "powers_perk": [
-    "__comment__: 这个是标一下这个技能是Perk技能 游戏是不会读的 只是用来提醒我记得挂上",
-    "ssc_xu_addon:form_anubis_wolf_soulkeeper_skill1_1"
   ],
   "icon": {
     "item": "minecraft:player_head"

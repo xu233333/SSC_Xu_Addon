@@ -1,0 +1,31 @@
+{
+  "type": "apoli:active_self",
+  "cooldown": 1,
+  "condition": {
+    "type": "apoli:and",
+    "conditions": [
+      {
+        "type": "ssc_xu_addon:is_not_cooldown",
+        "cooldown_id": "ssc_xu_addon:anubis_wolf_soul_judgment",
+        "cooldown_time": 300
+      },
+      {
+        "type": "shape-shifter-curse:has_mana",
+        "mana": 6
+      }
+    ]
+  },
+  "entity_action": {
+    "type": "ssc_xu_addon:wolf_judgment",
+    "owner_action": {
+      "type": "ssc_xu_addon:trigger_cooldown",
+      "cooldown_id": "ssc_xu_addon:anubis_wolf_soul_judgment"
+    }
+  },
+  "hud_render": {
+    "should_render": false
+  },
+  "key": {
+    "key": "key.shape-shifter-curse.active_skill_2"
+  }
+}

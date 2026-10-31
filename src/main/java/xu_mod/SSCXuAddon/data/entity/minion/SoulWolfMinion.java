@@ -29,9 +29,12 @@ import net.minecraft.world.World;
 import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.minion.IMinion;
 import net.onixary.shapeShifterCurseFabric.minion.IPlayerEntityMinion;
+import net.onixary.shapeShifterCurseFabric.perk.PerkUtils;
 import org.jetbrains.annotations.Nullable;
 import xu_mod.SSCXuAddon.SSCXuAddon;
+import xu_mod.SSCXuAddon.init.Init_Perk;
 
+import java.util.List;
 import java.util.UUID;
 
 public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion> {
@@ -151,10 +154,21 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
     }
 
     protected int getMaxLevel(PlayerEntity owner) {
+        if (owner == null) {
+            return 3;
+        }
+        List<Identifier> perks = PerkUtils.getPlayerPerks(owner, Init_Perk.T_AnubisWolfPerkTree);
+        if (perks == null) {
+            return 3;
+        }
+        if (perks.contains(Init_Perk.P_AnubisWolfSoulWolf4)) {
+            return 4;
+        }
         return 3;
     }
 
     protected int getKillRefund(PlayerEntity owner, int level) {
+        // 弃用这个功能了 手艺不行 画不出来对应的Perk
         return 0;
     }
 
@@ -226,6 +240,22 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         this.lifeTicks = 1200 + (this.level - 1) * 300;
         this.applyLevelAttributes(paid);
         this.updateSoulAttributes();
+    }
+
+    public void onKillEntity(LivingEntity target) {
+        PlayerEntity owner = this.getOwner();
+        if (owner == null) {
+            return;
+        }
+        List<Identifier> perks = PerkUtils.getPlayerPerks(owner, Init_Perk.T_AnubisWolfPerkTree);
+        if (perks == null) {
+            return;
+        }
+        if (perks.contains(Init_Perk.P_AnubisWolfSoulEcho)) {
+            if (this.random.nextInt(100) < 20) {
+                this.levelUp(false);
+            }
+        }
     }
 
     @Override

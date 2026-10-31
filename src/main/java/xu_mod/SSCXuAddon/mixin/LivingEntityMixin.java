@@ -22,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import xu_mod.SSCXuAddon.data.entity.minion.SoulWolfMinion;
 import xu_mod.SSCXuAddon.data.item.UndeadEssence;
 import xu_mod.SSCXuAddon.data.item.trinket.NineLiveCharm;
 import xu_mod.SSCXuAddon.init.Init_Apoli;
@@ -140,6 +141,9 @@ public class LivingEntityMixin {
                     world.spawnEntity(itemEntity);
                 }
             }
+        }
+        if (attacker instanceof SoulWolfMinion minion) {
+            minion.onKillEntity(entity);
         }
     }
 }

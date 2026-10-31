@@ -1,6 +1,6 @@
 {
   "type": "shape-shifter-curse:mana_attribute",
-  "modifierID": "ssc_xu_addon:perk_anubis_wolf_soulkeeper_soul_tier_1",
+  "modifierID": "ssc_xu_addon:perk_anubis_wolf_soulkeeper_soul_tier_3",
   "max_mana_modifier": {
     "add": 1.0
   },
