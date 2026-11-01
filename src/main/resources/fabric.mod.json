@@ -56,8 +56,8 @@
 		"java": ">=17",
 		"fabric-api": "*",
 		"shape-shifter-curse": [
-			">=1.9.1",
-			">=1.9.1-sinytra-connector"
+			">=1.10.0",
+			">=1.10.0-sinytra-connector"
 		]
 	},
 	"recommends": {
