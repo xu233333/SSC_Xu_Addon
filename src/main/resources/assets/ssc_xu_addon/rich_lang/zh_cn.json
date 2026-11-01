@@ -250,7 +250,7 @@
   "item.ssc_xu_addon.heavy_bracelet": ["千钧脚环"],
   "item.ssc_xu_addon.heavy_bracelet.tooltip": ["[豹猫(丛林刺客)形态]降低冲刺速度，提升冲刺攻击伤害比例，降低冲刺伤害造成的速度降低效果。"],
   "item.ssc_xu_addon.vitality_stone": ["活力之石"],
-  "item.ssc_xu_addon.vitality_stone.tooltip": ["[豹猫(丛林刺客)形态]提升生命值上限至20点，获得15点额外体力值上限，提升1/10的体力恢复速率。"],
+  "item.ssc_xu_addon.vitality_stone.tooltip": ["[豹猫(丛林刺客)形态]提升4点生命值上限，获得15点额外体力值上限，提升1/10的体力恢复速率。"],
 
   "itemGroup.ssc_xu_addon.ssc_xu_addon_item": "SSC Xu Addon",
   "item.ssc_xu_addon.fire_gem": ["火焰宝石"],

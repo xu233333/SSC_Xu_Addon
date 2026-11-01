@@ -255,7 +255,7 @@
   "item.ssc_xu_addon.heavy_bracelet": ["Heavy Bracelet"],
   "item.ssc_xu_addon.heavy_bracelet.tooltip": ["[Ocelot (Jungle Assassin) Form] Reduces sprint speed, increases sprint attack damage ratio, and reduces slowdown from sprint attacks."],
   "item.ssc_xu_addon.vitality_stone": ["Vitality Stone"],
-  "item.ssc_xu_addon.vitality_stone.tooltip": ["[Ocelot (Jungle Assassin) Form] Raises max health to 20, grants +15 max Stamina, and increases Stamina recovery by 1/10."],
+  "item.ssc_xu_addon.vitality_stone.tooltip": "[Ocelot (Jungle Assassin) Form] Increases maximum health by 4, grants 15 extra maximum stamina, and increases stamina regeneration rate by 10%.",
 
   "itemGroup.ssc_xu_addon.ssc_xu_addon_item": "SSC Xu Addon",
   "item.ssc_xu_addon.fire_gem": ["Fire Gem"],

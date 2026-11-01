@@ -100,7 +100,7 @@ public class SpaceGem extends Item {
                         breakChance += 100;
                     }
                     else if (r < 15) {  // 猪灵要塞箱子 10%
-                        r = world.random.nextInt(1) + 1;
+                        r = world.random.nextInt(2) + 1;
                         for (int i = 0; i < r; i++) {
                             LootContextParameterSet lootContextParameterSet = (new LootContextParameterSet.Builder((ServerWorld) world)).addOptional(LootContextParameters.THIS_ENTITY, user).add(LootContextParameters.ORIGIN, user.getPos()).build(LootContextTypes.CHEST);
                             LootTable lootTable = world.getServer().getLootManager().getLootTable(netherLootTableId);
@@ -113,7 +113,7 @@ public class SpaceGem extends Item {
                             breakChance += 30;
                         }
                     } else if (r < 35) {  // 末地战利品 20%
-                        r = world.random.nextInt(2) + 1;
+                        r = world.random.nextInt(3) + 1;
                         for (int i = 0; i < r; i++) {
                             LootContextParameterSet lootContextParameterSet = (new LootContextParameterSet.Builder((ServerWorld) world)).addOptional(LootContextParameters.THIS_ENTITY, user).add(LootContextParameters.ORIGIN, user.getPos()).build(LootContextTypes.CHEST);
                             LootTable lootTable = world.getServer().getLootManager().getLootTable(endLootTableId);
@@ -128,7 +128,7 @@ public class SpaceGem extends Item {
                     } else if (r < 55) {  // 随机战利品(从会掉落宝石的战利品表中抽奖) 20%
                         r = world.random.nextInt(lootTableList.length);
                         Identifier targetLootTableId = lootTableList[r];
-                        r = world.random.nextInt(1) + 1;
+                        r = world.random.nextInt(2) + 1;
                         for (int i = 0; i < r; i++) {
                             LootContextParameterSet lootContextParameterSet = (new LootContextParameterSet.Builder((ServerWorld) world)).addOptional(LootContextParameters.THIS_ENTITY, user).add(LootContextParameters.ORIGIN, user.getPos()).build(LootContextTypes.CHEST);
                             LootTable lootTable = world.getServer().getLootManager().getLootTable(targetLootTableId);
@@ -143,7 +143,7 @@ public class SpaceGem extends Item {
                     } else {  // 虚空伤害 45%
                         player.timeUntilRegen = 0;
                         player.lastDamageTaken = 0.0f;
-                        r = world.random.nextInt(4) + 8;
+                        r = world.random.nextInt(5) + 8;
                         player.damage(player.getWorld().getDamageSources().outOfWorld(), r);
                         minManaAdd += 60;
                         maxManaAdd += 60;
@@ -171,7 +171,7 @@ public class SpaceGem extends Item {
                         player.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, p) -> GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory), Text.translatable("container.enderchest")));
                         world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_ENDER_CHEST_OPEN, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     } else if (r < 50) {  // 战利品 (X1~X4)
-                        r = world.random.nextInt(3) + 1;
+                        r = world.random.nextInt(4) + 1;
                         for (int i = 0; i < r; i++) {
                             LootContextParameterSet lootContextParameterSet = (new LootContextParameterSet.Builder((ServerWorld) world)).addOptional(LootContextParameters.THIS_ENTITY, user).add(LootContextParameters.ORIGIN, user.getPos()).build(LootContextTypes.CHEST);
                             LootTable lootTable = world.getServer().getLootManager().getLootTable(endLootTableId);
@@ -184,7 +184,7 @@ public class SpaceGem extends Item {
                     } else {  // 10点虚空伤害
                         player.timeUntilRegen = 0;
                         player.lastDamageTaken = 0.0f;
-                        r = world.random.nextInt(4) + 8;
+                        r = world.random.nextInt(5) + 8;
                         player.damage(player.getWorld().getDamageSources().outOfWorld(), r);
                         world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_PORTAL_TRAVEL, SoundCategory.PLAYERS, 0.25F, 1F);
                     }
