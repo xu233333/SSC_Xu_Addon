@@ -63,6 +63,14 @@ public class UndeadEssence extends Item {
                     stack.decrement(1);
                 }
             }
+            if (RegPlayerForms.ANUBIS_WOLF_3.isPlayerForm(player)) {
+                player.sendMessage(Text.translatable("message.ssc_xu_addon.item.undead_essence.special_form").formatted(Formatting.YELLOW), false);
+                TransformManager.startTransform(player, Init_Form.AnubisWolfSoulkeeper, null);
+                if (!player.getAbilities().creativeMode) {
+                    stack.decrement(1);
+                }
+            }
+
         }
         return stack;
     }

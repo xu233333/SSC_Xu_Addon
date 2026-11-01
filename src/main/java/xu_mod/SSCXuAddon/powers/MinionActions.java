@@ -117,6 +117,9 @@ public class MinionActions {
             SoulWolfMinion minion = MinionRegister.SpawnMinion(Init_Entity.SOUL_WOLF_MINION, world, targetPos, player);
             if (minion != null) {
                 successCount++;
+                if (minion.isEquipAccessory(player)) {
+                    minion.setAccessoryWolf(true);
+                }
             } else {
                 SSCXuAddon.LOGGER.warn("Can't spawn soul wolf, minion is null");
             }

@@ -1,0 +1,11 @@
+{
+  "type": "ssc_xu_addon:wolf_soul",
+  "positive_attack_bonus": 0,
+  "negative_attack_bonus": -0.5,
+  "positive_attack_speed_bonus": 0,
+  "negative_attack_speed_bonus": -0.025,
+  "positive_move_speed_bonus": 0,
+  "negative_move_speed_bonus": -0.02,
+  "lifesteal_soul_per_x": 32,
+  "lifesteal_per_x": 0
+}

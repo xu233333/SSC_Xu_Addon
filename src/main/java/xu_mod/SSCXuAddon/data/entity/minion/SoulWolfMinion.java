@@ -17,12 +17,14 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -30,8 +32,10 @@ import net.onixary.shapeShifterCurseFabric.mana.ManaUtils;
 import net.onixary.shapeShifterCurseFabric.minion.IMinion;
 import net.onixary.shapeShifterCurseFabric.minion.IPlayerEntityMinion;
 import net.onixary.shapeShifterCurseFabric.perk.PerkUtils;
+import net.onixary.shapeShifterCurseFabric.util.Accessory.AccessoryUtils;
 import org.jetbrains.annotations.Nullable;
 import xu_mod.SSCXuAddon.SSCXuAddon;
+import xu_mod.SSCXuAddon.init.Init_Item;
 import xu_mod.SSCXuAddon.init.Init_Perk;
 
 import java.util.List;
@@ -44,8 +48,10 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
     public int lifeTicks = 1200;
     public int dodgeCooldown = 0;
     public double cachedSoul = 0.0d;
+    public boolean isAccessoryWolf = false;
 
     private int soulUpdateTimer = 0;
+    private int healTimer = 0;
     private boolean naturalDeath = false;
 
     public SoulWolfMinion(EntityType<? extends SoulWolfMinion> entityType, World world) {
@@ -99,6 +105,19 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         this.level = Math.max(1, Math.min(level, 4));
         this.applyLevelAttributes(true);
         this.updateSoulAttributes();
+    }
+
+    public void setAccessoryWolf(boolean value) {
+        this.isAccessoryWolf = value;
+        this.lifeTicks = this.getTotalLifeTicks();
+        this.updateSoulAttributes();
+    }
+
+    public int getTotalLifeTicks() {
+        if (this.isAccessoryWolf) {
+            return 2400 + (this.level - 1) * 600;
+        }
+        return 1200 + (this.level - 1) * 300;
     }
 
     @Override
@@ -168,7 +187,6 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
     }
 
     protected int getKillRefund(PlayerEntity owner, int level) {
-        // 弃用这个功能了 手艺不行 画不出来对应的Perk
         return 0;
     }
 
@@ -199,6 +217,8 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         PlayerEntity owner = this.getOwner();
         if (owner == null) {
             this.cachedSoul = 0.0d;
+        } else if (this.isAccessoryWolf) {
+            this.cachedSoul = this.level * 4.0d;
         } else {
             this.cachedSoul = ManaUtils.getPlayerMana(owner) - 6.0d;
         }
@@ -211,7 +231,8 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
 
         EntityAttributeInstance attack = this.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         if (attack != null) {
-            attack.setBaseValue(5.0d + effective * 0.25d);
+            double base = this.isAccessoryWolf ? 6.0d : 5.0d;
+            attack.setBaseValue(base + effective * 0.25d);
         }
 
         EntityAttributeInstance speed = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
@@ -237,7 +258,7 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         }
         this.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 0.6f, 1.2f);
         this.level++;
-        this.lifeTicks = 1200 + (this.level - 1) * 300;
+        this.lifeTicks = this.getTotalLifeTicks();
         this.applyLevelAttributes(paid);
         this.updateSoulAttributes();
     }
@@ -295,7 +316,8 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
     public boolean tryAttack(Entity target) {
         boolean success = super.tryAttack(target);
         if (success && !this.hasStatusEffect(StatusEffects.INVISIBILITY)) {
-            double heal = this.getEffectiveSoul() * 0.1d;
+            double perSoul = this.isAccessoryWolf ? 0.15d : 0.1d;
+            double heal = this.getEffectiveSoul() * perSoul;
             if (heal > 0.0d) {
                 this.heal((float) heal);
             }
@@ -333,7 +355,6 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         return ActionResult.SUCCESS;
     }
 
-    // 被以前的自己给坑了 召唤物退出重进会消失 之后改一下 临时用特殊方式跳过一下判断吧
     @Override
     public void tick() {
         if (!this.getWorld().isClient && this.isAlive()) {
@@ -349,11 +370,20 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
                     int decay = (owner == null) ? 10 : 1;
                     this.lifeTicks -= decay;
                     if (this.lifeTicks <= 0) {
-                        if (owner != null) {
+                        if (owner != null && !this.isAccessoryWolf) {
                             ManaUtils.gainPlayerMana(owner, this.level);
                         }
                         this.naturalDeath = true;
                         this.kill();
+                    }
+                }
+                if (this.isAccessoryWolf) {
+                    this.healTimer++;
+                    if (this.healTimer >= 40) {
+                        this.healTimer = 0;
+                        if (this.getHealth() < this.getMaxHealth()) {
+                            this.heal(1.0f);
+                        }
                     }
                 }
                 this.soulUpdateTimer++;
@@ -378,14 +408,39 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
             return true;
         }
         if (this.squaredDistanceTo(owner) > this.getMinionDisappearRange()) {
+            if (this.isAccessoryWolf && this.isEquipAccessory(owner)) {
+                if (this.tryTeleportToOwner(owner)) {
+                    return true;
+                }
+                double ratio = (double) this.lifeTicks / this.getTotalLifeTicks();
+                if (ratio > 0) {
+                    ManaUtils.gainPlayerMana(owner, this.level * ratio);
+                }
+                return false;
+            }
             return false;
         }
         if (owner instanceof IPlayerEntityMinion iPlayerEntityMinion) {
             if (!iPlayerEntityMinion.shape_shifter_curse$minionExist(this.getMinionTypeID(), this.getUuid())) {
-                // 不能直接添加 会导致重复驯服 一直回满血 看起来真得改一下召唤物系统了 至少得加个持久性召唤物
                 iPlayerEntityMinion.shape_shifter_curse$getMinionsByMinionID(this.getMinionTypeID()).add(this.getUuid());
             }
             return true;
+        }
+        return false;
+    }
+
+    private boolean tryTeleportToOwner(PlayerEntity owner) {
+        for (int i = 0; i < 10; i++) {
+            double angle = this.random.nextDouble() * Math.PI * 2;
+            double dist = 1.0 + this.random.nextDouble() * 3.0;
+            double tx = owner.getX() + Math.cos(angle) * dist;
+            double tz = owner.getZ() + Math.sin(angle) * dist;
+            double ty = owner.getY();
+            BlockPos pos = BlockPos.ofFloored(tx, ty, tz);
+            if (this.getWorld().getBlockState(pos).isAir() && this.getWorld().getBlockState(pos.up()).isAir()) {
+                this.requestTeleport(tx, ty, tz);
+                return true;
+            }
         }
         return false;
     }
@@ -399,7 +454,7 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         if (owner == null) {
             return false;
         }
-        return owner.squaredDistanceTo(target) <= 144.0d; // 12x12
+        return owner.squaredDistanceTo(target) <= 144.0d;
     }
 
     @Override
@@ -409,6 +464,7 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         nbt.putInt("LifeTicks", this.lifeTicks);
         nbt.putInt("DodgeCooldown", this.dodgeCooldown);
         nbt.putFloat("MinionHealth", this.getHealth());
+        nbt.putBoolean("AccessoryWolf", this.isAccessoryWolf);
     }
 
     @Override
@@ -417,6 +473,7 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         this.level = Math.max(1, Math.min(nbt.getInt("Level"), 4));
         this.lifeTicks = nbt.getInt("LifeTicks");
         this.dodgeCooldown = nbt.getInt("DodgeCooldown");
+        this.isAccessoryWolf = nbt.getBoolean("AccessoryWolf");
         this.applyLevelAttributes(false);
         this.setHealth(nbt.getFloat("MinionHealth"));
         this.soulUpdateTimer = 20;
@@ -461,6 +518,17 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
     public PlayerEntity getOwner() {
         LivingEntity owner = super.getOwner();
         return owner instanceof PlayerEntity player ? player : null;
+    }
+
+    public boolean isEquipAccessory(PlayerEntity player) {
+        if (player == null) {
+            return false;
+        }
+        List<ItemStack> mainHand = AccessoryUtils.getEntitySlot(player, "auto", "hand", "ring");
+        List<ItemStack> offHand = AccessoryUtils.getEntitySlot(player, "auto", "offhand", "ring");
+        if (mainHand != null && mainHand.stream().anyMatch(stack -> stack.isOf(Init_Item.UNDEAD_RING))) return true;
+        if (offHand != null && offHand.stream().anyMatch(stack -> stack.isOf(Init_Item.UNDEAD_RING))) return true;
+        return false;
     }
 
     class WolfEscapeDangerGoal extends EscapeDangerGoal {

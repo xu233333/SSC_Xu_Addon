@@ -1,0 +1,18 @@
+{
+  "ssc_xu_addon:undead_ring": {
+    "forms": {
+      "ssc_xu_addon:anubis_wolf_soulkeeper": {
+        "add": [
+          "ssc_xu_addon:form_anubis_wolf_soulkeeper_attribute_neg",
+          "ssc_xu_addon:form_anubis_wolf_soulkeeper_skill2_acc"
+        ],
+        "remove": [
+          "ssc_xu_addon:form_anubis_wolf_soulkeeper_attribute",
+          "ssc_xu_addon:form_anubis_wolf_soulkeeper_skill2",
+          "ssc_xu_addon:form_anubis_wolf_soulkeeper_lose_soul",
+          "ssc_xu_addon:perks/form_anubis_wolf_soulkeeper_guard"
+        ]
+      }
+    }
+  }
+}

@@ -128,6 +128,110 @@ public class WolfSkillAction {
         }
     }
 
+    public static void judgment_alt(SerializableData.Instance data, Entity owner) {
+        if (!(owner instanceof ServerPlayerEntity player)) {
+            return;
+        }
+        if (!(player.getWorld() instanceof ServerWorld world)) {
+            return;
+        }
+        if (!(player instanceof IPlayerEntityMinion playerMinion)) {
+            return;
+        }
+
+        double soul = ManaUtils.getPlayerMana(player) + MANA_DISPLAY_OFFSET;
+        if (soul < 0) {
+            return;
+        }
+
+        double range = data.getDouble("range");
+        double soulBurnPercent = data.getDouble("soul_burn_percent");
+        double percentPerSoul = data.getDouble("percent_per_soul");
+        double damage2PerLevel = data.getDouble("damage2_per_level");
+        double countBase = data.getDouble("count_factor_base");
+        double countWeight = data.getDouble("count_factor_weight");
+        double countSlope = data.getDouble("count_factor_slope");
+        double distanceWeight = data.getDouble("distance_factor_weight");
+        double knockback = data.getDouble("knockback");
+
+        List<SoulWolfMinion> wolves = new ArrayList<>();
+        int sumLevel = 0;
+        for (UUID uuid : playerMinion.shape_shifter_curse$getMinionsByMinionID(SoulWolfMinion.MinionID)) {
+            Entity e = world.getEntity(uuid);
+            if (e instanceof SoulWolfMinion wolf && wolf.isAlive()) {
+                wolves.add(wolf);
+                sumLevel += wolf.level;
+            }
+        }
+
+        double burnSoul = soul * soulBurnPercent;
+        ManaUtils.consumePlayerMana(player, burnSoul);
+
+        Box box = player.getBoundingBox().expand(range);
+        List<LivingEntity> targets = world.getEntitiesByClass(LivingEntity.class, box,
+                e -> e != player && e.isAlive() && e.distanceTo(player) <= range && !isOwnerMinion(player, e));
+
+        int count = targets.size();
+        double countFactor = countBase + countWeight / (1.0d + countSlope * (count - 1));
+        double playerHealth = player.getHealth();
+        double wolfFactor = 0.5d + 0.5d * wolves.size();
+
+        for (LivingEntity target : targets) {
+            if (!target.isAlive()) {
+                continue;
+            }
+            double targetBaseHealth = Math.min(playerHealth * wolfFactor, target.getMaxHealth());
+            double damage1 = targetBaseHealth * burnSoul * percentPerSoul;
+
+            double distance = target.distanceTo(player);
+            double distanceFactor = ((range - distance) / range) * distanceWeight + (1.0d - distanceWeight);
+            double damage2 = sumLevel * damage2PerLevel * distanceFactor * countFactor;
+
+            double total = damage1 + damage2;
+
+            Vec3d dir = target.getPos().subtract(player.getPos());
+            Vec3d flat = new Vec3d(dir.x, 0, dir.z);
+            if (flat.lengthSquared() > 1.0E-6) {
+                flat = flat.normalize();
+                target.takeKnockback(knockback, -flat.x, -flat.z);
+            }
+
+            if (total > 0) {
+                target.damage(world.getDamageSources().playerAttack(player), (float) total);
+            }
+        }
+
+        if (!wolves.isEmpty()) {
+            int strengthLevel = (int) Math.min(4, Math.floor(burnSoul / 2.5d));
+            int speedLevel = (int) Math.min(3, Math.floor(burnSoul / 4.0d));
+            int resistanceLevel = (int) Math.min(2, Math.floor(burnSoul / 4.0d));
+            for (SoulWolfMinion wolf : wolves) {
+                if (!wolf.isAlive()) continue;
+                if (strengthLevel > 0) {
+                    wolf.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 300, strengthLevel - 1, false, true));
+                }
+                if (speedLevel > 0) {
+                    wolf.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 300, speedLevel - 1, false, true));
+                }
+                if (resistanceLevel > 0) {
+                    wolf.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 300, resistanceLevel - 1, false, true));
+                }
+                wolf.heal(wolf.getMaxHealth() * 0.2f);
+            }
+        }
+
+        world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_FIRECHARGE_USE, player.getSoundCategory(), 1.0f, 0.5f);
+        world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_FIRE_AMBIENT, player.getSoundCategory(), 1.0f, 0.5f);
+        world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_EVOKER_PREPARE_SUMMON, player.getSoundCategory(), 1.0f, 0.5f);
+        world.spawnParticles(player, ParticleTypes.SOUL_FIRE_FLAME, true,
+                player.getX(), player.getY() + 1.0d, player.getZ(), 40, 2.0d, 1.0d, 2.0d, 0.1d);
+
+        ActionFactory<Entity>.Instance ownerAction = data.get("owner_action");
+        if (ownerAction != null) {
+            ownerAction.accept(owner);
+        }
+    }
+
     private static boolean isOwnerMinion(ServerPlayerEntity player, LivingEntity entity) {
         return entity instanceof SoulWolfMinion wolf && player.getUuid().equals(wolf.getOwnerUuid());
     }
@@ -231,6 +335,21 @@ public class WolfSkillAction {
                         .add("knockback", SerializableDataTypes.DOUBLE, 0.5d)
                         .add("owner_action", ApoliDataTypes.ENTITY_ACTION, null),
                 (data, entity) -> judgment(data, entity)
+        ));
+        ActionRegister.accept(new ActionFactory<>(
+                xu_mod.SSCXuAddon.SSCXuAddon.identifier("wolf_judgment_alt"),
+                new SerializableData()
+                        .add("range", SerializableDataTypes.DOUBLE, 5.0d)
+                        .add("soul_burn_percent", SerializableDataTypes.DOUBLE, 0.5d)
+                        .add("percent_per_soul", SerializableDataTypes.DOUBLE, 0.04d)
+                        .add("damage2_per_level", SerializableDataTypes.DOUBLE, 1.5d)
+                        .add("count_factor_base", SerializableDataTypes.DOUBLE, 0.25d)
+                        .add("count_factor_weight", SerializableDataTypes.DOUBLE, 0.75d)
+                        .add("count_factor_slope", SerializableDataTypes.DOUBLE, 0.5d)
+                        .add("distance_factor_weight", SerializableDataTypes.DOUBLE, 0.5d)
+                        .add("knockback", SerializableDataTypes.DOUBLE, 0.5d)
+                        .add("owner_action", ApoliDataTypes.ENTITY_ACTION, null),
+                (data, entity) -> judgment_alt(data, entity)
         ));
     }
 }
