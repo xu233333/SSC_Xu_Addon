@@ -8,6 +8,9 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -43,6 +46,8 @@ import java.util.UUID;
 
 public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion> {
     public static final Identifier MinionID = SSCXuAddon.identifier("soul_wolf_minion");
+
+    private static final TrackedData<Integer> LEVEL = DataTracker.registerData(SoulWolfMinion.class, TrackedDataHandlerRegistry.INTEGER);
 
     public int level = 1;
     public int lifeTicks = 1200;
@@ -101,8 +106,24 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         this.applyLevelAttributes(false);
     }
 
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(LEVEL, 1);
+    }
+
+    public int getLevel() {
+        return this.dataTracker.get(LEVEL);
+    }
+
+    public void setLevel(int level) {
+        int clamped = Math.max(1, Math.min(level, 4));
+        this.level = clamped;
+        this.dataTracker.set(LEVEL, clamped);
+    }
+
     public void setMinionLevel(int level) {
-        this.level = Math.max(1, Math.min(level, 4));
+        this.setLevel(level);
         this.applyLevelAttributes(true);
         this.updateSoulAttributes();
     }
@@ -257,12 +278,13 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
             ManaUtils.consumePlayerMana(owner, 1.0d);
         }
         this.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 0.6f, 1.2f);
-        this.level++;
+        this.setLevel(this.level + 1);
         this.lifeTicks = this.getTotalLifeTicks();
         this.applyLevelAttributes(paid);
         this.updateSoulAttributes();
     }
 
+    // 抢头有点严重 给个补偿吧 但远程依然拿不到
     public void onKillEntity(LivingEntity target) {
         PlayerEntity owner = this.getOwner();
         if (owner == null) {
@@ -272,11 +294,39 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
         if (perks == null) {
             return;
         }
-        if (perks.contains(Init_Perk.P_AnubisWolfSoulEcho)) {
+        int maxLevel = this.getMaxLevel(owner);
+        boolean canUpgrade = this.level < maxLevel;
+
+        boolean upgraded = false;
+        if (canUpgrade && perks.contains(Init_Perk.P_AnubisWolfSoulEcho)) {
             if (this.random.nextInt(100) < 20) {
                 this.levelUp(false);
+                upgraded = true;
             }
         }
+        if (canUpgrade && this.isAccessoryWolf && !upgraded) {
+            if (this.random.nextInt(100) < 10) {
+                this.levelUp(false);
+                upgraded = true;
+            }
+        }
+        if (upgraded) {
+            return;
+        }
+        double gain;
+        if (this.isAccessoryWolf) {
+            gain = 0.6d;
+        } else {
+            double squared = this.squaredDistanceTo(owner);
+            if (squared > 25.0d) {
+                return;
+            }
+            double distance = Math.sqrt(squared);
+            double factor = ((5.0d - distance) / 5.0d) * 0.5d + 0.5d;
+            factor = Math.max(0.5d, Math.min(1.0d, factor));
+            gain = 0.6d * factor;
+        }
+        ManaUtils.gainPlayerMana(owner, gain);
     }
 
     @Override
@@ -470,7 +520,7 @@ public class SoulWolfMinion extends WolfEntity implements IMinion<SoulWolfMinion
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        this.level = Math.max(1, Math.min(nbt.getInt("Level"), 4));
+        this.setLevel(nbt.getInt("Level"));
         this.lifeTicks = nbt.getInt("LifeTicks");
         this.dodgeCooldown = nbt.getInt("DodgeCooldown");
         this.isAccessoryWolf = nbt.getBoolean("AccessoryWolf");

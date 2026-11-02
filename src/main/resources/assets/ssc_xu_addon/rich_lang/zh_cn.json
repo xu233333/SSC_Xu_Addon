@@ -387,7 +387,8 @@
   "item.ssc_xu_addon.swarmbond_amulet.tooltip.2": ["每15秒自动召唤1只小蜘蛛（上限2只）。若无召唤物则每秒失去1点生命值。"],
   "item.ssc_xu_addon.swarmbond_amulet.tooltip.3": ["生命上限提升至16点(8颗心)，伤害转移倍率降为1。"],
   "item.ssc_xu_addon.undead_ring": ["亡灵戒指"],
-  "item.ssc_xu_addon.undead_ring.tooltip": ["[蜘蛛(不死蛛后)形态]僵尸与骷髅对你保持中立，但你在阳光下会燃烧。"],
+  "item.ssc_xu_addon.undead_ring.tooltip.1": ["[蜘蛛(不死蛛后)形态]僵尸与骷髅对你保持中立，但你在阳光下会燃烧。"],
+  "item.ssc_xu_addon.undead_ring.tooltip.2": ["[阿努比斯狼(灵魂牧者)形态]你的召唤狼灵变为灵魂狼：固定灵魂增益、存活时间翻倍、自然回血，超出范围时会传送回你身边。"],
 
   "entity.ssc_xu_addon.blood_thorn": ["血刺"],
   "entity.ssc_xu_addon.summon_trident": ["海王权杖(幻化)"],
@@ -410,6 +411,81 @@
   "enchantment.ssc_xu_addon.shape_killer.tooltip": ["对幻形生物造成额外伤害"],
   "enchantment.ssc_xu_addon.shape_protection": ["幻形保护"],
   "enchantment.ssc_xu_addon.shape_protection.tooltip": ["减少由幻形生物造成的伤害"],
+
+  "codex.form.ssc_xu_addon.anubis_wolf_soulkeeper.name": ["阿努比斯狼(灵魂牧者)"],
+  "codex.form.ssc_xu_addon.anubis_wolf_soulkeeper.title": [
+    "\n不死精粹中的灵魂之力涌入你的身体，狼群的灵魂与你重新缔结契约。\n",
+    "你以直立的姿态站起，灵魂的力量在你身上留下了黄金与青金石的印记"
+  ],
+  "codex.form.ssc_xu_addon.anubis_wolf_soulkeeper.equip": [
+    "[亡灵戒指]"
+  ],
+  "codex.form.ssc_xu_addon.anubis_wolf_soulkeeper.appearance": [
+    "你的身体重新获得了直立的姿态，但双腿依然保留着狼的兽腿结构——灵魂之力没能完全改变它们\n",
+    "黄金的臂锢环绕在你的大臂、小臂与小腿上，青金石镶嵌其中，随着灵魂的流动明灭不定\n",
+    "你的面部保留了胡狼的轮廓，耳后的金色毛簇比以往更加修长。你的眼睛中映出灵魂的微光\n",
+    "即使静止时，你也能感觉到体内狼群的灵魂在低语，等待你的号令\n\n"
+  ],
+  "codex.form.ssc_xu_addon.anubis_wolf_soulkeeper.pros": [
+    "你获得了掌控灵魂的能力——\n",
+    "你拥有一个灵魂资源条，显示范围为 -6 到 12。正魂会增强你的伤害与吸血，负魂会削弱你的属性\n",
+    "灵魂越充沛，你的战利品越丰厚：灵魂达到 3/6/9/12/15 时，分别获得 1 级抢夺，最多叠加至 5 级\n",
+    "按主动能力(1)召唤狼灵，数量取决于当前灵魂值；右键狼灵可消耗灵魂提升其等级\n",
+    "按主动能力(2)发动审判，燃烧生命对周围目标造成基于目标生命上限、自身灵魂数量与目标与自身之间的距离的伤害\n",
+    "当灵魂值不低于 0 时，受到致命伤害会触发不死：生命回复至 10 点并消耗 6 点灵魂。灵魂耗尽时无法触发\n",
+    "潜行时，你召唤的狼灵会根据等级显示绿、蓝、紫、金四种轮廓\n\n",
+    "你与狼群灵魂相连：沙漠中的狼灵不会主动攻击你\n",
+    "你可以食用骨头，不再受饥饿与中毒影响，腐肉提供的饱和度更高\n",
+    "你始终拥有灵魂疾行效果，骷髅会避开你\n",
+    "你的身体被视为亡灵生物\n",
+    "你的攻击不会伤害自己的召唤物\n",
+    "瞬间伤害效果会为你恢复生命\n"
+  ],
+  "codex.form.ssc_xu_addon.anubis_wolf_soulkeeper.cons": [
+    "灵魂之力也带来了一些代价——\n",
+    "当灵魂值为负时，你会受到惩罚：每点负魂降低攻击力、攻击速度与移动速度，并增加饥饿消耗\n",
+    "素食提供的饱和度减少，从饱和度恢复生命的速度也变慢\n",
+    "你体内残留的亡灵之力仍在影响你的触碰：击杀生物掉落的肉类有概率变为腐肉，收获的作物有概率变为沙子\n",
+    "即使身体从四足变为直立，你的腿部结构依然让你无法穿戴腿甲与鞋\n"
+  ],
+  "codex.form.ssc_xu_addon.anubis_wolf_soulkeeper.instincts": [
+    ""
+  ],
+
+  "effect.ssc_xu_addon.soul_lock": ["锁魂"],
+
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_soul_tier_1.name": ["灵魂掌握Ⅰ"],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_soul_tier_1.desc": [
+    "通过调谐灵魂，你可以容纳更多的灵魂碎片\n[灵魂上限 +1]"
+  ],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_soul_tier_2.name": ["灵魂掌握Ⅱ"],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_soul_tier_2.desc": [
+    "你对灵魂的掌控进一步加深\n[灵魂上限 +1]"
+  ],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_soul_tier_3.name": ["灵魂掌握Ⅲ"],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_soul_tier_3.desc": [
+    "灵魂在你体内流动得愈发顺畅\n[灵魂上限 +1]"
+  ],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_soul_tier_4.name": ["灵魂掌握Ⅳ"],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_soul_tier_4.desc": [
+    "你已触及灵魂容量的极限\n[灵魂上限 +1]"
+  ],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_echo.name": ["灵魂余响"],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_echo.desc": [
+    "你的狼灵在击杀生物时会吸收逸散的灵魂碎片\n[每次击杀有 20% 概率使自身等级提升 1 级，每次击杀最多触发一次]"
+  ],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_wolf_4.name": ["魂契破限"],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_wolf_4.desc": [
+    "你对灵魂的掌控足以支撑更强大的狼灵\n[你的狼灵等级上限提升至 4 级]"
+  ],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_guard.name": ["灵魂稳固"],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_guard.desc": [
+    "你学会了在受击时稳固灵魂\n[受到伤害时扣除的灵魂数量减半]"
+  ],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_merge.name": ["合而为一"],
+  "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_merge.desc": [
+    "你掌握了将狼灵的灵魂重新纳入自身的技艺\n[解锁主动能力：潜行时按主动能力(1)发动合而为一，回收所有狼灵并将灵魂化为自身的力量(锁魂、伤害吸收、力量与饱和度)]"
+  ],
 
   "message.ssc_xu_addon.special_form.unfinish": ["你手上的物品能让你当前的形态变化，不过这个世界上还没有那个形态，或许可以等一下之后的更新后再来试试。"],
 

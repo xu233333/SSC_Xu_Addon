@@ -11,6 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Pair;
 import xu_mod.SSCXuAddon.SSCXuAddon;
 import xu_mod.SSCXuAddon.powers.*;
+import xu_mod.SSCXuAddon.powers.skills.SoulWolfGlowPower;
 import xu_mod.SSCXuAddon.powers.skills.WolfSoulAction;
 import xu_mod.SSCXuAddon.powers.magic.MagicUtils;
 import xu_mod.SSCXuAddon.powers.skills.OcelotRush1Power;
@@ -44,6 +45,7 @@ public class Init_Apoli {
 
         // Skill Power
         Init_Apoli.registerPower(OcelotRush1Power.createFactory());
+        Init_Apoli.registerPower(SoulWolfGlowPower.createFactory());
         AxolotlPower.registerPower(Init_Apoli::registerPower);
     }
 

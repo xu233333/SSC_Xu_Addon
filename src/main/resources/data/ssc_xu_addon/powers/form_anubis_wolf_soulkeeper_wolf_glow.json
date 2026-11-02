@@ -1,0 +1,6 @@
+{
+  "type": "ssc_xu_addon:soul_wolf_glow",
+  "condition": {
+    "type": "apoli:sneaking"
+  }
+}

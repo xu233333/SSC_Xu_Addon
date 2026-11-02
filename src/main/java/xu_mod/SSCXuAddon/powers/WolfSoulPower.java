@@ -62,6 +62,7 @@ public class WolfSoulPower extends Power {
                 EntityAttributeModifier.Operation.MULTIPLY_BASE,
                 data.get("positive_move_speed_bonus"), data.get("negative_move_speed_bonus"));
         this.attributes = List.of(this.attack, this.attackSpeed, this.moveSpeed);
+        this.setTicking(true);
     }
 
     @Override
@@ -177,7 +178,10 @@ public class WolfSoulPower extends Power {
         if (instance == null) {
             return;
         }
-        instance.tryRemoveModifier(slot.uuid);
+        EntityAttributeModifier entityAttributeModifier = instance.getModifier(slot.uuid);
+        if (entityAttributeModifier != null) {
+            instance.removeModifier(slot.uuid);
+        }
         if (value != 0) {
             instance.addTemporaryModifier(new EntityAttributeModifier(slot.uuid, slot.name, value, slot.operation));
         }
@@ -187,7 +191,10 @@ public class WolfSoulPower extends Power {
     private void removeModifier(SoulAttribute slot) {
         EntityAttributeInstance instance = entity.getAttributeInstance(slot.attribute);
         if (instance != null) {
-            instance.tryRemoveModifier(slot.uuid);
+            EntityAttributeModifier entityAttributeModifier = instance.getModifier(slot.uuid);
+            if (entityAttributeModifier != null) {
+                instance.removeModifier(slot.uuid);
+            }
         }
     }
 

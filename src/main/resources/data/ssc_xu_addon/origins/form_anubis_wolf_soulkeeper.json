@@ -13,6 +13,10 @@
     "shape-shifter-curse:no_hurt_pet",
     "shape-shifter-curse:form_anubis_wolf_sound_key",
     "shape-shifter-curse:undead_group",
+    "shape-shifter-curse:form_disable_leg_armor",
+    "shape-shifter-curse:form_disable_feet_armor",
+    "shape-shifter-curse:form_anubis_wolf_sound_hurt",
+    "shape-shifter-curse:form_anubis_wolf_sound_key",
 
     "shape-shifter-curse:form_tan_prevent_dirty_water_thirst",
     "shape-shifter-curse:form_tan_hot_resistance_mild",
@@ -27,7 +31,8 @@
     "ssc_xu_addon:form_anubis_wolf_soulkeeper_looting",
     "ssc_xu_addon:form_anubis_wolf_soulkeeper_skill1_0",
     "ssc_xu_addon:form_anubis_wolf_soulkeeper_skill2",
-    "ssc_xu_addon:form_anubis_wolf_soulkeeper_undying"
+    "ssc_xu_addon:form_anubis_wolf_soulkeeper_undying",
+    "ssc_xu_addon:form_anubis_wolf_soulkeeper_wolf_glow"
   ],
   "icon": {
     "item": "minecraft:player_head"
