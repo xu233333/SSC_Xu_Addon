@@ -45,7 +45,7 @@ public class UndeadEssence extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
-            if (RegPlayerForms.SPIDER_3.isPlayerForm(user)) {
+            if (RegPlayerForms.SPIDER_3.isPlayerForm(user) || RegPlayerForms.ANUBIS_WOLF_3.isPlayerForm(user)) {
                 user.setCurrentHand(hand);
                 return TypedActionResult.consume(user.getStackInHand(hand));
             }

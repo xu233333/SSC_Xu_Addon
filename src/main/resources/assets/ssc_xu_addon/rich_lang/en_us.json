@@ -394,9 +394,12 @@
   "item.ssc_xu_addon.swarmbond_amulet.tooltip.1": ["[Spider (Undead Matriarch) Form]"],
   "item.ssc_xu_addon.swarmbond_amulet.tooltip.2": ["Automatically summons 1 small spider every 15 seconds (max 2). Without any summons, you lose 1 HP per second."],
   "item.ssc_xu_addon.swarmbond_amulet.tooltip.3": ["Increases max health to 16 (8 hearts) and reduces damage transfer multiplier to 1."],
+
   "item.ssc_xu_addon.undead_ring": ["Undead Ring"],
   "item.ssc_xu_addon.undead_ring.tooltip.1": ["[Spider (Undead Matriarch) Form] Zombies and skeletons remain neutral toward you, but you burn in sunlight."],
-  "item.ssc_xu_addon.undead_ring.tooltip.2": ["[Anubis Wolf (Soul Shepherd) Form] Your summoned wolves become Soul Wolves: fixed soul bonus, doubled lifetime, natural regeneration, and teleport back to you when out of range."],
+  "item.ssc_xu_addon.undead_ring.tooltip.2": ["[Anubis Wolf (Soul Shepherd) Form] Your summoned wolves become Soul Wolves: they always calculate bonuses as if they had Soul equal to level × 4, "],
+  "item.ssc_xu_addon.undead_ring.tooltip.3": ["with doubled lifetime, natural regeneration, and teleporting back to you when out of range. "],
+  "item.ssc_xu_addon.undead_ring.tooltip.4": ["The cost is that you lose most of your own soul bonuses—but you also no longer lose Soul when taking damage."],
 
   "entity.ssc_xu_addon.blood_thorn": ["Blood Thorn"],
   "entity.ssc_xu_addon.summon_trident": ["Summoned Trident"],
@@ -440,6 +443,7 @@
     "You possess a Soul resource bar ranging from -6 to 12. Positive Soul enhances your damage and lifesteal; negative Soul weakens your attributes.\n",
     "The more Soul you hold, the richer your spoils: at 3/6/9/12/15 Soul you gain 1 level of Looting each, up to Looting 5.\n",
     "Press Active Ability (1) to summon soul wolves; the number depends on your current Soul. Right-click a wolf to spend Soul and raise its level.\n",
+    "Your wolves grow stronger with your Soul: the higher your Soul, the more attack, lifesteal and movement speed they gain. The Soul each wolf can use is capped by its level (level × 4).\n",
     "Press Active Ability (2) to unleash Judgment: burn your health to damage nearby targets based on their max health, your own Soul, and the distance between them and you.\n",
     "When your Soul is at least 0, fatal damage triggers Undying: health is restored to 10 and 6 Soul is consumed. Undying cannot trigger while your Soul is depleted.\n",
     "While sneaking, your summoned wolves show green, blue, purple or gold outlines based on their level.\n\n",
@@ -453,6 +457,7 @@
   "codex.form.ssc_xu_addon.anubis_wolf_soulkeeper.cons": [
     "The power of souls comes at a price—\n",
     "While your Soul is negative, each point reduces attack damage, attack speed and movement speed, and increases hunger consumption.\n",
+    "Taking damage from a source causes your Soul to seep away proportionally. The more Soul you hold, the greater the loss; Soul Lock prevents this.\n",
     "Vegetarian food provides less saturation, and health regeneration from saturation is slower.\n",
     "The undead power lingering in your body still taints your touch: meat dropped from your kills may rot into rotten flesh, and harvested crops may turn to sand.\n",
     "Even though your body has risen from four legs to an upright posture, your leg structure still prevents you from wearing leggings or boots.\n"
@@ -495,6 +500,8 @@
   "ssc_perk.ssc_xu_addon.anubis_wolf_soulkeeper_merge.desc": [
     "You have mastered the art of drawing the souls of your wolves back into yourself\n[Unlocks Active Ability: while sneaking, press Active Ability (1) to Merge, recalling all wolves and turning their souls into your own power (Soul Lock, Absorption, Strength and Saturation)]"
   ],
+
+  "entity.ssc_xu_addon.soul_wolf_minion": ["Soul Wolf"],
 
   "message.ssc_xu_addon.special_form.unfinish": ["The item in your hand could transform your current form, but that form does not yet exist in this world. Perhaps you could try again after a future update."],
 

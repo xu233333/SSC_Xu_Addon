@@ -59,7 +59,7 @@ public class Init_Item {
 
     public static final Item UNDEAD_ESSENCE = register("undead_essence", new UndeadEssence(new Item.Settings().maxCount(16)));
     public static final Item SWARMBOND_AMULET = register("swarmbond_amulet", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.swarmbond_amulet.tooltip.1").formatted(Formatting.YELLOW), Text.translatable("item.ssc_xu_addon.swarmbond_amulet.tooltip.2").formatted(Formatting.YELLOW), Text.translatable("item.ssc_xu_addon.swarmbond_amulet.tooltip.3").formatted(Formatting.YELLOW)));
-    public static final Item UNDEAD_RING = register("undead_ring", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.undead_ring.tooltip.1").formatted(Formatting.YELLOW), Text.translatable("item.ssc_xu_addon.undead_ring.tooltip.2").formatted(Formatting.YELLOW)));
+    public static final Item UNDEAD_RING = register("undead_ring", new TrinketWithToolTip(new Item.Settings().maxCount(1), Text.translatable("item.ssc_xu_addon.undead_ring.tooltip.1").formatted(Formatting.YELLOW), Text.translatable("item.ssc_xu_addon.undead_ring.tooltip.2").formatted(Formatting.YELLOW), Text.translatable("item.ssc_xu_addon.undead_ring.tooltip.3").formatted(Formatting.YELLOW), Text.translatable("item.ssc_xu_addon.undead_ring.tooltip.4").formatted(Formatting.YELLOW)));
 
     // 火焰宝石 大地宝石 超级神圣金苹果
     public static final Item FIRE_GEM = register("fire_gem", new FireGem(new Item.Settings().maxCount(64)));
