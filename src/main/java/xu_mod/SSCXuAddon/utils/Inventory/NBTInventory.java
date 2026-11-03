@@ -16,12 +16,12 @@ public class NBTInventory extends SimpleInventory {
     public final ItemStack itemStack;
     public final List<ItemStack> ExtraSlot = new ArrayList<>();
 
-    public NBTInventory(Inventory ItemInventory, ItemStack itemStack, int DefaultCount) {
+    public NBTInventory(Inventory ItemInventory, ItemStack itemStack, int SlotCount) {
         // 为什么这么写 因为super只能写在第一行
-        super(itemStack.getOrCreateNbt().getInt("slot_count") == 0 ? DefaultCount : itemStack.getOrCreateNbt().getInt("slot_count"));
+        super(Math.max(itemStack.getOrCreateNbt().getInt("slot_count") == 0 ? SlotCount : itemStack.getOrCreateNbt().getInt("slot_count"), SlotCount));
         this.itemStack = itemStack;
         this.ItemInventory = ItemInventory;
-        this.SlotCount = itemStack.getOrCreateNbt().getInt("slot_count") == 0 ? DefaultCount : itemStack.getOrCreateNbt().getInt("slot_count");
+        this.SlotCount = Math.max(itemStack.getOrCreateNbt().getInt("slot_count") == 0 ? SlotCount : itemStack.getOrCreateNbt().getInt("slot_count"), SlotCount);
         NbtList Slots = itemStack.getOrCreateNbt().getList("slots", 10);
         if (Slots != null) {
             int SlotLength = Slots.size();
